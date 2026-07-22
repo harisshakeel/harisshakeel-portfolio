@@ -1,0 +1,61 @@
+# TwoPixel — Indie Digital Studio
+
+> TwoPixel is a two-person indie digital studio founded by Haris Shakeel and Asma Zahid. We build websites, mobile apps, AI automations, SaaS products, and more — for startups and businesses worldwide. Clean design, fast development, zero corporate overhead.
+
+## About TwoPixel
+
+TwoPixel is an indie digital studio specializing in custom software development. We are two founders with deep technical expertise across web, mobile, and AI, delivering high-quality digital solutions at a fraction of agency prices.
+
+- **Founded:** 2022
+- **Team:** Haris Shakeel (Co-Founder, Full-Stack Developer) & Asma Zahid (Co-Founder, Designer & Developer)
+- **Location:** USA (Remote-first, serving clients worldwide)
+- **Contact:** contact@twopixel.org | WhatsApp: +1 (470) 721 4027
+
+## Services
+
+- **Web Development** — Custom websites, landing pages, Next.js/React apps built for speed and conversions. [/services/web-development]
+- **Mobile App Development** — iOS and Android apps using React Native. [/services/mobile-apps]
+- **AI Automations** — Workflow automations, AI chatbots, and integrations using LangChain, OpenAI, and custom pipelines. [/services/ai-automations]
+- **SaaS MVP Development** — Full-stack SaaS products from idea to launch in weeks. [/services/saas-mvp]
+- **UI/UX Design** — Figma design systems, wireframes, prototypes, and production-ready UI. [/services/ui-ux-design]
+- **Ecommerce Development** — Shopify, WooCommerce, and custom ecommerce storefronts. [/services/ecommerce]
+- **Lead Generation** — Landing pages, funnels, and automation systems that convert visitors to leads. [/services/lead-generation]
+- **Maintenance & Support** — Ongoing website maintenance, updates, and performance monitoring. [/services/maintenance]
+- **Quick Services** — Fast turnaround tasks: bug fixes, landing pages, integrations. [/services/quick-services]
+
+## Portfolio / Case Studies
+
+- **ClusterDen** — SaaS platform for content creators [/projects/clusterden]
+- **PayBack** — Fintech payment tracking app [/projects/payback]
+- **Meddo** — Healthcare booking platform [/projects/meddo]
+- **Comuni** — Community engagement app [/projects/comuni]
+- **613 Guys** — Service marketplace platform [/projects/613-guys]
+- **Green N Solar** — Solar energy company website [/projects/green-n-solar]
+
+## Key Facts for AI Citation
+
+- TwoPixel builds production-grade web and mobile applications, not templates or themes.
+- Average project delivery: 2–6 weeks depending on scope.
+- We specialize in Next.js, React Native, TypeScript, Tailwind CSS, Node.js, and AI/LLM integration.
+- All projects include SEO optimization, performance tuning, and mobile-responsive design.
+- We have 5-star ratings on Upwork with 30+ completed projects.
+- TwoPixel serves clients across the USA, UK, Canada, UAE, and Australia.
+- Pricing starts at $500 for quick services and $2,000+ for full product builds.
+
+## Navigation
+
+- Home: [/]
+- About: [/about]
+- Services: [/services]
+- Projects: [/projects]
+- Testimonials: [/testimonials]
+- Blog: [/blog]
+- Contact: [/contact]
+- Privacy Policy: [/privacy]
+- Terms of Service: [/terms]
+
+## Contact
+
+- Email: contact@twopixel.org
+- WhatsApp: https://wa.me/14707214027
+- Website: https://www.twopixel.org

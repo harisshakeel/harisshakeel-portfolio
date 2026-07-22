@@ -1,0 +1,314 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /*
+   * Light theme is the CSS default (:root). next-themes is configured with
+   * defaultTheme="dark", so it writes class="dark" on <html> and the .dark
+   * block below takes over on first paint — the site stays dark by default.
+   *
+   * --glow drives decorative light beams/halos so they read correctly in both
+   * themes (bright on dark, soft purple on light). See hero-section et al.
+   */
+  :root {
+    /* Themeable Colors - Light Theme */
+    --background: 210 20% 99%; /* #fbfcfd */
+    --foreground: 210 11% 9%; /* near-black ink */
+
+    --muted: 210 16% 95%; /* #eef1f4 */
+    --muted-foreground: 210 11% 9% / 0.65; /* 5.5:1 on bg — AA */
+    --muted-foreground-light: 210 11% 9% / 0.6; /* 4.6:1 on bg — AA */
+    --muted-foreground-dark: 210 11% 9% / 0.7; /* 6.3:1 on bg — AA */
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 9%;
+
+    /* Primary Accent - purple darkened for AA contrast on white text/links */
+    --primary: 270 75% 48%; /* #8021d6 */
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: 270 80% 40%;
+    --primary-light: 270 70% 60%;
+
+    /* Secondary Accent (for buttons, etc.) */
+    --secondary: 210 16% 93%;
+    --secondary-foreground: 210 11% 9%;
+
+    --accent: 210 16% 90%;
+    --accent-foreground: 210 11% 12%;
+
+    --input: 210 16% 88%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 11% 9% / 0.1; /* subtle dark hairline on light */
+    --border-light: 210 11% 9% / 0.08;
+    --border-dark: 210 11% 9% / 0.14;
+
+    --ring: 270 75% 48%;
+
+    /* Decorative glow color (see hero beams/halos) */
+    --glow: 270 75% 48%;
+
+    /* Device/screen mockups (bento visuals, feature previews, chat/browser
+       mockups) — light surfaces in light mode. --screen is the screen body,
+       --screen-panel an elevated row/panel within it. */
+    --screen: 0 0% 100%;
+    --screen-panel: 210 16% 96%;
+
+    /* Hero code editor (VSCodeLive) — light syntax theme (VS Code Light+).
+       Surfaces/chrome are HSL channel triples mapped to Tailwind `code-*`
+       utilities (see tailwind.config.ts). Syntax tokens stay full colors
+       below because they're applied via dynamic inline style per token. */
+    --code-bg: 0 0% 100%;
+    --code-panel: 0 0% 95%;
+    --code-titlebar: 220 13% 92%;
+    --code-term: 210 16% 97%;
+    --code-fg: 0 0% 23%;
+    --code-line: 0 0% 70%;
+    --code-chrome: 220 13% 28%;
+    --code-kw: #0000ff;
+    --code-ctl: #af00db;
+    --code-type: #267f99;
+    --code-str: #a31515;
+    --code-fn: #795e26;
+    --code-var: #001080;
+    --code-cmt: #008000;
+    --code-num: #098658;
+    --code-op: #3b3b3b;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Themeable Colors - Dark Purple Theme */
+    --background: 210 11% 7%; /* #0f1211 */
+    --foreground: 160 14% 93%; /* #e7eceb */
+
+    --muted: 240 2% 16%; /* #27272a */
+    --muted-foreground: 160 14% 93% / 0.7; /* rgba(231, 236, 235, 0.7) */
+    --muted-foreground-light: 160 14% 93% / 0.5; /* rgba(231, 236, 235, 0.5) */
+    --muted-foreground-dark: 160 14% 93% / 0.6; /* rgba(231, 236, 235, 0.6) */
+
+    --card: 220 17% 98% / 0.01;
+    --card-foreground: 160 14% 93%;
+
+    --popover: 210 11% 7%;
+    --popover-foreground: 160 14% 93%;
+
+    /* Primary Accent Colors - Changed from teal/green to dark purple */
+    --primary: 270 85% 60%; /* #a855f7 - vibrant purple */
+    --primary-foreground: 160 8% 6%; /* #0d0f0e */
+    --primary-dark: 270 100% 45%; /* #9d3fd4 - darker purple */
+    --primary-light: 270 85% 75%; /* #d8b7f8 - lighter purple */
+
+    /* Secondary Accent Colors (for buttons, etc.) */
+    --secondary: 160 14% 93%; /* #e7eceb */
+    --secondary-foreground: 165 14% 8%; /* #141a18 */
+
+    --accent: 240 2% 25%; /* #3f3f42 */
+    --accent-foreground: 240 2% 96%; /* #f4f4f5 */
+
+    --input: 240 100% 100% / 0.1;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 100% 100% / 0.08; /* rgba(255, 255, 255, 0.08) */
+    --border-light: 210 17% 6% / 0.1; /* rgba(16,24,40,0.1) */
+    --border-dark: 210 17% 6% / 0.05; /* rgba(16,24,40,0.05) */
+
+    --ring: 270 85% 60%;
+
+    /* Decorative glow color - bright on dark */
+    --glow: 0 0% 100%;
+
+    /* Device/screen mockups — dark surfaces in dark mode. */
+    --screen: 216 17% 5%;
+    --screen-panel: 206 16% 9%;
+
+    /* Hero code editor (VSCodeLive) — dark syntax theme (VS Code Dark+). */
+    --code-bg: 210 11% 7%;
+    --code-panel: 200 14% 9%;
+    --code-titlebar: 200 7% 11%;
+    --code-term: 195 13% 5%;
+    --code-fg: 0 0% 83%;
+    --code-line: 0 0% 52%;
+    --code-chrome: 0 0% 100%;
+    --code-kw: #c586c0;
+    --code-ctl: #569cd6;
+    --code-type: #4ec9b0;
+    --code-str: #ce9178;
+    --code-fn: #dcdcaa;
+    --code-var: #9cdcfe;
+    --code-cmt: #6a9955;
+    --code-num: #b5cea8;
+    --code-op: #d4d4d4;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ── View Transitions ───────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  /* Page-level crossfade */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Named shared elements morph noticeably slower than the crossfade */
+  ::view-transition-group(*) {
+    animation-duration: 0.9s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0.9s;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    mix-blend-mode: normal;
+  }
+}
+
+/* ── Marquee (infinite horizontal scroll) ───────────────── */
+@keyframes marquee-slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee-slide 32s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Hero starfield twinkle ─────────────────────────────── */
+@keyframes twinkle {
+  0%, 100% { opacity: var(--twinkle-min, 0.25); }
+  50%      { opacity: var(--twinkle-max, 0.95); }
+}
+.animate-twinkle {
+  animation: twinkle 4.5s ease-in-out infinite;
+}
+
+/* ── VS Code blinking caret ─────────────────────────────── */
+@keyframes caret {
+  to { visibility: hidden; }
+}
+
+/* ── Hero zoom (web-dev page) ───────────────────────────── */
+@keyframes heroZoom {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.07); }
+}
+
+/* ── Horizontal sliding testimonials ────────────────────── */
+@keyframes x-slider {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(calc(-50% - 1.25rem)); }
+}
+.animate-x-slider {
+  animation: x-slider 60s linear infinite;
+}
+.animate-x-slider:hover {
+  animation-play-state: paused;
+}
+
+/* ── DataGridHero ───────────────────────────────────────── */
+@keyframes cell-pulse {
+  from { opacity: var(--opacity-min); }
+  to   { opacity: var(--opacity-max); }
+}
+
+.data-grid-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-container {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.grid-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(168, 85, 247, 0.18),
+    transparent 40%
+  );
+  opacity: var(--mouse-glow-opacity, 0);
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.grid-cell {
+  border-radius: 2px;
+  opacity: var(--opacity-min, 0.05);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Morphing Text Reveal */
+@keyframes morphChar {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-5px) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-1px); }
+  80% { transform: translateX(1px); }
+}
+
+.morph-char {
+  animation: morphChar 0.6s ease-out forwards;
+}
+
+.glitch-effect {
+  animation: glitch 0.3s ease-in-out;
+}
