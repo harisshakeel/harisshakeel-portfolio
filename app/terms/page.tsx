@@ -137,8 +137,8 @@ export default function TermsPage() {
                 </li>
                 <li>
                   By phone:{" "}
-                  <a href="tel:+14707214027" className="text-primary hover:underline">
-                    (470) 721-4027
+                  <a href="tel:+923224778575" className="text-primary hover:underline">
+                    +92 322 4778575
                   </a>
                 </li>
               </ul>

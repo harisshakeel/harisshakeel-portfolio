@@ -44,7 +44,7 @@ const footerSections = [
       { title: "GitHub",   href: "https://github.com/harisshakeel" },
       { title: "LinkedIn", href: "https://www.linkedin.com/in/haris-shakeel-5559852b9" },
       { title: "Upwork",   href: "https://www.upwork.com/freelancers/~014b01aba5c97396c6?viewMode=1" },
-      { title: "Email",    href: "mailto:haris@twopixel.org" },
+      { title: "Email",    href: "mailto:harisshakeel061@gmail.com" },
     ],
   },
 ]
@@ -100,9 +100,9 @@ export function FooterSection() {
             Agentic AI &amp; full-stack developer based in Lahore. I build AI systems and full-stack apps, and design high-converting landing pages and funnels.
           </p>
 
-          <a href="mailto:haris@twopixel.org" className="flex items-center gap-2 text-muted-foreground text-sm hover:text-foreground transition-colors">
+          <a href="mailto:harisshakeel061@gmail.com" className="flex items-center gap-2 text-muted-foreground text-sm hover:text-foreground transition-colors">
             <Mail className="w-3.5 h-3.5 shrink-0" />
-            haris@twopixel.org
+            harisshakeel061@gmail.com
           </a>
 
           <div className="flex items-center gap-3">

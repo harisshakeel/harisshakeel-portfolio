@@ -10,8 +10,8 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 )
 
 export function FloatingContactWidget() {
-  const whatsappNumber = "+14707214027"
-  const email = "haris@twopixel.org"
+  const whatsappNumber = "+923224778575"
+  const email = "harisshakeel061@gmail.com"
 
   const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}`
   const mailtoUrl = `mailto:${email}`
@@ -25,7 +25,7 @@ export function FloatingContactWidget() {
         rel="noopener noreferrer"
         aria-label="Contact me on WhatsApp"
         className="w-11 h-11 rounded-full bg-[#25D366] hover:bg-[#20BA5A] flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
-        title="WhatsApp: +1 (470) 721-4027"
+        title="WhatsApp: +92 322 4778575"
       >
         <WhatsAppIcon className="w-[18px] h-[18px] text-white" />
       </a>
@@ -35,7 +35,7 @@ export function FloatingContactWidget() {
         href={mailtoUrl}
         aria-label="Send me an email"
         className="w-11 h-11 rounded-full bg-primary hover:bg-primary/90 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
-        title="Email: haris@twopixel.org"
+        title="Email: harisshakeel061@gmail.com"
       >
         <Mail className="w-[18px] h-[18px] text-primary-foreground" />
       </a>

@@ -21,7 +21,9 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+        display: ["var(--font-display)", ...fontFamily.sans],
+        pixel: ["var(--font-pixel)", ...fontFamily.mono],
         mono: ["var(--font-geist-mono)", ...fontFamily.mono],
       },
       colors: {

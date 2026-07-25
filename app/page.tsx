@@ -1,12 +1,8 @@
-import dynamic from "next/dynamic"
 import { HeroSection } from "@/components/hero-section"
-import { BentoSection } from "@/components/bento-section"
-
-const AnimatedSection = dynamic(() => import("@/components/animated-section").then((m) => ({ default: m.AnimatedSection })), { ssr: true })
-const SocialProof = dynamic(() => import("@/components/social-proof").then((m) => ({ default: m.SocialProof })), { ssr: true })
-const WhoAreWeSection = dynamic(() => import("@/components/who-are-we-section").then((m) => ({ default: m.WhoAreWeSection })), { ssr: true })
-const ProjectsSection = dynamic(() => import("@/components/projects-section").then((m) => ({ default: m.ProjectsSection })), { ssr: true })
-const FooterSection = dynamic(() => import("@/components/footer-section").then((m) => ({ default: m.FooterSection })), { ssr: true })
+import { BrutalistAbout } from "@/components/brutalist-about"
+import { BrutalistProjects } from "@/components/brutalist-projects"
+import { BrutalistTestimonials } from "@/components/brutalist-testimonials"
+import { BrutalistFooter } from "@/components/brutalist-footer"
 
 export default function PortfolioPage() {
   return (
@@ -14,30 +10,17 @@ export default function PortfolioPage() {
       {/* Hero, includes header internally */}
       <HeroSection />
 
-      {/* About me */}
-      <AnimatedSection id="about" className="max-w-[1320px] mx-auto scroll-mt-24" delay={0.1}>
-        <WhoAreWeSection />
-      </AnimatedSection>
+      {/* About me — giant statement + intro + tech stack */}
+      <BrutalistAbout />
 
-      {/* Tools strip */}
-      <AnimatedSection className="max-w-[1320px] mx-auto px-6 py-4 scroll-mt-24" delay={0.05}>
-        <SocialProof />
-      </AnimatedSection>
+      {/* Selected work — alternating project cards */}
+      <BrutalistProjects />
 
-      {/* Skills / what I do */}
-      <AnimatedSection id="skills" className="max-w-[1320px] mx-auto scroll-mt-24" delay={0.1}>
-        <BentoSection />
-      </AnimatedSection>
+      {/* Testimonials — brutalist quote cards */}
+      <BrutalistTestimonials />
 
-      {/* Selected work */}
-      <AnimatedSection id="work" className="mt-8 md:mt-16 scroll-mt-24" delay={0.15}>
-        <ProjectsSection />
-      </AnimatedSection>
-
-      {/* Footer (also the Contact target) */}
-      <AnimatedSection id="contact" className="max-w-[1320px] mx-auto mt-8 md:mt-16 scroll-mt-24" delay={0.1}>
-        <FooterSection />
-      </AnimatedSection>
+      {/* Contact / footer — "Let's talk" */}
+      <BrutalistFooter />
     </div>
   )
 }

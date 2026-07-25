@@ -2,12 +2,15 @@
 
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { ArrowUpRight, ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
 interface Project {
   id: string
+  /** Internal case-study route slug, i.e. /projects/<slug>. */
+  slug: string
   name: string
   description: string
   /** Live site URL. Omit if the project has no public link. */
@@ -27,6 +30,7 @@ interface Project {
 const projects: Project[] = [
   {
     id: "clusterden",
+    slug: "clusterden",
     name: "Clusterden",
     description:
       "A MERN-stack CRM workspace featuring advanced Role-Based Access Control and automated WhatsApp integrations.",
@@ -43,6 +47,7 @@ const projects: Project[] = [
   },
   {
     id: "payback",
+    slug: "payback",
     name: "Payback",
     description:
       "A full-stack loyalty rewards platform with a type-safe React frontend, secure Node.js backend, and real-time tracking.",
@@ -59,6 +64,7 @@ const projects: Project[] = [
   },
   {
     id: "destiny",
+    slug: "destiny",
     name: "Destiny.pk",
     description:
       "An online jewelry store for Designer's Destiny, AD silver necklace sets, bangles, earrings, and rings with a fast product catalog, cart, wishlist, and WhatsApp ordering.",
@@ -75,6 +81,7 @@ const projects: Project[] = [
   },
   {
     id: "dynasty",
+    slug: "dynasty",
     name: "Dynasty",
     description:
       "A B2B marketing site for a UAE-based petroleum trading firm with service showcases and quote request flows.",
@@ -91,6 +98,7 @@ const projects: Project[] = [
   },
   {
     id: "greennsolar",
+    slug: "green-n-solar",
     name: "Green N Solar",
     description:
       "A solar company website with service pages, trust-building sections, and lead-capture forms designed to convert.",
@@ -108,6 +116,7 @@ const projects: Project[] = [
   },
   {
     id: "meddo",
+    slug: "meddo",
     name: "Meddo",
     description:
       "A US medical management platform with conversion-focused service pages and a clean, trustworthy UI.",
@@ -124,6 +133,7 @@ const projects: Project[] = [
   },
   {
     id: "comuni",
+    slug: "comuni",
     name: "Comuni",
     description:
       "A Canadian event-planning app with polished marketing pages and offer-page design.",
@@ -140,6 +150,7 @@ const projects: Project[] = [
   },
   {
     id: "613-guys",
+    slug: "613-guys",
     name: "613 Guys",
     description:
       "Landing pages for a Canadian home-care brand, optimized for bookings and inquiries.",
@@ -161,12 +172,10 @@ const DEFAULT_VISIBLE = 3
 function ProjectRow({
   project,
   isExpanded,
-  onToggle,
   registerRef,
 }: {
   project: Project
   isExpanded: boolean
-  onToggle: () => void
   registerRef: (el: HTMLElement | null) => void
 }) {
   const isExternal = !!project.href && project.href.startsWith("http")
@@ -199,13 +208,13 @@ function ProjectRow({
         style={{ backgroundColor: "var(--brand)" }}
       />
 
-      {/* Clickable header, toggles the panel open on the same page */}
-      <button
-        type="button"
-        ref={registerRef}
+      {/* Clickable header, navigates to the project's case-study subpage.
+          The panel below still auto-expands on scroll to preview screenshots. */}
+      <Link
+        href={`/projects/${project.slug}`}
+        ref={registerRef as (el: HTMLAnchorElement | null) => void}
         data-project-id={project.id}
-        onClick={onToggle}
-        aria-expanded={isExpanded}
+        aria-label={`View ${project.name} case study`}
         className="relative block w-full cursor-pointer px-6 py-10 text-left md:px-10 md:py-14"
       >
         <div className="grid grid-cols-12 items-start gap-6 md:gap-10">
@@ -218,10 +227,9 @@ function ProjectRow({
               >
                 {project.name}
               </h3>
-              <ChevronDown
+              <ArrowUpRight
                 className={cn(
-                  "h-6 w-6 shrink-0 text-foreground/50 transition-transform duration-300",
-                  isExpanded ? "rotate-180" : "",
+                  "h-6 w-6 shrink-0 text-foreground/50 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
                 )}
                 style={isExpanded ? { color: "var(--on-brand)" } : undefined}
               />
@@ -258,7 +266,7 @@ function ProjectRow({
             </ul>
           </div>
         </div>
-      </button>
+      </Link>
 
       {/* Expanded panel, grid-template-rows trick (composited, no layout thrash) */}
       <div
@@ -378,7 +386,8 @@ export function ProjectsSection() {
         <p className="mx-auto mt-7 max-w-xl text-balance text-[15px] leading-relaxed text-foreground/70 md:text-base">
           A look at the products, platforms, and AI workflows I&apos;ve built
           for clients across SaaS, ecommerce, and industry. As you scroll, the
-          project in the middle opens automatically, or tap any to toggle.
+          project in the middle previews automatically, tap any to open its
+          case study.
         </p>
       </div>
 
@@ -389,9 +398,6 @@ export function ProjectsSection() {
             key={project.id}
             project={project}
             isExpanded={activeId === project.id}
-            onToggle={() =>
-              setActiveId((curr) => (curr === project.id ? null : project.id))
-            }
             registerRef={registerRef(project.id)}
           />
         ))}

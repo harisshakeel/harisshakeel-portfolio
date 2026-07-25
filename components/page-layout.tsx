@@ -1,5 +1,5 @@
 import { Header } from "@/components/header"
-import { FooterSection } from "@/components/footer-section"
+import { BrutalistFooter } from "@/components/brutalist-footer"
 
 interface PageLayoutProps {
   children: React.ReactNode
@@ -10,9 +10,7 @@ export function PageLayout({ children }: PageLayoutProps) {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-24 md:pt-28">{children}</main>
-      <div className="max-w-[1320px] mx-auto">
-        <FooterSection />
-      </div>
+      <BrutalistFooter />
     </div>
   )
 }
