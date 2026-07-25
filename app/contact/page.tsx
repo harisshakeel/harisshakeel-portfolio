@@ -8,7 +8,7 @@ import { breadcrumbSchema } from "@/lib/schema"
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact TwoPixel, Start Your Project",
   description:
-    "Get in touch with TwoPixel to discuss your web development, mobile app, AI automation, or design project. We respond within 24 hours. WhatsApp: +1 (470) 721 4027.",
+    "Get in touch with TwoPixel to discuss your web development, mobile app, AI automation, or design project. We respond within 24 hours. WhatsApp: +92 322 4778575.",
   path: "/contact",
 })
 

@@ -28,7 +28,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "TwoPixel transformed how we manage our business. WhatsApp automation that used to take 30 seconds now takes 3. Everything feels organized and easy.",
+      "Haris transformed how we manage our business. WhatsApp automation that used to take 30 seconds now takes 3. Everything feels organized and easy.",
     name: "Fatim Naveed",
     role: "CTO",
     company: "ClusterDen",
@@ -179,7 +179,7 @@ export function TestimonialGridSection({ limit }: { limit?: number } = {}) {
           </span>
         </h2>
         <p className="mx-auto mt-7 max-w-xl text-balance text-[15px] leading-relaxed text-foreground/70 md:text-base">
-          Real reviews from CEOs, CTOs, and execs who chose TwoPixel to build,
+          Real reviews from CEOs, CTOs, and execs who chose Haris to build,
           ship, and stay running long after launch.
         </p>
       </div>

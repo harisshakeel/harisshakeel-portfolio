@@ -6,7 +6,7 @@ export const siteConfig = {
   description:
     "Haris Shakeel is an Agentic AI and full-stack developer. He architects AI systems with the Claude Agent SDK and builds scalable MERN platforms, and also designs high-converting landing pages and funnels for D2C and e-commerce brands.",
   location: 'Lahore, Pakistan',
-  email: 'haris@twopixel.org',
+  email: 'harisshakeel061@gmail.com',
   author: 'Haris Shakeel',
   links: {
     linkedin: 'https://www.linkedin.com/in/haris-shakeel-5559852b9',

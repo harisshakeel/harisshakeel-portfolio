@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
 
@@ -65,11 +64,11 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
           transition={{ duration: 0.5, ease: easeOut }}
         >
           <TransitionLink
-            href="/projects"
+            href="/"
             className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
-            All projects
+            Back to home
           </TransitionLink>
         </motion.div>
 
@@ -234,42 +233,27 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
           </motion.section>
         )}
 
-        {/* Closing CTA */}
-        <motion.section
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.8, ease: easeOut }}
-          className="mt-20 flex flex-col gap-4 border-t border-foreground/[0.07] pt-10 sm:flex-row sm:items-center sm:justify-between md:mt-28"
-        >
-          <div className="max-w-md">
-            <p className="text-xl font-semibold tracking-[-0.01em] text-foreground md:text-2xl">
-              Have a project like this?
-            </p>
-            <p className="mt-1.5 text-sm text-muted-foreground">
-              We&apos;ll get back within 24 hours.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-3">
-            {data.liveUrl && (
-              <a
-                href={data.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/[0.03] px-5 py-2.5 text-sm font-medium text-foreground/90 transition-colors hover:border-foreground/25 hover:bg-foreground/[0.06]"
-              >
-                {data.liveLabel ?? "View live"}
-                <ArrowUpRight className="h-3.5 w-3.5" />
-              </a>
-            )}
-            <Link
-              href="/contact"
-              className="inline-flex items-center rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-all hover:brightness-110 hover:shadow-primary/40"
+        {/* Closing — link back to live site only (no internal cross-links) */}
+        {data.liveUrl && (
+          <motion.section
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.8, ease: easeOut }}
+            className="mt-20 flex border-t border-foreground/[0.07] pt-10 md:mt-28"
+          >
+            <a
+              href={data.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor
+              className="inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/[0.03] px-5 py-2.5 text-sm font-medium text-foreground/90 transition-colors hover:border-foreground/25 hover:bg-foreground/[0.06]"
             >
-              Start a project
-            </Link>
-          </div>
-        </motion.section>
+              {data.liveLabel ?? "View live site"}
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
+          </motion.section>
+        )}
       </div>
     </article>
   )
