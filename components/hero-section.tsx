@@ -16,7 +16,7 @@ export function HeroSection() {
         lastName="Shakeel"
         imageSrc="/images/owners/harus.png"
         imageAlt="Haris Shakeel"
-        bookingHref="https://calendly.com/twopixelstudios/twopixel"
+        bookingHref="https://calendly.com/harisshakeel/haris"
         availabilityText="DM or book a call now"
         leftLine={
           <>

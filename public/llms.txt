@@ -48,7 +48,6 @@ TwoPixel is an indie digital studio specializing in custom software development.
 - About: [/about]
 - Services: [/services]
 - Projects: [/projects]
-- Testimonials: [/testimonials]
 - Blog: [/blog]
 - Contact: [/contact]
 - Privacy Policy: [/privacy]

@@ -17,7 +17,7 @@ const data: CaseStudyData = {
   logo: "/images/projects/xision-pipeline.svg",
   category: "Computer Vision / 3D Fit Simulation",
   industry: "Fashion technology",
-  partnership: "2026 — Present",
+  partnership: "Ongoing",
   headline:
     "How Xision predicts whether a garment will actually fit you, before you buy it.",
   summary:

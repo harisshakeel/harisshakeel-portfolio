@@ -1,7 +1,7 @@
 import { HeroSection } from "@/components/hero-section"
 import { BrutalistAbout } from "@/components/brutalist-about"
+import { BrutalistExperience } from "@/components/brutalist-experience"
 import { BrutalistProjects } from "@/components/brutalist-projects"
-import { BrutalistTestimonials } from "@/components/brutalist-testimonials"
 import { BrutalistFooter } from "@/components/brutalist-footer"
 
 export default function PortfolioPage() {
@@ -13,11 +13,11 @@ export default function PortfolioPage() {
       {/* About me — giant statement + intro + tech stack */}
       <BrutalistAbout />
 
+      {/* Experience — company logos, roles, timeline */}
+      <BrutalistExperience />
+
       {/* Selected work — alternating project cards */}
       <BrutalistProjects />
-
-      {/* Testimonials — brutalist quote cards */}
-      <BrutalistTestimonials />
 
       {/* Contact / footer — "Let's talk" */}
       <BrutalistFooter />

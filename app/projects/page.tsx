@@ -171,7 +171,7 @@ export default function ProjectsPage() {
 
               {/* Secondary, ghost pill with hairline */}
               <Link
-                href="https://calendly.com/twopixelstudios/twopixel"
+                href="https://calendly.com/harisshakeel/haris"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-foreground/[0.02] px-7 py-3 text-sm font-medium text-foreground/85 backdrop-blur transition-all duration-300 hover:border-foreground/25 hover:bg-foreground/[0.05] hover:text-foreground"

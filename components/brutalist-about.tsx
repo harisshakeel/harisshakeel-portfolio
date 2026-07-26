@@ -13,23 +13,7 @@ const INTRO = [
   "I'm currently open to new opportunities and collaborations — always up for building something ambitious.",
 ]
 
-type Experience = {
-  role: string
-  org: string
-  period: string
-  bullets?: string[]
-  paragraph?: string
-}
-
-const EXPERIENCE: Experience[] = [
-  {
-    role: "Agentic AI Developer",
-    org: "Naxtech · Remote",
-    period: "Feb 2026 – Present",
-    paragraph:
-      "Building AI systems across two products for a fashion-technology SaaS: agent infrastructure that puts Claude Code on real client work, and the applied computer-vision and simulation pipeline behind virtual try-on. Day to day that means MCP tool integrations, per-user OAuth identity across thousands of third-party apps, and model-backed product features on one side — and pose estimation, monocular depth, parametric body modelling, and cloth-physics fit derivation on the other. The through-line is making model output something a product can actually act on: typed, validated, and reviewable rather than prose a human has to re-check.",
-  },
-]
+// Roles live in <BrutalistExperience /> — see components/brutalist-experience.tsx.
 
 const STACK: { label: string; items: string[] }[] = [
   {
@@ -196,75 +180,6 @@ export function BrutalistAbout() {
             </motion.p>
           ))}
         </div>
-
-        {/* Currently — experience */}
-        <motion.div
-          variants={fadeUp}
-          custom={0.1}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-10%" }}
-          className="mt-16 border-t border-foreground/10 pt-14"
-        >
-          <div className="mb-6 flex items-center gap-3">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-            </span>
-            <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-foreground/40">
-              Currently
-            </span>
-          </div>
-
-          <div className="space-y-5">
-            {EXPERIENCE.map((exp) => (
-              <div
-                key={exp.role}
-                className="group relative overflow-hidden rounded-[22px] border border-foreground/10 bg-card p-7 transition-colors duration-500 hover:border-foreground/20 md:p-9"
-              >
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                  style={{
-                    background:
-                      "radial-gradient(120% 90% at 100% 0%, rgba(34,49,122,0.18), transparent 60%)",
-                  }}
-                />
-                <div className="relative flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
-                  <div>
-                    <h3 className="font-display text-3xl uppercase leading-none tracking-tight text-foreground md:text-4xl">
-                      {exp.role}
-                    </h3>
-                    <p className="mt-2 text-[15px] text-foreground/60">{exp.org}</p>
-                  </div>
-                  <span className="shrink-0 font-mono text-xs uppercase tracking-[0.18em] text-foreground/45">
-                    {exp.period}
-                  </span>
-                </div>
-
-                {exp.bullets && (
-                  <ul className="relative mt-6 space-y-3">
-                    {exp.bullets.map((b, i) => (
-                      <li
-                        key={i}
-                        className="flex gap-3 text-[15px] leading-relaxed text-foreground/75 md:text-base"
-                      >
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#5b6cff]" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-                {exp.paragraph && (
-                  <p className="relative mt-6 max-w-4xl text-[15px] leading-relaxed text-foreground/75 md:text-base">
-                    {exp.paragraph}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </motion.div>
 
         {/* Tech stack — interactive chips */}
         <div className="mt-16 grid gap-x-12 gap-y-12 border-t border-foreground/10 pt-14 sm:grid-cols-2 lg:grid-cols-3">

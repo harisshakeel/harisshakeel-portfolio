@@ -17,7 +17,7 @@ const data: CaseStudyData = {
   logo: "/images/projects/mavis-architecture.svg",
   category: "Agentic AI / Multi-Tenant Platform",
   industry: "Virtual assistant services",
-  partnership: "2026 — Present",
+  partnership: "Ongoing",
   headline:
     "How MAVIS puts Claude Code agents on real client work, with humans holding the approval loop.",
   summary:

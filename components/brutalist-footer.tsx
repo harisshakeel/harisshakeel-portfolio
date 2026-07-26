@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react"
 const EASE = [0.22, 1, 0.36, 1] as const
 
 const EMAIL = "harisshakeel061@gmail.com"
-const CALENDLY = "https://calendly.com/twopixelstudios/twopixel"
+const CALENDLY = "https://calendly.com/harisshakeel/haris"
 const LINKEDIN = "https://www.linkedin.com/in/haris-shakeel-5559852b9"
 const GITHUB = "https://github.com/harisshakeel"
 
