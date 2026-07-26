@@ -173,7 +173,7 @@ export function BrutalistHero({
             onMouseLeave={onCardLeave}
             /* Both axes in svh, at exactly 0.75, to match the source PNG so
                there is never any letterboxing to reveal. */
-            className="relative block h-[52svh] w-[39svh] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-2 group-hover:scale-[1.02] md:h-[76svh] md:w-[57svh]"
+            className="relative block h-[68svh] w-[51svh] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-2 group-hover:scale-[1.02] md:h-[76svh] md:w-[57svh]"
           >
             <Image
               src={imageSrc}
@@ -181,7 +181,7 @@ export function BrutalistHero({
               fill
               priority
               sizes="(min-width: 768px) 57vh, 39vh"
-              className="object-contain object-bottom grayscale drop-shadow-[0_34px_70px_rgba(0,0,0,0.7)] transition-all duration-700 ease-out group-hover:grayscale-0"
+              className="object-contain object-bottom drop-shadow-[0_34px_70px_rgba(0,0,0,0.7)] transition-all duration-700 ease-out md:grayscale md:group-hover:grayscale-0"
             />
           </a>
 
