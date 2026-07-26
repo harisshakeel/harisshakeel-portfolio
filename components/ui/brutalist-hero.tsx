@@ -80,7 +80,8 @@ export function BrutalistHero({
         <span className="mb-2 block font-mono text-[10px] uppercase tracking-[4px] text-foreground/50">
           02 — Platforms
         </span>
-        <p className="text-[15px] leading-relaxed text-foreground/80 md:text-lg">
+        {/* pr clears the floating contact buttons pinned bottom-right on mobile */}
+        <p className="pr-14 text-[15px] leading-relaxed text-foreground/80 md:pr-0 md:text-lg">
           {rightLine}
         </p>
       </div>
@@ -106,11 +107,11 @@ export function BrutalistHero({
           initial="hidden"
           animate="visible"
           custom={0.1}
-          className="mx-auto flex max-w-7xl items-center justify-between border-y border-foreground/15 py-2 font-mono text-[10px] uppercase tracking-[4px] text-foreground/55"
+          className="mx-auto flex max-w-7xl items-center justify-between gap-4 border-y border-foreground/15 py-2 font-mono text-[9px] uppercase tracking-[2px] text-foreground/55 md:text-[10px] md:tracking-[4px]"
         >
-          <span>Portfolio — Issue 01</span>
+          <span className="whitespace-nowrap">Portfolio</span>
           <span className="hidden sm:inline">Lahore · Pakistan</span>
-          <span>Available for work</span>
+          <span className="whitespace-nowrap">Available for work</span>
         </motion.div>
       </div>
 
@@ -204,7 +205,7 @@ export function BrutalistHero({
           Same layer as the subject, later in the DOM, so it sits over him. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-64 bg-gradient-to-t from-background via-background/85 to-transparent md:hidden"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-80 bg-gradient-to-t from-background via-background/85 to-transparent md:hidden"
       />
     </section>
   )
