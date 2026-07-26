@@ -27,7 +27,7 @@ const EXPERIENCE: Experience[] = [
     org: "Naxtech · Remote",
     period: "Feb 2026 – Present",
     paragraph:
-      "Developing a multi-tenant AI platform that combines autonomous AI agents with a predictive fashion intelligence system. Built an agentic workflow using the Claude SDK, Gemini, MCP tool servers, and n8n to automate deep research, browser interactions, CRM synchronization, and cross-platform workflows with persistent memory. Alongside this, engineering an AI-powered virtual try-on ecosystem that converts a single smartphone scan into a 3D digital body model, enabling realistic fit simulation with garment drape, comfort, fabric behavior, tension, and heat mapping. The platform also integrates AI styling, immersive virtual experiences, and continuous learning to improve prediction accuracy over time, helping reduce poor-fit purchases, product returns, and textile waste while serving both consumers and fashion brands through a scalable SaaS architecture.",
+      "Building AI systems across two products for a fashion-technology SaaS: agent infrastructure that puts Claude Code on real client work, and the applied computer-vision and simulation pipeline behind virtual try-on. Day to day that means MCP tool integrations, per-user OAuth identity across thousands of third-party apps, and model-backed product features on one side — and pose estimation, monocular depth, parametric body modelling, and cloth-physics fit derivation on the other. The through-line is making model output something a product can actually act on: typed, validated, and reviewable rather than prose a human has to re-check.",
   },
 ]
 
@@ -58,7 +58,7 @@ const STACK: { label: string; items: string[] }[] = [
   },
   {
     label: "Machine Learning",
-    items: ["TensorFlow", "PyTorch", "Hugging Face", "OpenCV", "YOLOv8", "NumPy", "Pandas", "Scikit-learn", "Roboflow"],
+    items: ["TensorFlow", "PyTorch", "Hugging Face", "OpenCV", "YOLOv8", "Ultralytics", "NumPy", "Pandas", "Scikit-learn", "Roboflow"],
   },
   {
     label: "Automation",

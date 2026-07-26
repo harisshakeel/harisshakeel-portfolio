@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Xision pipeline: phone scan to pose and depth estimation, body measurements, parametric 3D avatar, garment drape simulation, and derived fit outputs">
+  <defs>
+    <style>
+      .box   { fill: rgba(242,239,230,0.045); stroke: rgba(242,239,230,0.34); stroke-width: 1.25; }
+      .key   { fill: rgba(36,58,134,0.22); stroke: rgba(242,239,230,0.5); stroke-width: 1.5; stroke-dasharray: 7 5; }
+      .t     { fill: #f2efe6; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 600; }
+      .s     { fill: rgba(242,239,230,0.6); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 400; }
+      .ln    { stroke: rgba(242,239,230,0.4); stroke-width: 1.25; fill: none; }
+    </style>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(242,239,230,0.55)"/>
+    </marker>
+  </defs>
+
+  <rect class="box" x="40" y="10" width="720" height="66" rx="13"/>
+  <text class="t" x="400" y="40" text-anchor="middle">Phone scan</text>
+  <text class="s" x="400" y="60" text-anchor="middle">three captures — front · side · shoulder</text>
+  <path class="ln" d="M400 76 L400 92" marker-end="url(#a)"/>
+
+  <rect class="box" x="40" y="94" width="720" height="66" rx="13"/>
+  <text class="t" x="400" y="124" text-anchor="middle">Pose + depth</text>
+  <text class="s" x="400" y="144" text-anchor="middle">MediaPipe landmarks and masks · MiDaS monocular depth (ONNX)</text>
+  <path class="ln" d="M400 160 L400 176" marker-end="url(#a)"/>
+
+  <rect class="box" x="40" y="178" width="720" height="66" rx="13"/>
+  <text class="t" x="400" y="208" text-anchor="middle">Body measurements</text>
+  <text class="s" x="400" y="228" text-anchor="middle">silhouette width × depth → ellipse-approximated circumferences · 8 core values</text>
+  <path class="ln" d="M400 244 L400 260" marker-end="url(#a)"/>
+
+  <rect class="key" x="40" y="262" width="720" height="66" rx="13"/>
+  <text class="t" x="400" y="292" text-anchor="middle">Simulation-safe 3D avatar</text>
+  <text class="s" x="400" y="312" text-anchor="middle">measurement-driven parametric morph, not a raw scan mesh · cached per body-model version</text>
+  <path class="ln" d="M400 328 L400 344" marker-end="url(#a)"/>
+
+  <rect class="box" x="40" y="346" width="720" height="66" rx="13"/>
+  <text class="t" x="400" y="376" text-anchor="middle">Garment drape</text>
+  <text class="s" x="400" y="396" text-anchor="middle">cloth-physics simulation on that exact body — rendered views, mesh, tension</text>
+  <path class="ln" d="M400 412 L400 428" marker-end="url(#a)"/>
+
+  <rect class="box" x="40" y="430" width="720" height="66" rx="13"/>
+  <text class="t" x="400" y="460" text-anchor="middle">Fit outputs</text>
+  <text class="s" x="400" y="480" text-anchor="middle">fit score · size recommendation · confidence · per-zone verdicts · pressure map</text>
+</svg>

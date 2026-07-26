@@ -7,22 +7,35 @@ import { motion, type Variants } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 interface BrutalistHeroProps {
-  /** Rendered as two stacked lines of giant display type. */
+  /** Set as the cover masthead — stacked Didone lines. */
   firstName: string
   lastName: string
   imageSrc: string
   imageAlt: string
   /** Clicking the portrait opens this URL (e.g. a booking link). */
   bookingHref: string
-  /** Tooltip shown when hovering the portrait card. */
+  /** Tooltip shown when hovering the portrait. */
   availabilityText: string
-  /** Bottom-left and bottom-right one-liners. */
+  /** The two cover lines. */
   leftLine: React.ReactNode
   rightLine: React.ReactNode
 }
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
+/*
+ * Two layouts from one DOM:
+ *   mobile  — portrait fashion cover: masthead top, subject rising full-bleed
+ *             from the bottom edge, cover lines set over the photo.
+ *   desktop — editorial split: masthead and cover lines in the left column,
+ *             subject anchored bottom-right.
+ *
+ * Portrait sizing uses both axes at exactly 0.75 to match the source PNG. The
+ * <img> is position:absolute under `fill`, so it contributes no height — if the
+ * anchor ever loses its h-/w- rule it collapses to 0x0 and the subject vanishes
+ * with no other symptom. Turbopack can serve a stale stylesheet after an edit,
+ * which looks identical; clear .next and restart before suspecting the markup.
+ */
 export function BrutalistHero({
   firstName,
   lastName,
@@ -53,121 +66,139 @@ export function BrutalistHero({
   }
   const onCardLeave = () => setTip((t) => ({ ...t, show: false }))
 
+  const coverLines = (
+    <>
+      <div className="border-t border-foreground/20 pt-3">
+        <span className="mb-2 block font-mono text-[10px] uppercase tracking-[4px] text-foreground/50">
+          01 — Agentic AI
+        </span>
+        <p className="text-[15px] leading-relaxed text-foreground/80 md:text-lg">
+          {leftLine}
+        </p>
+      </div>
+      <div className="border-t border-foreground/20 pt-3">
+        <span className="mb-2 block font-mono text-[10px] uppercase tracking-[4px] text-foreground/50">
+          02 — Platforms
+        </span>
+        <p className="text-[15px] leading-relaxed text-foreground/80 md:text-lg">
+          {rightLine}
+        </p>
+      </div>
+    </>
+  )
+
   return (
     <section className="relative flex min-h-[100svh] w-full flex-col overflow-hidden bg-background pt-24 text-foreground md:pt-28">
       {/* Ambient drifting glows */}
       <div aria-hidden className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        {/* Fixed top spotlight for anchoring (theme-aware) */}
         <div className="absolute inset-0 bg-[radial-gradient(70%_55%_at_50%_-5%,hsl(var(--glow)/0.09),transparent_65%)]" />
-        {/* Slow-drifting glow, upper-left */}
         <div className="hero-blob absolute left-[6%] top-1/3 h-[38rem] w-[38rem] -translate-y-1/2 rounded-full bg-[hsl(var(--glow)/0.05)] blur-[130px] [animation:hero-drift-a_26s_ease-in-out_infinite_alternate]" />
-        {/* Slow-drifting navy glow, lower-right (ties to the card hover) */}
         <div className="hero-blob absolute right-[4%] bottom-[6%] h-[34rem] w-[34rem] rounded-full bg-[#22317a]/25 blur-[140px] [animation:hero-drift-b_32s_ease-in-out_infinite_alternate]" />
-        {/* Faint pulsing core behind the name */}
-        <div className="hero-blob absolute left-1/2 top-1/2 h-[26rem] w-[26rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--glow)/0.035)] blur-[120px] [animation:hero-drift-c_22s_ease-in-out_infinite_alternate]" />
+        <div className="hero-blob absolute left-1/2 top-1/3 h-[26rem] w-[26rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--glow)/0.035)] blur-[120px] [animation:hero-drift-c_22s_ease-in-out_infinite_alternate]" />
       </div>
 
-      {/* Center stage — giant name behind, portrait card in front */}
-      <div className="relative z-10 flex flex-1 items-center justify-center px-4">
-        {/* The name wrapper is sized to the name itself, so the card overlay
-            below centers on the name — not on a wider container. */}
-        <div className="relative">
+      {/* Issue strip — the masthead furniture every cover carries */}
+      <motion.div
+        variants={rise}
+        initial="hidden"
+        animate="visible"
+        custom={0.1}
+        className="relative z-30 mx-4 flex items-center justify-between border-y border-foreground/15 py-2 font-mono text-[10px] uppercase tracking-[4px] text-foreground/55 md:mx-8"
+      >
+        <span>Portfolio — Issue 01</span>
+        <span className="hidden sm:inline">Lahore · Pakistan</span>
+        <span>Available for work</span>
+      </motion.div>
+
+      {/* Stage. No `relative` here or on the column below — the mobile cover
+          lines position against the section itself. */}
+      <div className="flex flex-1 flex-col md:grid md:grid-cols-12 md:items-center md:gap-8 md:px-8">
+        <div className="px-4 pt-6 text-center md:col-span-6 md:px-0 md:pt-0 md:text-left">
+          {/* Masthead — Anton, the site's display face, stacked and sized in vw
+              so it scales with its column. */}
           <motion.h1
             variants={rise}
             initial="hidden"
             animate="visible"
             custom={0.25}
-            className="select-none text-center font-display uppercase leading-[0.82] tracking-[-0.01em] text-foreground"
+            className="relative z-30 select-none font-display uppercase leading-[0.84] tracking-tight text-foreground"
           >
-            <span className="block text-[22vw] md:text-[16vw] lg:text-[13rem]">
-              {firstName}
-            </span>
-            <span className="block text-[22vw] md:text-[16vw] lg:text-[13rem]">
-              {lastName}
-            </span>
+            <span className="block text-[22vw] md:text-[12vw]">{firstName}</span>
+            <span className="block text-[22vw] md:text-[12vw]">{lastName}</span>
           </motion.h1>
 
-          {/* Portrait card — centered on the name, offset down to overlap the
-              second line; grayscale → color + tooltip on hover */}
-          <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
-            {/* Static downward offset lives on this wrapper — framer-motion
-                writes its own inline transform on the motion element, which
-                would otherwise cancel a Tailwind translate here. */}
-            <div className="translate-y-[58%] md:translate-y-[64%]">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 1.1, ease: EASE, delay: 0.5 }}
-              className="group pointer-events-auto"
-              data-cursor
-            >
-              <a
-                ref={cardRef}
-                href={bookingHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Book a call with Haris"
-                onMouseMove={onCardMove}
-                onMouseLeave={onCardLeave}
-                className="relative block h-[184px] w-[158px] overflow-hidden rounded-[24px] bg-neutral-700/70 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] ring-1 ring-white/10 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 group-hover:scale-[1.03] group-hover:shadow-[0_50px_130px_-25px_rgba(14,22,60,0.9)] group-hover:ring-white/20 md:h-[250px] md:w-[214px]"
-              >
-                {/* Deep midnight-navy gradient revealed on hover */}
-                <div className="absolute inset-0 bg-[radial-gradient(135%_115%_at_50%_-15%,#1c2c5e_0%,#0c1330_45%,#05070f_100%)] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100" />
-                {/* Vignette to push depth toward the edges */}
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_120%_at_50%_35%,transparent_45%,rgba(0,0,0,0.55)_100%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <Image
-                  src={imageSrc}
-                  alt={imageAlt}
-                  fill
-                  priority
-                  sizes="258px"
-                  className="object-contain object-bottom grayscale transition-all duration-700 ease-out group-hover:grayscale-0"
-                />
-                {/* Fine top sheen + inner edge highlight for a glossy finish */}
-                <div className="pointer-events-none absolute inset-0 rounded-[26px] bg-[linear-gradient(180deg,rgba(255,255,255,0.12),transparent_30%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <div className="pointer-events-none absolute inset-0 rounded-[26px] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.16),inset_0_0_0_1px_rgba(120,150,255,0.12)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              </a>
-
-              {/* Availability label — follows the cursor across the portrait */}
-              <div
-                style={{ left: tip.x, top: tip.y }}
-                className={cn(
-                  "pointer-events-none absolute z-30 w-max -translate-x-1/2 -translate-y-[135%] whitespace-nowrap rounded-2xl bg-[#05070f]/95 px-5 py-3 text-center text-sm font-medium text-[#f2efe6] shadow-[0_24px_60px_-15px_rgba(0,0,0,0.9)] ring-1 ring-white/10 backdrop-blur transition-opacity duration-200 ease-out md:text-base",
-                  tip.show ? "opacity-100" : "opacity-0",
-                )}
-              >
-                I&apos;m open to work —{" "}
-                <span className="bg-[linear-gradient(180deg,#243a86,#111b45)] px-1.5 py-0.5 font-semibold text-[#f2efe6] ring-1 ring-white/10">
-                  {availabilityText}
-                </span>
-              </div>
-            </motion.div>
-            </div>
-          </div>
+          {/* Cover lines: over the photo on mobile, in the column on desktop */}
+          <motion.div
+            variants={rise}
+            initial="hidden"
+            animate="visible"
+            custom={0.7}
+            className="absolute inset-x-0 bottom-0 z-30 grid grid-cols-1 gap-5 px-4 pb-8 text-left md:static md:mt-10 md:max-w-lg md:gap-7 md:px-0 md:pb-0"
+          >
+            {coverLines}
+          </motion.div>
         </div>
       </div>
 
-      {/* Bottom one-liners */}
-      <div className="relative z-30 grid grid-cols-1 gap-6 px-6 pb-8 md:grid-cols-2 md:px-10 md:pb-12">
-        <motion.p
-          variants={rise}
-          initial="hidden"
-          animate="visible"
-          custom={0.7}
-          className="max-w-md text-[15px] leading-relaxed text-foreground/80 md:text-lg"
+      {/* Subject — bottom-centre on mobile, bottom-right on desktop. Cropped by
+          the page edge rather than faded, the way a cover subject is. */}
+      <div className="pointer-events-none absolute bottom-0 left-1/2 z-20 -translate-x-1/2 md:left-auto md:right-[4%] md:translate-x-0">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96, y: 30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 1.2, ease: EASE, delay: 0.5 }}
+          className="group pointer-events-auto relative"
+          data-cursor
         >
-          {leftLine}
-        </motion.p>
-        <motion.p
-          variants={rise}
-          initial="hidden"
-          animate="visible"
-          custom={0.8}
-          className="max-w-md text-[15px] leading-relaxed text-foreground/80 md:justify-self-end md:text-right md:text-lg"
-        >
-          {rightLine}
-        </motion.p>
+          {/* Soft halo so the cutout separates from the masthead. */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-[-16%] bg-[radial-gradient(46%_42%_at_50%_44%,rgba(5,7,15,0.6),transparent_72%)] opacity-70 blur-xl transition-opacity duration-700 group-hover:opacity-90"
+          />
+          <a
+            ref={cardRef}
+            href={bookingHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Book a call with Haris"
+            onMouseMove={onCardMove}
+            onMouseLeave={onCardLeave}
+            /* Both axes in svh, at exactly 0.75, to match the source PNG so
+               there is never any letterboxing to reveal. */
+            className="relative block h-[52svh] w-[39svh] transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-2 group-hover:scale-[1.02] md:h-[76svh] md:w-[57svh]"
+          >
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              priority
+              sizes="(min-width: 768px) 57vh, 39vh"
+              className="object-contain object-bottom grayscale drop-shadow-[0_34px_70px_rgba(0,0,0,0.7)] transition-all duration-700 ease-out group-hover:grayscale-0"
+            />
+          </a>
+
+          {/* Availability label — follows the cursor across the portrait */}
+          <div
+            style={{ left: tip.x, top: tip.y }}
+            className={cn(
+              "pointer-events-none absolute z-30 w-max -translate-x-1/2 -translate-y-[135%] whitespace-nowrap rounded-2xl bg-[#05070f]/95 px-5 py-3 text-center text-sm font-medium text-[#f2efe6] shadow-[0_24px_60px_-15px_rgba(0,0,0,0.9)] ring-1 ring-white/10 backdrop-blur transition-opacity duration-200 ease-out md:text-base",
+              tip.show ? "opacity-100" : "opacity-0",
+            )}
+          >
+            I&apos;m open to work —{" "}
+            <span className="bg-[linear-gradient(180deg,#243a86,#111b45)] px-1.5 py-0.5 font-semibold text-[#f2efe6] ring-1 ring-white/10">
+              {availabilityText}
+            </span>
+          </div>
+        </motion.div>
       </div>
+
+      {/* Mobile-only scrim so the cover lines stay legible over the photo.
+          Same layer as the subject, later in the DOM, so it sits over him. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-64 bg-gradient-to-t from-background via-background/85 to-transparent md:hidden"
+      />
     </section>
   )
 }

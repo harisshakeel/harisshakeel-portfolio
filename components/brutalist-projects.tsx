@@ -23,12 +23,39 @@ interface Project {
 
 const projects: Project[] = [
   {
+    slug: "xision",
+    name: "Xision",
+    description:
+      "An AI virtual try-on platform that turns a single phone scan into a measurement-accurate 3D body model, then physically simulates how real garments drape on it — returning a fit score, size recommendation, and pressure map instead of a guess.",
+    tags: ["Computer Vision", "3D / Simulation", "Python", "FastAPI"],
+    shot: "/images/projects/xision-pipeline.svg",
+    contain: true,
+  },
+  {
+    slug: "mavis",
+    name: "MAVIS",
+    description:
+      "A multi-tenant platform where Claude Code agents run real client work end-to-end — spawned per VA on isolated workers, tool-connected through MCP servers and 3,000+ OAuth apps, with humans holding the approval loop.",
+    tags: ["Agentic AI", "Multi-Tenant SaaS", "MCP", "Next.js"],
+    shot: "/images/projects/mavis-architecture.svg",
+    contain: true,
+  },
+  {
     slug: "metamorphix",
     name: "Metamorphix",
     description:
       "A multi-agent AI pipeline that researches B2B prospects end-to-end — automated web scraping, LLM enrichment, and fit scoring — then provisions personalized, CRM-ready outreach into Zoho.",
     tags: ["AI Automation", "Multi-Agent", "Python", "Zoho CRM"],
     shot: "/images/projects/metamorphix.png",
+    contain: true,
+  },
+  {
+    slug: "sentinel",
+    name: "Sentinel",
+    description:
+      "A real-time CCTV anomaly detection system that runs three trained YOLOv8 models over live RTSP feeds — accident, vandalism, and weapon — and pushes an annotated frame to the operator's phone the moment something fires.",
+    tags: ["Computer Vision", "YOLOv8", "Real-time", "Flutter"],
+    shot: "/images/projects/sentinel-pipeline.svg",
     contain: true,
   },
   {
@@ -49,15 +76,16 @@ const projects: Project[] = [
     tags: ["Frontend", "Backend", "Loyalty", "Real-time"],
     shot: "/images/projects/payback/screen-1.jpeg",
   },
-  {
-    slug: "destiny",
-    name: "Destiny.pk",
-    description:
-      "An online jewelry store for Designer's Destiny — a fast product catalog, cart, wishlist, and WhatsApp ordering, tuned for conversion.",
-    href: "https://destiny.pk",
-    tags: ["Ecommerce", "Shopify", "Storefront", "CRO"],
-    shot: "/images/projects/destiny/screen-1.png",
-  },
+  // Temporarily hidden from Selected Work.
+  // {
+  //   slug: "destiny",
+  //   name: "Destiny.pk",
+  //   description:
+  //     "An online jewelry store for Designer's Destiny — a fast product catalog, cart, wishlist, and WhatsApp ordering, tuned for conversion.",
+  //   href: "https://destiny.pk",
+  //   tags: ["Ecommerce", "Shopify", "Storefront", "CRO"],
+  //   shot: "/images/projects/destiny/screen-1.png",
+  // },
   {
     slug: "meddo",
     name: "Meddo",

@@ -15,17 +15,18 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 const projects: Project[] = [
-  {
-    slug: "destiny",
-    title: "Destiny.pk",
-    category: "Ecommerce / Jewelry",
-    tag: "Ecommerce",
-    description:
-      "An online jewelry store for Designer's Destiny with a curated catalog of AD silver necklace sets, bangles, earrings, and rings, plus cart, wishlist, and WhatsApp ordering.",
-    technologies: ["Shopify", "Storefront", "Product", "Cart & Wishlist", "WhatsApp Ordering", "CRO", "SEO"],
-    logo: "/images/projects/destiny/screen-1.png",
-    url: "https://destiny.pk",
-  },
+  // Temporarily hidden — kept in sync with the Selected Work list on the home page.
+  // {
+  //   slug: "destiny",
+  //   title: "Destiny.pk",
+  //   category: "Ecommerce / Jewelry",
+  //   tag: "Ecommerce",
+  //   description:
+  //     "An online jewelry store for Designer's Destiny with a curated catalog of AD silver necklace sets, bangles, earrings, and rings, plus cart, wishlist, and WhatsApp ordering.",
+  //   technologies: ["Shopify", "Storefront", "Product", "Cart & Wishlist", "WhatsApp Ordering", "CRO", "SEO"],
+  //   logo: "/images/projects/destiny/screen-1.png",
+  //   url: "https://destiny.pk",
+  // },
   {
     slug: "clusterden",
     title: "ClusterDen",
