@@ -22,6 +22,12 @@ const data: CaseStudyData = {
     "How Xision predicts whether a garment will actually fit you, before you buy it.",
   summary:
     "A single smartphone scan becomes a measurement-accurate 3D digital body model. Real garments are then run through a cloth-physics engine on that exact body, so instead of a size chart the shopper gets a simulated try-on — how the garment drapes, where it pulls, a fit score, a recommended size, and a pressure map per body zone.",
+  model: {
+    src: "/models/xision-avatar.glb",
+    alt: "Interactive 3D avatar produced by the Xision pipeline, wearing a garment draped by the cloth solver",
+    caption:
+      "Actual pipeline output: a measurement-accurate avatar with the garment physically draped on it by the cloth solver — this is what the shopper sees instead of a size chart.",
+  },
   sections: [
     {
       heading: "Overview",

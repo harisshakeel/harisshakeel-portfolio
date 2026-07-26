@@ -6,6 +6,7 @@ import { motion, type Variants } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { ModelViewer } from "@/components/ui/model-viewer"
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -19,6 +20,8 @@ interface Project {
   shot: string
   /** Show the image contained on a navy panel (for logos) instead of cover. */
   contain?: boolean
+  /** Auto-rotating 3D model (.glb) shown in the mockup instead of the shot. */
+  model?: string
 }
 
 const projects: Project[] = [
@@ -30,6 +33,7 @@ const projects: Project[] = [
     tags: ["Computer Vision", "3D / Simulation", "Python", "FastAPI"],
     shot: "/images/projects/xision-pipeline.svg",
     contain: true,
+    model: "/models/xision-avatar.glb",
   },
   {
     slug: "mavis",
@@ -248,26 +252,35 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               : `${project.slug} · case study`}
           </span>
         </div>
-        {/* Screenshot / logo */}
+        {/* Screenshot / logo / 3D model */}
         <div
           className={cn(
             "relative aspect-[16/10] w-full overflow-hidden",
-            project.contain &&
+            (project.contain || project.model) &&
               "bg-[radial-gradient(circle_at_50%_-10%,#14244f,#070b18)]",
           )}
         >
-          <Image
-            src={project.shot}
-            alt={`${project.name} ${project.contain ? "logo" : "screenshot"}`}
-            fill
-            sizes="(min-width: 768px) 46vw, 100vw"
-            className={cn(
-              "transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]",
-              project.contain
-                ? "object-contain p-14"
-                : "object-cover object-top",
-            )}
-          />
+          {project.model ? (
+            <ModelViewer
+              src={project.model}
+              alt={`${project.name} 3D avatar`}
+              interactive={false}
+              className="h-full w-full"
+            />
+          ) : (
+            <Image
+              src={project.shot}
+              alt={`${project.name} ${project.contain ? "logo" : "screenshot"}`}
+              fill
+              sizes="(min-width: 768px) 46vw, 100vw"
+              className={cn(
+                "transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]",
+                project.contain
+                  ? "object-contain p-14"
+                  : "object-cover object-top",
+              )}
+            />
+          )}
         </div>
       </Link>
     </motion.article>

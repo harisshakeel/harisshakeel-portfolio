@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
 
 import { TransitionLink } from "@/components/ui/transition-link"
+import { ModelViewer } from "@/components/ui/model-viewer"
 
 export interface CaseStudyData {
   /** Slug used to drive the shared-element view transition from the listing */
@@ -23,6 +24,13 @@ export interface CaseStudyData {
   headline: string
   /** Short lead paragraph below the headline */
   summary: string
+
+  /** Optional interactive 3D model (.glb) shown between the meta grid and body */
+  model?: {
+    src: string
+    alt: string
+    caption?: string
+  }
 
   sections: Array<{
     heading: string
@@ -133,6 +141,33 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
               </div>
             )}
           </motion.div>
+        )}
+
+        {/* 3D model */}
+        {data.model && (
+          <motion.figure
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.8, ease: easeOut }}
+            className="mt-14 md:mt-20"
+          >
+            <div className="relative overflow-hidden rounded-2xl border border-foreground/[0.08] bg-foreground/[0.03]">
+              <ModelViewer
+                src={data.model.src}
+                alt={data.model.alt}
+                className="h-[440px] w-full md:h-[560px]"
+              />
+              <span className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full border border-foreground/10 bg-background/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground backdrop-blur-sm">
+                Drag to rotate
+              </span>
+            </div>
+            {data.model.caption && (
+              <figcaption className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                {data.model.caption}
+              </figcaption>
+            )}
+          </motion.figure>
         )}
 
         {/* Body sections */}

@@ -97,23 +97,29 @@ export function BrutalistHero({
         <div className="hero-blob absolute left-1/2 top-1/3 h-[26rem] w-[26rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[hsl(var(--glow)/0.035)] blur-[120px] [animation:hero-drift-c_22s_ease-in-out_infinite_alternate]" />
       </div>
 
-      {/* Issue strip — the masthead furniture every cover carries */}
-      <motion.div
-        variants={rise}
-        initial="hidden"
-        animate="visible"
-        custom={0.1}
-        className="relative z-30 mx-4 flex items-center justify-between border-y border-foreground/15 py-2 font-mono text-[10px] uppercase tracking-[4px] text-foreground/55 md:mx-8"
-      >
-        <span>Portfolio — Issue 01</span>
-        <span className="hidden sm:inline">Lahore · Pakistan</span>
-        <span>Available for work</span>
-      </motion.div>
+      {/* Issue strip — the masthead furniture every cover carries. Same
+          container as every other section (px-6 md:px-10 + max-w-7xl) so the
+          hairlines align with the site grid. */}
+      <div className="relative z-30 px-6 md:px-10">
+        <motion.div
+          variants={rise}
+          initial="hidden"
+          animate="visible"
+          custom={0.1}
+          className="mx-auto flex max-w-7xl items-center justify-between border-y border-foreground/15 py-2 font-mono text-[10px] uppercase tracking-[4px] text-foreground/55"
+        >
+          <span>Portfolio — Issue 01</span>
+          <span className="hidden sm:inline">Lahore · Pakistan</span>
+          <span>Available for work</span>
+        </motion.div>
+      </div>
 
-      {/* Stage. No `relative` here or on the column below — the mobile cover
-          lines position against the section itself. */}
-      <div className="flex flex-1 flex-col md:grid md:grid-cols-12 md:items-center md:gap-8 md:px-8">
-        <div className="px-4 pt-6 text-center md:col-span-6 md:px-0 md:pt-0 md:text-left">
+      {/* Stage. No `relative` here or on the columns below — the mobile cover
+          lines position against the section itself. Outer div carries the
+          site's section padding, inner div the centered max-w-7xl container. */}
+      <div className="flex flex-1 flex-col md:px-10">
+        <div className="flex w-full flex-1 flex-col md:mx-auto md:grid md:max-w-7xl md:grid-cols-12 md:items-center md:gap-8">
+          <div className="px-6 pt-6 text-center md:col-span-6 md:px-0 md:pt-0 md:text-left">
           {/* Masthead — Anton, the site's display face, stacked and sized in vw
               so it scales with its column. */}
           <motion.h1
@@ -123,8 +129,8 @@ export function BrutalistHero({
             custom={0.25}
             className="relative z-30 select-none font-display uppercase leading-[0.84] tracking-tight text-foreground"
           >
-            <span className="block text-[22vw] md:text-[12vw]">{firstName}</span>
-            <span className="block text-[22vw] md:text-[12vw]">{lastName}</span>
+            <span className="block text-[22vw] md:text-[min(12vw,9.6rem)]">{firstName}</span>
+            <span className="block text-[22vw] md:text-[min(12vw,9.6rem)]">{lastName}</span>
           </motion.h1>
 
           {/* Cover lines: over the photo on mobile, in the column on desktop */}
@@ -133,16 +139,17 @@ export function BrutalistHero({
             initial="hidden"
             animate="visible"
             custom={0.7}
-            className="absolute inset-x-0 bottom-0 z-30 grid grid-cols-1 gap-5 px-4 pb-8 text-left md:static md:mt-10 md:max-w-lg md:gap-7 md:px-0 md:pb-0"
+            className="absolute inset-x-0 bottom-0 z-30 grid grid-cols-1 gap-5 px-6 pb-8 text-left md:static md:mt-10 md:max-w-lg md:gap-7 md:px-0 md:pb-0"
           >
             {coverLines}
           </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Subject — bottom-centre on mobile, bottom-right on desktop. Cropped by
           the page edge rather than faded, the way a cover subject is. */}
-      <div className="pointer-events-none absolute bottom-0 left-1/2 z-20 -translate-x-1/2 md:left-auto md:right-[4%] md:translate-x-0">
+      <div className="pointer-events-none absolute bottom-0 left-1/2 z-20 -translate-x-1/2 md:left-auto md:right-[max(4vw,calc((100vw-80rem)/2))] md:translate-x-0">
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
