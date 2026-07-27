@@ -48,7 +48,7 @@ export const defaultMetadata: Metadata = {
     siteName: siteConfig.name,
     title: 'Haris Shakeel | Agentic AI & Full-Stack Developer',
     description: siteConfig.description,
-    images: [{ url: '/images/og-image.png', width: 1200, height: 630, alt: 'Haris Shakeel — Agentic AI & Full-Stack Developer' }],
+    images: [{ url: '/images/og-image.png', width: 1200, height: 630, alt: 'Haris Shakeel | Agentic AI & Full-Stack Developer' }],
   },
   twitter: {
     card: 'summary_large_image',

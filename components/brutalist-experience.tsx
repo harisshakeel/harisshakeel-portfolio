@@ -11,6 +11,8 @@ interface Role {
   company: string
   /** Omit to fall back to a typographic wordmark tile. */
   logo?: string
+  /** Intrinsic pixel size of the logo file — required by next/image, and lets the tile size itself to the logo's real proportions instead of stretching/letterboxing it. */
+  logoDims?: { width: number; height: number }
   /**
    * Ink of the logo artwork, not the brand.
    * "dark" = dark marks on transparent/white — sits on a paper tile.
@@ -34,33 +36,52 @@ const ROLES: Role[] = [
     location: "Remote",
     current: true,
     summary:
-      "Building the applied computer-vision and simulation pipeline behind virtual try-on: pose estimation, monocular depth, parametric body modelling, and cloth-physics fit derivation that turn a single phone scan into a measurement-accurate 3D body. The through-line is making model output something a product can actually act on — typed, validated, and reviewable rather than prose a human has to re-check.",
+      "Building the applied computer-vision and simulation pipeline behind virtual try-on: pose estimation, monocular depth, parametric body modelling, and cloth-physics fit derivation that turn a single phone scan into a measurement-accurate 3D body. The through-line is making model output something a product can actually act on: typed, validated, and reviewable rather than prose a human has to re-check.",
     tags: ["Computer Vision", "3D / Simulation", "PyTorch", "FastAPI"],
   },
   {
     company: "Naxtech",
     logo: "/images/companies/naxtech.png",
+    logoDims: { width: 792, height: 150 },
     logoTone: "light",
+    role: "Agentic AI Developer",
     location: "Remote",
     summary:
-      "Built the agent infrastructure behind a multi-tenant platform that puts Claude Code agents on real client work — MCP tool integrations, per-user OAuth identity across thousands of third-party apps, and model-backed product features, with humans holding the approval loop.",
-    tags: ["Agentic AI", "MCP", "Multi-Tenant SaaS", "Next.js"],
+      "Engineered a multi-tenant agentic AI platform with a dual-pass validation framework, automating research across 13,000+ entities at 95%+ factual accuracy. Ran large-scale competitor research over websites, landing pages, and sales funnels to surface design trends, conversion strategies, and outbound campaign opportunities.",
+    tags: ["Agentic AI", "Multi-Tenant SaaS", "Validation", "Research Automation"],
   },
   {
     company: "Devsinc",
     logo: "/images/companies/devsinc.webp",
+    logoDims: { width: 256, height: 256 },
     logoTone: "dark",
     role: "Associate Software Engineer",
+    location: "Lahore",
+    summary:
+      "Built full-stack MERN applications end to end, with React front-ends against Node and Express APIs and the MongoDB schema and query design sitting behind them. Day to day meant REST integrations, authentication and role-based access control, and responsive component work, shipping features into client production codebases alongside a delivery team.",
+    tags: ["MERN", "React", "Node.js", "MongoDB"],
   },
   {
     company: "Payback",
     logo: "/images/companies/payback.png",
+    logoDims: { width: 182, height: 50 },
     logoTone: "dark",
+    role: "Associate Technical Lead",
+    location: "Lahore",
+    summary:
+      "Led the end-to-end design and build of payback.pk, a live cashback platform with offer pages, onboarding funnels, and mobile-first responsive layouts, while managing a team of four to five designers and interns. Designed conversion-focused landing pages, offer pages, and checkout flows, applying CRO best practices, trust-building UX, and customer journey mapping to cut friction and improve clarity.",
+    tags: ["CRO", "Landing Pages", "Team Lead", "Responsive Design"],
   },
   {
     company: "Advance Resources",
     logo: "/images/companies/advance-resources.png",
+    logoDims: { width: 200, height: 80 },
     logoTone: "dark",
+    role: "Website Designer & Front-End Developer",
+    location: "Lahore",
+    summary:
+      "Designed high-converting landing pages, sales funnels, advertorials, listicles, product pages, and offer pages in Figma for D2C, e-commerce, SaaS, and service brands, then built and optimised them in Replo, Shopify, React, Next.js, and Tailwind. Competitor research across rival sites and funnels fed the direct-response techniques behind each build: CTA placement, social proof, trust badges, FAQs, friction reduction. Shipped work included payback.pk, clusterden.com, greennsolar.com, dynastyfm.com, 613 Guys, Meddo, DevPlob, and Comuni.",
+    tags: ["Figma", "Replo / Shopify", "CRO", "Next.js"],
   },
 ]
 
@@ -93,25 +114,25 @@ function RoleCard({ role, index }: { role: Role; index: number }) {
       />
 
       <div className="relative flex flex-col gap-6 md:flex-row md:items-start md:gap-9">
-        {/* Logo tile */}
+        {/* Logo tile — sized to each logo's own proportions at a shared height, so a square mark and a wide banner don't get forced into the same box */}
         <div
           className={cn(
-            "relative h-16 w-40 shrink-0 overflow-hidden rounded-2xl border border-foreground/10 transition-transform duration-500 ease-out group-hover:-translate-y-1 md:h-20 md:w-48",
+            "flex h-16 md:h-20 w-fit min-w-[7rem] shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-foreground/10 px-5 transition-transform duration-500 ease-out group-hover:-translate-y-1",
             role.logoTone === "dark" ? "bg-white" : "bg-[#0b1020]",
           )}
         >
-          {role.logo ? (
+          {role.logo && role.logoDims ? (
             <Image
               src={role.logo}
               alt={`${role.company} logo`}
-              fill
-              sizes="192px"
-              className="object-contain p-3.5 md:p-4"
+              width={role.logoDims.width}
+              height={role.logoDims.height}
+              className="h-9 w-auto max-w-[9rem] object-contain md:h-11 md:max-w-[11rem]"
             />
           ) : (
             <span
               className={cn(
-                "flex h-full w-full items-center justify-center px-3 text-center font-display text-2xl uppercase leading-none tracking-tight md:text-3xl",
+                "text-center font-display text-2xl uppercase leading-none tracking-tight md:text-3xl",
                 role.logoTone === "dark" ? "text-[#0b1020]" : "text-white",
               )}
             >
@@ -214,7 +235,7 @@ export function BrutalistExperience() {
             viewport={{ once: true, margin: "-15%" }}
             className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/65 md:text-lg"
           >
-            The teams I&apos;ve built with — from agency delivery work to the AI
+            The teams I&apos;ve built with, from agency delivery work to the AI
             systems I&apos;m shipping today.
           </motion.p>
         </div>

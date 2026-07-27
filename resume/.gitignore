@@ -12,6 +12,7 @@
 *.run.xml
 *.synctex.gz
 *.toc
+*.tex
 
 # Compiled output (remove this line if you want to commit the PDFs)
 *.pdf

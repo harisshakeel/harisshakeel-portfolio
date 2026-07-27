@@ -29,7 +29,7 @@ const projects: Project[] = [
     slug: "xision",
     name: "Xision",
     description:
-      "An AI virtual try-on platform that turns a single phone scan into a measurement-accurate 3D body model, then physically simulates how real garments drape on it — returning a fit score, size recommendation, and pressure map instead of a guess.",
+      "An AI virtual try-on platform that turns a single phone scan into a measurement-accurate 3D body model, then physically simulates how real garments drape on it, returning a fit score, size recommendation, and pressure map instead of a guess.",
     tags: ["Computer Vision", "3D / Simulation", "Python", "FastAPI"],
     shot: "/images/projects/xision-pipeline.svg",
     contain: true,
@@ -39,7 +39,7 @@ const projects: Project[] = [
     slug: "mavis",
     name: "MAVIS",
     description:
-      "A multi-tenant platform where Claude Code agents run real client work end-to-end — spawned per VA on isolated workers, tool-connected through MCP servers and 3,000+ OAuth apps, with humans holding the approval loop.",
+      "A multi-tenant platform where Claude Code agents run real client work end-to-end: spawned per VA on isolated workers, tool-connected through MCP servers and 3,000+ OAuth apps, with humans holding the approval loop.",
     tags: ["Agentic AI", "Multi-Tenant SaaS", "MCP", "Next.js"],
     shot: "/images/projects/mavis-architecture.svg",
     contain: true,
@@ -48,7 +48,7 @@ const projects: Project[] = [
     slug: "metamorphix",
     name: "Metamorphix",
     description:
-      "A multi-agent AI pipeline that researches B2B prospects end-to-end — automated web scraping, LLM enrichment, and fit scoring — then provisions personalized, CRM-ready outreach into Zoho.",
+      "A multi-agent AI pipeline that researches B2B prospects end-to-end with automated web scraping, LLM enrichment, and fit scoring, then provisions personalized, CRM-ready outreach into Zoho.",
     tags: ["AI Automation", "Multi-Agent", "Python", "Zoho CRM"],
     shot: "/images/projects/metamorphix.png",
     contain: true,
@@ -57,7 +57,7 @@ const projects: Project[] = [
     slug: "sentinel",
     name: "Sentinel",
     description:
-      "A real-time CCTV anomaly detection system that runs three trained YOLOv8 models over live RTSP feeds — accident, vandalism, and weapon — and pushes an annotated frame to the operator's phone the moment something fires.",
+      "A real-time CCTV anomaly detection system that runs three trained YOLOv8 models over live RTSP feeds (accident, vandalism, and weapon) and pushes an annotated frame to the operator's phone the moment something fires.",
     tags: ["Computer Vision", "YOLOv8", "Real-time", "Flutter"],
     shot: "/images/projects/sentinel-pipeline.svg",
     contain: true,
@@ -329,7 +329,7 @@ export function BrutalistProjects() {
             viewport={{ once: true, margin: "-15%" }}
             className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/65 md:text-lg"
           >
-            From full-stack platforms and AI systems to high-converting funnels —
+            From full-stack platforms and AI systems to high-converting funnels,
             every build here solves a real-world problem with speed and craft.
           </motion.p>
         </div>

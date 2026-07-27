@@ -8,9 +8,9 @@ const EASE = [0.22, 1, 0.36, 1] as const
 const HEADLINE = ["I build agents,", "ship platforms,", "design what converts."]
 
 const INTRO = [
-  "I'm a Computer Science graduate specializing in Agentic AI and full-stack development. I architect autonomous AI systems with the Claude Agent SDK and Gemini, and build scalable MERN platforms end to end — from databases and APIs to polished, accessible interfaces.",
-  "I also design high-converting landing pages and sales funnels in Figma and Shopify for D2C and e-commerce brands, applying CRO and trust-building UX. Building and designing both means I see the full picture — from first click to checkout.",
-  "I'm currently open to new opportunities and collaborations — always up for building something ambitious.",
+  "I'm a Computer Science graduate specializing in Agentic AI and full-stack development. I architect autonomous AI systems with the Claude Agent SDK and Gemini, and build scalable MERN platforms end to end, from databases and APIs to polished, accessible interfaces.",
+  "I also design high-converting landing pages and sales funnels in Figma and Shopify for D2C and e-commerce brands, applying CRO and trust-building UX. Building and designing both means I see the full picture, from first click to checkout.",
+  "I'm currently open to new opportunities and collaborations, and always up for building something ambitious.",
 ]
 
 // Roles live in <BrutalistExperience /> — see components/brutalist-experience.tsx.

@@ -70,7 +70,7 @@ export function BrutalistHero({
     <>
       <div className="border-t border-foreground/20 pt-3">
         <span className="mb-2 block font-mono text-[10px] uppercase tracking-[4px] text-foreground/50">
-          01 — Agentic AI
+          01 / Agentic AI
         </span>
         <p className="text-[15px] leading-relaxed text-foreground/80 md:text-lg">
           {leftLine}
@@ -78,7 +78,7 @@ export function BrutalistHero({
       </div>
       <div className="border-t border-foreground/20 pt-3">
         <span className="mb-2 block font-mono text-[10px] uppercase tracking-[4px] text-foreground/50">
-          02 — Platforms
+          02 / Platforms
         </span>
         {/* pr clears the floating contact buttons pinned bottom-right on mobile */}
         <p className="pr-14 text-[15px] leading-relaxed text-foreground/80 md:pr-0 md:text-lg">
@@ -193,7 +193,7 @@ export function BrutalistHero({
               tip.show ? "opacity-100" : "opacity-0",
             )}
           >
-            I&apos;m open to work —{" "}
+            I&apos;m open to work.{" "}
             <span className="bg-[linear-gradient(180deg,#243a86,#111b45)] px-1.5 py-0.5 font-semibold text-[#f2efe6] ring-1 ring-white/10">
               {availabilityText}
             </span>

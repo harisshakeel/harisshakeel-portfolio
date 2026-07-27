@@ -30,7 +30,7 @@ export function HeroSection() {
         }
         rightLine={
           <>
-            Building scalable MERN platforms end to end — from databases and
+            Building scalable MERN platforms end to end, from databases and
             APIs to polished, accessible interfaces.
           </>
         }

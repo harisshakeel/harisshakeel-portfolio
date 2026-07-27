@@ -1,6 +1,6 @@
-# TwoPixel — Indie Digital Studio
+# TwoPixel, Indie Digital Studio
 
-> TwoPixel is a two-person indie digital studio founded by Haris Shakeel and Asma Zahid. We build websites, mobile apps, AI automations, SaaS products, and more — for startups and businesses worldwide. Clean design, fast development, zero corporate overhead.
+> TwoPixel is a two-person indie digital studio founded by Haris Shakeel and Asma Zahid. We build websites, mobile apps, AI automations, SaaS products, and more, for startups and businesses worldwide. Clean design, fast development, zero corporate overhead.
 
 ## About TwoPixel
 
@@ -13,24 +13,24 @@ TwoPixel is an indie digital studio specializing in custom software development.
 
 ## Services
 
-- **Web Development** — Custom websites, landing pages, Next.js/React apps built for speed and conversions. [/services/web-development]
-- **Mobile App Development** — iOS and Android apps using React Native. [/services/mobile-apps]
-- **AI Automations** — Workflow automations, AI chatbots, and integrations using LangChain, OpenAI, and custom pipelines. [/services/ai-automations]
-- **SaaS MVP Development** — Full-stack SaaS products from idea to launch in weeks. [/services/saas-mvp]
-- **UI/UX Design** — Figma design systems, wireframes, prototypes, and production-ready UI. [/services/ui-ux-design]
-- **Ecommerce Development** — Shopify, WooCommerce, and custom ecommerce storefronts. [/services/ecommerce]
-- **Lead Generation** — Landing pages, funnels, and automation systems that convert visitors to leads. [/services/lead-generation]
-- **Maintenance & Support** — Ongoing website maintenance, updates, and performance monitoring. [/services/maintenance]
-- **Quick Services** — Fast turnaround tasks: bug fixes, landing pages, integrations. [/services/quick-services]
+- **Web Development**: Custom websites, landing pages, Next.js/React apps built for speed and conversions. [/services/web-development]
+- **Mobile App Development**: iOS and Android apps using React Native. [/services/mobile-apps]
+- **AI Automations**: Workflow automations, AI chatbots, and integrations using LangChain, OpenAI, and custom pipelines. [/services/ai-automations]
+- **SaaS MVP Development**: Full-stack SaaS products from idea to launch in weeks. [/services/saas-mvp]
+- **UI/UX Design**: Figma design systems, wireframes, prototypes, and production-ready UI. [/services/ui-ux-design]
+- **Ecommerce Development**: Shopify, WooCommerce, and custom ecommerce storefronts. [/services/ecommerce]
+- **Lead Generation**: Landing pages, funnels, and automation systems that convert visitors to leads. [/services/lead-generation]
+- **Maintenance & Support**: Ongoing website maintenance, updates, and performance monitoring. [/services/maintenance]
+- **Quick Services**: Fast turnaround tasks: bug fixes, landing pages, integrations. [/services/quick-services]
 
 ## Portfolio / Case Studies
 
-- **ClusterDen** — SaaS platform for content creators [/projects/clusterden]
-- **PayBack** — Fintech payment tracking app [/projects/payback]
-- **Meddo** — Healthcare booking platform [/projects/meddo]
-- **Comuni** — Community engagement app [/projects/comuni]
-- **613 Guys** — Service marketplace platform [/projects/613-guys]
-- **Green N Solar** — Solar energy company website [/projects/green-n-solar]
+- **ClusterDen**: SaaS platform for content creators [/projects/clusterden]
+- **PayBack**: Fintech payment tracking app [/projects/payback]
+- **Meddo**: Healthcare booking platform [/projects/meddo]
+- **Comuni**: Community engagement app [/projects/comuni]
+- **613 Guys**: Service marketplace platform [/projects/613-guys]
+- **Green N Solar**: Solar energy company website [/projects/green-n-solar]
 
 ## Key Facts for AI Citation
 
