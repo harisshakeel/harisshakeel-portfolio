@@ -237,16 +237,16 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         href={`/projects/${project.slug}`}
         data-cursor
         className={cn(
-          "relative z-10 block overflow-hidden rounded-2xl border border-foreground/10 bg-[#0d0f16] shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:shadow-[0_45px_110px_-30px_rgba(24,44,130,0.7)]",
+          "relative z-10 block overflow-hidden rounded-2xl border border-foreground/10 bg-code-bg shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)] transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:shadow-[0_45px_110px_-30px_rgba(24,44,130,0.35)] dark:shadow-[0_30px_80px_-30px_rgba(0,0,0,0.9)] dark:group-hover:shadow-[0_45px_110px_-30px_rgba(24,44,130,0.7)]",
           reversed && "md:order-1",
         )}
       >
         {/* Browser bar */}
-        <div className="flex items-center gap-2 border-b border-white/5 bg-white/[0.03] px-4 py-3">
+        <div className="flex items-center gap-2 border-b border-foreground/10 bg-code-titlebar px-4 py-3 dark:border-white/5">
           <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-          <span className="ml-3 truncate font-mono text-[11px] text-white/40">
+          <span className="ml-3 truncate font-mono text-[11px] text-foreground/45 dark:text-white/40">
             {project.href
               ? project.href.replace(/^https?:\/\//, "").replace(/\/$/, "")
               : `${project.slug} · case study`}
@@ -256,7 +256,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <div
           className={cn(
             "relative aspect-[16/10] w-full overflow-hidden",
-            (project.contain || project.model) &&
+            // 3D model: theme-aware panel (light paper in light mode, navy in dark).
+            project.model &&
+              "bg-screen-panel dark:bg-[radial-gradient(circle_at_50%_-10%,#14244f,#070b18)]",
+            // Diagram/logo panels stay navy in both themes: the pipeline SVGs
+            // are cream-ink artwork that disappears on a light background.
+            project.contain &&
+              !project.model &&
               "bg-[radial-gradient(circle_at_50%_-10%,#14244f,#070b18)]",
           )}
         >
