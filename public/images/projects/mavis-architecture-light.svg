@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="MAVIS architecture: browser clients to Next.js on Vercel, through a Supabase row-level-security tenant boundary, to per-VA workers spawning Claude Code sessions and MCP tool servers">
+  <defs>
+    <style>
+      .box   { fill: rgba(25,21,16,0.045); stroke: rgba(25,21,16,0.34); stroke-width: 1.25; }
+      .bound { fill: rgba(36,58,134,0.22); stroke: rgba(25,21,16,0.5); stroke-width: 1.5; stroke-dasharray: 7 5; }
+      .t     { fill: #191510; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 600; }
+      .s     { fill: rgba(25,21,16,0.6); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 400; }
+      .k     { fill: rgba(25,21,16,0.45); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; }
+      .ln    { stroke: rgba(25,21,16,0.4); stroke-width: 1.25; fill: none; }
+    </style>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(25,21,16,0.55)"/>
+    </marker>
+  </defs>
+
+  <!-- Audiences -->
+  <rect class="box" x="40"  y="26" width="226" height="52" rx="12"/>
+  <text class="t" x="153" y="58" text-anchor="middle">VA Workspace</text>
+  <rect class="box" x="287" y="26" width="226" height="52" rx="12"/>
+  <text class="t" x="400" y="58" text-anchor="middle">Admin Console</text>
+  <rect class="box" x="534" y="26" width="226" height="52" rx="12"/>
+  <text class="t" x="647" y="58" text-anchor="middle">Client Portal</text>
+
+  <path class="ln" d="M153 78 L153 104 L400 104" marker-end="url(#a)"/>
+  <path class="ln" d="M647 78 L647 104 L400 104" marker-end="url(#a)"/>
+  <path class="ln" d="M400 78 L400 118" marker-end="url(#a)"/>
+
+  <!-- App tier -->
+  <rect class="box" x="40" y="122" width="720" height="64" rx="14"/>
+  <text class="t" x="400" y="150" text-anchor="middle">Next.js 15 · React 19 — Vercel</text>
+  <text class="s" x="400" y="170" text-anchor="middle">199 API route handlers · command palette · notifications</text>
+
+  <path class="ln" d="M400 186 L400 214" marker-end="url(#a)"/>
+
+  <!-- Tenant boundary -->
+  <rect class="bound" x="40" y="218" width="720" height="70" rx="14"/>
+  <text class="k" x="400" y="242" text-anchor="middle">TENANT BOUNDARY</text>
+  <text class="t" x="400" y="266" text-anchor="middle">Supabase Postgres · Row-Level Security</text>
+  <text class="s" x="400" y="282" text-anchor="middle">126 migrations · per-client data scoping</text>
+
+  <path class="ln" d="M215 288 L215 320" marker-end="url(#a)"/>
+  <path class="ln" d="M585 288 L585 320" marker-end="url(#a)"/>
+
+  <!-- Execution + tools -->
+  <rect class="box" x="40" y="324" width="350" height="68" rx="14"/>
+  <text class="t" x="215" y="352" text-anchor="middle">Per-VA Worker · Railway</text>
+  <text class="s" x="215" y="372" text-anchor="middle">spawns claude -p · streams over WebSocket</text>
+
+  <rect class="box" x="410" y="324" width="350" height="68" rx="14"/>
+  <text class="t" x="585" y="352" text-anchor="middle">MCP Servers ×5</text>
+  <text class="s" x="585" y="372" text-anchor="middle">scoped tools handed to the agent</text>
+
+  <path class="ln" d="M390 358 L410 358" marker-end="url(#a)"/>
+  <path class="ln" d="M215 392 L215 424" marker-end="url(#a)"/>
+  <path class="ln" d="M585 392 L585 424" marker-end="url(#a)"/>
+
+  <!-- Sinks -->
+  <rect class="box" x="40" y="428" width="350" height="56" rx="12"/>
+  <text class="t" x="215" y="452" text-anchor="middle">AWS S3</text>
+  <text class="s" x="215" y="470" text-anchor="middle">path-scoped assets · presigned URLs</text>
+
+  <rect class="box" x="410" y="428" width="350" height="56" rx="12"/>
+  <text class="t" x="585" y="452" text-anchor="middle">Pipedream Connect</text>
+  <text class="s" x="585" y="470" text-anchor="middle">3,000+ apps · per-user OAuth identity</text>
+</svg>

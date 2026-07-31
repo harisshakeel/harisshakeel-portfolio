@@ -18,7 +18,13 @@ interface Project {
   href?: string
   tags: string[]
   shot: string
-  /** Show the image contained on a navy panel (for logos) instead of cover. */
+  /**
+   * Light-theme variant of `shot`, for diagram SVGs drawn in cream ink that
+   * would disappear on a light panel. When set, `shot` renders in dark mode
+   * and `shotLight` in light mode.
+   */
+  shotLight?: string
+  /** Show the image contained on a panel (for logos/diagrams) instead of cover. */
   contain?: boolean
   /** Auto-rotating 3D model (.glb) shown in the mockup instead of the shot. */
   model?: string
@@ -42,6 +48,7 @@ const projects: Project[] = [
       "A multi-tenant platform where Claude Code agents run real client work end-to-end: spawned per VA on isolated workers, tool-connected through MCP servers and 3,000+ OAuth apps, with humans holding the approval loop.",
     tags: ["Agentic AI", "Multi-Tenant SaaS", "MCP", "Next.js"],
     shot: "/images/projects/mavis-architecture.svg",
+    shotLight: "/images/projects/mavis-architecture-light.svg",
     contain: true,
   },
   {
@@ -60,6 +67,7 @@ const projects: Project[] = [
       "A real-time CCTV anomaly detection system that runs three trained YOLOv8 models over live RTSP feeds (accident, vandalism, and weapon) and pushes an annotated frame to the operator's phone the moment something fires.",
     tags: ["Computer Vision", "YOLOv8", "Real-time", "Flutter"],
     shot: "/images/projects/sentinel-pipeline.svg",
+    shotLight: "/images/projects/sentinel-pipeline-light.svg",
     contain: true,
   },
   {
@@ -256,14 +264,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         <div
           className={cn(
             "relative aspect-[16/10] w-full overflow-hidden",
-            // 3D model: theme-aware panel (light paper in light mode, navy in dark).
-            project.model &&
+            // Logo/diagram/model panels: light paper in light mode, navy in dark.
+            // Cream-ink diagram SVGs swap to their dark-ink -light variants.
+            (project.contain || project.model) &&
               "bg-screen-panel dark:bg-[radial-gradient(circle_at_50%_-10%,#14244f,#070b18)]",
-            // Diagram/logo panels stay navy in both themes: the pipeline SVGs
-            // are cream-ink artwork that disappears on a light background.
-            project.contain &&
-              !project.model &&
-              "bg-[radial-gradient(circle_at_50%_-10%,#14244f,#070b18)]",
           )}
         >
           {project.model ? (
@@ -274,18 +278,28 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               className="h-full w-full"
             />
           ) : (
-            <Image
-              src={project.shot}
-              alt={`${project.name} ${project.contain ? "logo" : "screenshot"}`}
-              fill
-              sizes="(min-width: 768px) 46vw, 100vw"
-              className={cn(
-                "transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]",
-                project.contain
-                  ? "object-contain p-14"
-                  : "object-cover object-top",
-              )}
-            />
+            (project.shotLight
+              ? [
+                  { src: project.shotLight, visibility: "dark:hidden" },
+                  { src: project.shot, visibility: "hidden dark:block" },
+                ]
+              : [{ src: project.shot, visibility: "" }]
+            ).map(({ src, visibility }) => (
+              <Image
+                key={src}
+                src={src}
+                alt={`${project.name} ${project.contain ? "logo" : "screenshot"}`}
+                fill
+                sizes="(min-width: 768px) 46vw, 100vw"
+                className={cn(
+                  "transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]",
+                  project.contain
+                    ? "object-contain p-14"
+                    : "object-cover object-top",
+                  visibility,
+                )}
+              />
+            ))
           )}
         </div>
       </Link>

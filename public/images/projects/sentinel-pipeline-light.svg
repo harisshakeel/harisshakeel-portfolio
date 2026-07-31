@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Sentinel pipeline: IP cameras over RTSP, frame decimation, three YOLOv8 detectors, confidence arbitration with IoU duplicate suppression, Postgres storage, and push alerting to a Flutter app">
+  <defs>
+    <style>
+      .box   { fill: rgba(25,21,16,0.045); stroke: rgba(25,21,16,0.34); stroke-width: 1.25; }
+      .key   { fill: rgba(36,58,134,0.22); stroke: rgba(25,21,16,0.5); stroke-width: 1.5; stroke-dasharray: 7 5; }
+      .t     { fill: #191510; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 17px; font-weight: 600; }
+      .s     { fill: rgba(25,21,16,0.6); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 400; }
+      .ln    { stroke: rgba(25,21,16,0.4); stroke-width: 1.25; fill: none; }
+    </style>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(25,21,16,0.55)"/>
+    </marker>
+  </defs>
+
+  <rect class="box" x="40" y="10" width="720" height="66" rx="13"/>
+  <text class="t" x="400" y="40" text-anchor="middle">Live IP cameras · RTSP</text>
+  <text class="s" x="400" y="60" text-anchor="middle">one processor thread per camera · bounded reconnect on drop</text>
+  <path class="ln" d="M400 76 L400 92" marker-end="url(#a)"/>
+
+  <rect class="box" x="40" y="94" width="720" height="66" rx="13"/>
+  <text class="t" x="400" y="124" text-anchor="middle">Frame decimation</text>
+  <text class="s" x="400" y="144" text-anchor="middle">stream FPS detected, skip interval computed to match the training frame rate</text>
+  <path class="ln" d="M400 160 L400 176" marker-end="url(#a)"/>
+
+  <rect class="box" x="40" y="178" width="720" height="66" rx="13"/>
+  <text class="t" x="400" y="208" text-anchor="middle">Three YOLOv8 detectors</text>
+  <text class="s" x="400" y="228" text-anchor="middle">accident · vandalism · weapon — per-model confidence thresholds, 640×640</text>
+  <path class="ln" d="M400 244 L400 260" marker-end="url(#a)"/>
+
+  <rect class="key" x="40" y="262" width="720" height="66" rx="13"/>
+  <text class="t" x="400" y="292" text-anchor="middle">Arbitration + duplicate suppression</text>
+  <text class="s" x="400" y="312" text-anchor="middle">highest-confidence detection wins · same type with &gt;70% box overlap suppressed as one event</text>
+  <path class="ln" d="M400 328 L400 344" marker-end="url(#a)"/>
+
+  <rect class="box" x="40" y="346" width="720" height="66" rx="13"/>
+  <text class="t" x="400" y="376" text-anchor="middle">Annotate · store</text>
+  <text class="s" x="400" y="396" text-anchor="middle">box burned into the frame server-side · Postgres with row-level security</text>
+  <path class="ln" d="M400 412 L400 428" marker-end="url(#a)"/>
+
+  <rect class="box" x="40" y="430" width="720" height="66" rx="13"/>
+  <text class="t" x="400" y="460" text-anchor="middle">Push alert → Flutter app</text>
+  <text class="s" x="400" y="480" text-anchor="middle">FCM notification carrying the flagged frame · live MJPEG view, history, dashboards</text>
+</svg>
