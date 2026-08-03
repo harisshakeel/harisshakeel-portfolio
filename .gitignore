@@ -42,3 +42,10 @@ config.bat
 
 # Personal CV (do not commit)
 haris_shakeel_resume.pdf
+
+# Raw/unoptimized 3D source exports (regenerate optimized versions into public/models/ instead)
+/models/
+
+# Personal job-search operation: resumes, tracker, outreach drafts, comp figures.
+# Never belongs in a public repo.
+/Application-Tracker/
