@@ -30,58 +30,38 @@ interface Role {
 // Reverse-chronological — most recent first.
 const ROLES: Role[] = [
   {
-    company: "Xision",
+    company: "Naxtech",
+    logo: "/images/companies/naxtech.png",
+    logoDims: { width: 792, height: 150 },
     logoTone: "light",
     role: "AI/ML Engineer",
     location: "Remote",
     current: true,
     summary:
-      "Building the applied computer-vision and simulation pipeline behind virtual try-on: pose estimation, monocular depth, parametric body modelling, and cloth-physics fit derivation that turn a single phone scan into a measurement-accurate 3D body. The through-line is making model output something a product can actually act on: typed, validated, and reviewable rather than prose a human has to re-check.",
-    tags: ["Computer Vision", "3D / Simulation", "PyTorch", "FastAPI"],
-  },
-  {
-    company: "Naxtech",
-    logo: "/images/companies/naxtech.png",
-    logoDims: { width: 792, height: 150 },
-    logoTone: "light",
-    role: "Agentic AI Developer",
-    location: "Remote",
-    summary:
-      "Engineered a multi-tenant agentic AI platform with a dual-pass validation framework, automating research across 13,000+ entities at 95%+ factual accuracy. Ran large-scale competitor research over websites, landing pages, and sales funnels to surface design trends, conversion strategies, and outbound campaign opportunities.",
-    tags: ["Agentic AI", "Multi-Tenant SaaS", "Validation", "Research Automation"],
-  },
-  {
-    company: "Devsinc",
-    logo: "/images/companies/devsinc.webp",
-    logoDims: { width: 256, height: 256 },
-    logoTone: "dark",
-    role: "Associate Software Engineer",
-    location: "Lahore",
-    summary:
-      "Built full-stack MERN applications end to end, with React front-ends against Node and Express APIs and the MongoDB schema and query design sitting behind them. Day to day meant REST integrations, authentication and role-based access control, and responsive component work, shipping features into client production codebases alongside a delivery team.",
-    tags: ["MERN", "React", "Node.js", "MongoDB"],
+      "Building the applied computer-vision and simulation pipeline behind xision.ai: pose estimation, monocular depth, parametric body modelling, and cloth-physics fit derivation that turn a single phone scan into a measurement-accurate 3D body and a physically simulated garment fit. Also engineered MAVIS, a multi-tenant platform putting Claude Code agents on real client work, with per-user OAuth across 3,000+ connected apps, Postgres row-level security as the tenant boundary, and humans holding the approval loop on everything an agent produces. The through-line is making model output something a product can actually act on: typed, validated, and reviewable rather than prose a human has to re-check.",
+    tags: ["Computer Vision", "3D / Simulation", "Agentic AI", "FastAPI", "Multi-Tenant SaaS"],
   },
   {
     company: "Payback",
     logo: "/images/companies/payback.png",
     logoDims: { width: 182, height: 50 },
     logoTone: "dark",
-    role: "Associate Technical Lead",
+    role: "Technical Lead",
     location: "Lahore",
     summary:
-      "Led the end-to-end design and build of payback.pk, a live cashback platform with offer pages, onboarding funnels, and mobile-first responsive layouts, while managing a team of four to five designers and interns. Designed conversion-focused landing pages, offer pages, and checkout flows, applying CRO best practices, trust-building UX, and customer journey mapping to cut friction and improve clarity.",
-    tags: ["CRO", "Landing Pages", "Team Lead", "Responsive Design"],
+      "Led the end-to-end build of payback.pk, a live cashback platform with QR-based transactions, POS integration, and TOTP-based authentication behind its financial operations. Managed a team of four to five interns while acting as the primary technical contributor across backend, infrastructure, and core product decisions, and deployed it on AWS as a live platform with active business onboarding and real user transactions.",
+    tags: ["Team Lead", "AWS", "Payments / POS", "Full-Stack"],
   },
   {
     company: "Advance Resources",
     logo: "/images/companies/advance-resources.png",
     logoDims: { width: 200, height: 80 },
     logoTone: "dark",
-    role: "Website Designer & Front-End Developer",
+    role: "Associate Full-Stack Developer",
     location: "Lahore",
     summary:
-      "Designed high-converting landing pages, sales funnels, advertorials, listicles, product pages, and offer pages in Figma for D2C, e-commerce, SaaS, and service brands, then built and optimised them in Replo, Shopify, React, Next.js, and Tailwind. Competitor research across rival sites and funnels fed the direct-response techniques behind each build: CTA placement, social proof, trust badges, FAQs, friction reduction. Shipped work included payback.pk, clusterden.com, greennsolar.com, dynastyfm.com, 613 Guys, Meddo, DevPlob, and Comuni.",
-    tags: ["Figma", "Replo / Shopify", "CRO", "Next.js"],
+      "Designed and implemented clusterden.com, a CRM platform with scalable WhatsApp automation built on an action-trigger workflow engine of triggers, revisions, and runs, wired to the WhatsApp Business API through webhooks for real-time responsiveness. Cut automated message delivery from 20 seconds to 3, shipping weekly demos to consistent stakeholder sign-off. Also built and optimised client sites including greennsolar.com, dynastyfm.com, 613 Guys, Meddo, DevPlob, and Comuni.",
+    tags: ["MERN", "WhatsApp API", "Workflow Automation", "CRM"],
   },
 ]
 
@@ -235,8 +215,8 @@ export function BrutalistExperience() {
             viewport={{ once: true, margin: "-15%" }}
             className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/65 md:text-lg"
           >
-            The teams I&apos;ve built with, from agency delivery work to the AI
-            systems I&apos;m shipping today.
+            The teams I&apos;ve built with, from full-stack product work to the
+            AI systems I&apos;m shipping today.
           </motion.p>
         </div>
 

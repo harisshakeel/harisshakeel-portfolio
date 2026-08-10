@@ -5,11 +5,11 @@ import { motion, type Variants } from "framer-motion"
 const EASE = [0.22, 1, 0.36, 1] as const
 
 // Giant statement, one clause per line (revealed line-by-line).
-const HEADLINE = ["I build agents,", "ship platforms,", "design what converts."]
+const HEADLINE = ["I build agents,", "train models,", "ship real systems."]
 
 const INTRO = [
-  "I'm a Computer Science graduate specializing in Agentic AI and full-stack development. I architect autonomous AI systems with the Claude Agent SDK and Gemini, and build scalable MERN platforms end to end, from databases and APIs to polished, accessible interfaces.",
-  "I also design high-converting landing pages and sales funnels in Figma and Shopify for D2C and e-commerce brands, applying CRO and trust-building UX. Building and designing both means I see the full picture, from first click to checkout.",
+  "I'm a Computer Science graduate and AI/ML engineer working in applied computer vision, physics-based simulation, and agentic AI. I build the pipelines that turn raw input into something a product can act on: pose estimation, monocular depth, parametric body modelling, and cloth-physics fit derivation, typed and validated end to end.",
+  "I also architect autonomous agent systems on the Claude Agent SDK and MCP, and build the full-stack platforms around them in Python, FastAPI, and the MERN stack, from databases and APIs to polished, accessible interfaces.",
   "I'm currently open to new opportunities and collaborations, and always up for building something ambitious.",
 ]
 
