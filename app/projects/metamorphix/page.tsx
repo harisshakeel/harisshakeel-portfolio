@@ -63,7 +63,7 @@ export default function MetamorphixPage() {
     caseStudySchema({
       name: "Metamorphix AI Sales Intelligence Pipeline",
       description:
-        "Multi-agent Python pipeline that researches B2B prospects, scores fit with LLMs, and provisions CRM-ready outreach in Zoho",
+        "Claude-powered Python pipeline that researches B2B prospects, scores fit with LLMs, and provisions CRM-ready outreach in Zoho",
       url: "/projects/metamorphix",
       clientName: "Metamorphix",
     }),

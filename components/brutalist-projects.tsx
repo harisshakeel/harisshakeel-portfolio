@@ -55,7 +55,7 @@ const projects: Project[] = [
     slug: "metamorphix",
     name: "Metamorphix",
     description:
-      "A multi-agent AI pipeline that researches B2B prospects end-to-end with automated web scraping, LLM enrichment, and fit scoring, then provisions personalized, CRM-ready outreach into Zoho.",
+      "A Claude-powered AI pipeline that researches B2B prospects end-to-end with automated web scraping, LLM enrichment, and fit scoring, then provisions personalized, CRM-ready outreach into Zoho.",
     tags: ["AI Automation", "Multi-Agent", "Python", "Zoho CRM"],
     shot: "/images/projects/metamorphix.png",
     contain: true,
