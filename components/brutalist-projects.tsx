@@ -64,10 +64,10 @@ const projects: Project[] = [
   {
     slug: "sentinel",
     name: "Sentinel",
-    niche: "Real-time Computer Vision",
+    niche: "Machine Learning & Real-time Detection",
     description:
       "A real-time CCTV anomaly detection system that runs three trained YOLOv8 models over live RTSP feeds (accident, vandalism, and weapon) and pushes an annotated frame to the operator's phone the moment something fires.",
-    tags: ["Computer Vision", "YOLOv8", "Real-time", "Flutter"],
+    tags: ["Machine Learning", "YOLOv8", "Real-time", "Flutter"],
     shot: "/images/projects/sentinel-pipeline.svg",
     contain: true,
     hoverLogo: { src: "/images/projects/sentinel-logo.svg", bg: "#101419" },

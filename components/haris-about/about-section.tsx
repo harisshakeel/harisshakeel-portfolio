@@ -19,10 +19,26 @@ const EASE = [0.22, 1, 0.36, 1] as const
 // Giant statement, one clause per line (revealed line-by-line).
 const HEADLINE = ["I build agents,", "train models,", "ship real systems."]
 
-const INTRO = [
-  "I'm a Computer Science graduate and AI/ML engineer working in applied computer vision, physics-based simulation, and agentic AI. I build the pipelines that turn raw input into something a product can act on: pose estimation, monocular depth, parametric body modelling, and cloth-physics fit derivation, typed and validated end to end.",
-  "I also architect autonomous agent systems on the Claude Agent SDK and MCP, and build the full-stack platforms around them in Python, FastAPI, and the MERN stack, from databases and APIs to polished, accessible interfaces.",
-  "I'm currently open to new opportunities and collaborations, and always up for building something ambitious.",
+// One plain-language lead, then what that means in practice, a line each.
+const INTRO_LEAD =
+  "I'm an AI/ML engineer and Computer Science graduate. I turn raw camera input and messy workflows into systems a product can actually rely on."
+
+const FOCUS = [
+  {
+    label: "Computer vision",
+    accent: PALETTE.chartreuse,
+    text: "Pipelines that turn a phone scan into an accurate 3D body model: pose estimation, depth, body modelling, and cloth physics.",
+  },
+  {
+    label: "Agentic AI",
+    accent: "#F2B84B",
+    text: "Multi-agent systems on the Claude Agent SDK and MCP, with people kept in the approval loop.",
+  },
+  {
+    label: "Full-stack",
+    accent: "#7CC6B4",
+    text: "The platforms around them in Python, FastAPI, and the MERN stack, from the database to an accessible interface.",
+  },
 ]
 
 // Roles live in <BrutalistExperience /> — see components/brutalist-experience.tsx.
@@ -148,20 +164,21 @@ export function AboutSection() {
           }
         )
 
-        // Word-by-word illumination scrubbed against scroll
+        // Word-by-word illumination on the lead only, scrubbed against scroll.
+        // Starts legible and finishes before the lead reaches mid-screen.
         const split = new SplitText("[data-illuminate]", { type: "words" })
 
         gsap.fromTo(
           split.words,
-          { opacity: 0.12 },
+          { opacity: 0.25 },
           {
             opacity: 1,
             ease: "none",
             stagger: 0.4,
             scrollTrigger: {
               trigger: "[data-about-copy]",
-              start: "top 85%",
-              end: "bottom 68%",
+              start: "top 90%",
+              end: "bottom 60%",
               scrub: true,
             },
           }
@@ -273,23 +290,48 @@ export function AboutSection() {
           ))}
         </h2>
 
-        {/* Intro — word-by-word illumination */}
-        <div data-about-copy className="mt-16 grid gap-8 md:mt-24 md:grid-cols-3 md:gap-12">
-          {INTRO.map((p, i) => (
-            <motion.p
-              key={i}
-              variants={fadeUp}
-              custom={0.1 + i * 0.08}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-10%" }}
-              data-illuminate
-              className="font-hero-sub text-base leading-relaxed md:text-[17px]"
-              style={{ color: PALETTE.warmGrey }}
-            >
-              {p}
-            </motion.p>
-          ))}
+        {/* Intro — a readable lead (lightly illuminated), then three short focus areas */}
+        <div className="mt-16 grid gap-10 md:mt-24 md:grid-cols-12 md:gap-12">
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-10%" }}
+            data-about-copy
+            data-illuminate
+            className="max-w-[34ch] font-hero-sub text-[22px] font-medium leading-[1.45] md:col-span-6 md:text-[28px]"
+            style={{ color: PALETTE.inkOlive }}
+          >
+            {INTRO_LEAD}
+          </motion.p>
+
+          <ul className="space-y-7 md:col-span-6 md:pt-2">
+            {FOCUS.map((item, i) => (
+              <motion.li
+                key={item.label}
+                variants={fadeUp}
+                custom={0.1 + i * 0.08}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-10%" }}
+                className="border-l-[3px] pl-5"
+                style={{ borderColor: item.accent }}
+              >
+                <p
+                  className="font-hero-sub text-[11px] font-semibold uppercase tracking-[0.2em]"
+                  style={{ color: PALETTE.inkOlive }}
+                >
+                  {item.label}
+                </p>
+                <p
+                  className="mt-1.5 max-w-[52ch] font-hero-sub text-base leading-relaxed md:text-[17px]"
+                  style={{ color: PALETTE.warmGrey }}
+                >
+                  {item.text}
+                </p>
+              </motion.li>
+            ))}
+          </ul>
         </div>
 
         {/* Next steps — pill CTAs with a sweep fill */}

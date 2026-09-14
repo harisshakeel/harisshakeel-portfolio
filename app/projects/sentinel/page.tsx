@@ -15,7 +15,7 @@ const data: CaseStudyData = {
   slug: "sentinel",
   client: "Sentinel",
   logo: "/images/projects/sentinel-pipeline.svg",
-  category: "Computer Vision / Real-Time Video Analytics",
+  category: "Machine Learning / Real-Time Video Analytics",
   industry: "Physical security",
   headline:
     "How Sentinel turned ordinary CCTV from a recording system into an alerting one.",

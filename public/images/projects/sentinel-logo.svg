@@ -1,4 +1,4 @@
-<svg width="320" height="300" viewBox="0 0 320 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="300" height="170" viewBox="20 30 300 170" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="cone" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#FF4A3D" stop-opacity="0.55"/>
@@ -25,9 +25,4 @@
     <circle cx="126" cy="105" r="7" fill="#FF4A3D"/>
     <rect x="144" y="100" width="72" height="10" rx="5" fill="#1A1F26" fill-opacity="0.18"/>
   </g>
-
-  <!-- Wordmark -->
-  <text x="160" y="258" text-anchor="middle" fill="#F1EFE8"
-        font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900"
-        font-size="40" letter-spacing="8">SENTINEL</text>
 </svg>
