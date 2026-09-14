@@ -159,7 +159,7 @@ export default function ProjectsPage() {
               {/* Primary, soft glow pill */}
               <Link
                 href="/contact"
-                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-[0_8px_28px_-8px_rgba(168,85,247,0.55)] ring-1 ring-inset ring-foreground/15 transition-all duration-300 hover:shadow-[0_12px_36px_-8px_rgba(168,85,247,0.7)] hover:brightness-110"
+                className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-7 py-3 text-sm font-semibold text-primary-foreground shadow-[0_8px_28px_-8px_rgba(199,243,107,0.35)] ring-1 ring-inset ring-foreground/15 transition-all duration-300 hover:shadow-[0_12px_36px_-8px_rgba(199,243,107,0.5)] hover:brightness-110"
               >
                 <span
                   aria-hidden

@@ -28,30 +28,45 @@ const INTRO = [
 // Roles live in <BrutalistExperience /> — see components/brutalist-experience.tsx.
 
 // Mirrors the Skills section of the current resume — keep the two in sync.
-const STACK: { label: string; items: string[] }[] = [
+// Each group separates the tools themselves from the methods they're used
+// for, so it scans as "what I work with / what I do with it" instead of one
+// undifferentiated wall of pills. `accent` colours the group's index badge.
+type StackGroup = { label: string; accent: string; tools: string[]; methods?: string[] }
+
+const STACK: StackGroup[] = [
   {
     label: "ML & Computer Vision",
-    items: ["PyTorch", "TensorFlow", "Deep Learning", "CNNs", "Transfer Learning", "Model Training & Evaluation", "YOLOv8", "Ultralytics", "OpenCV", "ONNX Runtime", "MediaPipe", "SMPL-X", "Pose Estimation", "Monocular Depth Estimation", "3D Body Modelling", "Cloth-Physics Simulation", "scikit-learn", "SciPy", "NumPy", "Pandas", "Roboflow"],
+    accent: PALETTE.chartreuse,
+    tools: ["PyTorch", "TensorFlow", "OpenCV", "MediaPipe", "ONNX Runtime", "YOLOv8", "Ultralytics", "SMPL-X", "scikit-learn", "SciPy", "NumPy", "Pandas", "Roboflow"],
+    methods: ["Pose estimation", "Monocular depth estimation", "3D body modelling", "Cloth-physics simulation", "Deep learning & CNNs", "Transfer learning", "Model training & evaluation"],
   },
   {
     label: "LLMs & Agentic AI",
-    items: ["Claude Agent SDK", "MCP (Model Context Protocol)", "Multi-Agent Orchestration", "LangChain", "LangGraph", "RAG", "GraphRAG", "Embeddings", "Vector Databases", "Function Calling", "Structured Output", "Prompt Engineering", "Human-in-the-Loop", "GPT-5", "Claude", "Gemini", "Llama", "DeepSeek"],
-  },
-  {
-    label: "Languages",
-    items: ["Python", "TypeScript", "JavaScript", "SQL", "C++", "C# / .NET Core", "Dart"],
+    accent: "#F2B84B",
+    tools: ["Claude Agent SDK", "MCP", "LangChain", "LangGraph", "Vector databases", "Claude", "GPT-5", "Gemini", "Llama", "DeepSeek"],
+    methods: ["Multi-agent orchestration", "RAG & GraphRAG", "Embeddings", "Function calling", "Structured output", "Prompt engineering", "Human-in-the-loop design"],
   },
   {
     label: "Backend & Data",
-    items: ["FastAPI", "Node.js", "Express", "REST APIs", "WebSockets", "OAuth 2.0", "PostgreSQL", "Row-Level Security", "Prisma", "BullMQ", "Redis", "MongoDB", "MySQL", "Supabase", "Pydantic", "pytest", "Slack Bolt", "n8n"],
+    accent: "#7CC6B4",
+    tools: ["FastAPI", "Node.js", "Express", "PostgreSQL", "Supabase", "Prisma", "Redis", "BullMQ", "MongoDB", "MySQL", "Pydantic", "pytest", "Slack Bolt", "n8n"],
+    methods: ["REST APIs", "WebSockets", "OAuth 2.0", "Row-level security"],
   },
   {
     label: "Frontend & Mobile",
-    items: ["React", "Next.js", "MERN Stack", "React Native", "Flutter", "Tailwind CSS", "Redux"],
+    accent: "#8FB3F0",
+    tools: ["React", "Next.js", "React Native", "Flutter", "Tailwind CSS", "Redux"],
+    methods: ["MERN stack"],
   },
   {
     label: "Cloud, DevOps & AI Tools",
-    items: ["Claude Code", "Cursor", "Codex", "Google Cloud (GCP)", "AWS", "Docker", "Sentry", "Railway", "Vercel", "Git", "GitHub", "JIRA"],
+    accent: "#F08F6E",
+    tools: ["Google Cloud (GCP)", "AWS", "Docker", "Railway", "Vercel", "Sentry", "Git", "GitHub", "JIRA", "Claude Code", "Cursor", "Codex"],
+  },
+  {
+    label: "Languages",
+    accent: PALETTE.champagne,
+    tools: ["Python", "TypeScript", "JavaScript", "SQL", "C++", "C# / .NET Core", "Dart"],
   },
 ]
 
@@ -87,7 +102,7 @@ const chipVariant: Variants = {
  * - GSAP word-by-word illumination on intro paragraphs
  * - Decorative rule + "Introduction" eyebrow
  * - Refined warm-ivory palette with richer tones
- * - Smoother chip hover gradients with champagne accent
+ * - Toolkit rows (tools, then methods) with colour-coded group badges
  *
  * All content/data is preserved exactly from the previous version.
  */
@@ -280,63 +295,78 @@ export function AboutSection() {
           </ActionButton>
         </motion.div>
 
-        {/* Tech stack — interactive chips with premium hover */}
-        <div
-          className="mt-16 grid gap-x-12 gap-y-12 border-t pt-14 sm:grid-cols-2 lg:grid-cols-3"
-          style={{ borderColor: `${PALETTE.inkOlive}1a` }}
-        >
-          {STACK.map((group, gi) => (
-            <motion.div
-              key={group.label}
-              variants={chipContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-8%" }}
-            >
-              <motion.div variants={chipVariant} className="mb-4 flex items-baseline gap-3">
-                <span
-                  className="font-hero-sub text-xs tabular-nums"
-                  style={{ color: `${PALETTE.warmGrey}99` }}
-                >
-                  {String(gi + 1).padStart(2, "0")}
-                </span>
-                <h3
-                  className="font-hero-display text-lg uppercase tracking-wide"
-                  style={{ color: PALETTE.inkOlive }}
-                >
-                  {group.label}
-                </h3>
-              </motion.div>
-              <ul className="flex flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <motion.li
-                    key={item}
+        {/* Toolkit — one row per group: the tools, then the methods they're used for */}
+        <div className="mt-20 border-t pt-12 md:mt-24" style={{ borderColor: `${PALETTE.inkOlive}1a` }}>
+          <p
+            className="mb-4 font-hero-sub text-[11px] font-semibold uppercase tracking-[0.3em]"
+            style={{ color: PALETTE.warmGrey }}
+          >
+            (Toolkit)
+          </p>
+          <motion.dl
+            variants={chipContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-8%" }}
+          >
+            {STACK.map((group, gi) => (
+              <motion.div
+                key={group.label}
+                variants={fadeUp}
+                className="grid gap-5 border-b py-7 md:grid-cols-12 md:gap-10 md:py-9"
+                style={{ borderColor: `${PALETTE.inkOlive}14` }}
+              >
+                <dt className="flex items-start gap-4 md:col-span-4">
+                  <motion.span
                     variants={chipVariant}
-                    className="group/chip font-hero-sub relative cursor-default overflow-hidden rounded-full border px-3.5 py-1.5 text-[13.5px] font-medium transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.07]"
-                    style={{ borderColor: `${PALETTE.inkOlive}26` }}
+                    className="flex size-9 shrink-0 items-center justify-center rounded-full font-hero-sub text-xs font-semibold tabular-nums"
+                    style={{ backgroundColor: group.accent, color: PALETTE.inkOlive }}
                   >
-                    {/* Premium dark fill on hover with champagne shimmer */}
-                    <span
-                      className="absolute inset-0 z-0 opacity-0 transition-opacity duration-300 group-hover/chip:opacity-100"
-                      style={{
-                        background: `radial-gradient(130% 130% at 50% 0%, ${PALETTE.smokedOlive} 0%, ${PALETTE.obsidian} 70%)`,
-                      }}
-                    />
-                    {/* Glossy champagne shine sweep */}
-                    <span
-                      className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-1/2 -translate-x-[220%] -skew-x-[20deg] transition-transform duration-700 ease-out group-hover/chip:translate-x-[320%]"
-                      style={{
-                        background: `linear-gradient(90deg, transparent, ${PALETTE.champagne}50, transparent)`,
-                      }}
-                    />
-                    <span className="relative z-10 transition-colors duration-300 text-[#161A15cc] group-hover/chip:text-[#F5F3EC]">
-                      {item}
-                    </span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+                    {String(gi + 1).padStart(2, "0")}
+                  </motion.span>
+                  <span
+                    className="pt-1.5 font-hero-display text-base uppercase leading-snug tracking-wide md:text-lg"
+                    style={{ color: PALETTE.inkOlive }}
+                  >
+                    {group.label}
+                  </span>
+                </dt>
+                <dd className="space-y-3 md:col-span-8">
+                  {[
+                    { label: "Tools", items: group.tools, strong: true },
+                    ...(group.methods ? [{ label: "Methods", items: group.methods, strong: false }] : []),
+                  ].map((line) => (
+                    <div key={line.label} className="grid grid-cols-[4.75rem_1fr] gap-3 md:grid-cols-[5.5rem_1fr]">
+                      <span
+                        className="pt-[0.35em] font-hero-sub text-[11px] font-semibold uppercase tracking-[0.18em]"
+                        style={{ color: `${PALETTE.warmGrey}b3` }}
+                      >
+                        {line.label}
+                      </span>
+                      <p
+                        className={`font-hero-sub leading-[1.8] ${line.strong ? "text-[16px] font-medium md:text-[17px]" : "text-[15px] md:text-base"}`}
+                        style={{ color: line.strong ? PALETTE.inkOlive : PALETTE.warmGrey }}
+                      >
+                        {line.items.map((item, i) => (
+                          <span key={item}>
+                            {i > 0 && (
+                              <>
+                                <span className="sr-only">, </span>
+                                <span aria-hidden className="mx-2" style={{ color: `${PALETTE.inkOlive}40` }}>
+                                  ·
+                                </span>
+                              </>
+                            )}
+                            <span className="whitespace-nowrap">{item}</span>
+                          </span>
+                        ))}
+                      </p>
+                    </div>
+                  ))}
+                </dd>
+              </motion.div>
+            ))}
+          </motion.dl>
         </div>
       </div>
     </section>

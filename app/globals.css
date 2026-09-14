@@ -83,47 +83,49 @@
   }
 
   .dark {
-    /* Dark — near-black canvas with warm cream ink */
-    --background: 240 6% 4%; /* #0a0a0b */
-    --foreground: 43 30% 91%; /* warm cream */
+    /* Dark — olive obsidian canvas, warm ivory ink, chartreuse accent.
+       Mirrors lib/palette.ts so token-driven pages match the redesigned ones. */
+    --background: 100 9% 7%; /* #10120f obsidian */
+    --foreground: 47 31% 94%; /* #f5f3ec ivory */
 
-    --muted: 240 5% 10%;
-    --muted-foreground: 43 20% 91% / 0.62;
-    --muted-foreground-light: 43 20% 91% / 0.5;
-    --muted-foreground-dark: 43 20% 91% / 0.72;
+    --muted: 100 9% 11%;
+    --muted-foreground: 47 20% 91% / 0.62;
+    --muted-foreground-light: 47 20% 91% / 0.5;
+    --muted-foreground-dark: 47 20% 91% / 0.72;
 
-    --card: 240 9% 8%; /* #131318 */
-    --card-foreground: 43 30% 91%;
+    --card: 108 10% 10%; /* #181c17 forest charcoal */
+    --card-foreground: 47 31% 94%;
 
-    --popover: 240 7% 6%;
-    --popover-foreground: 43 30% 91%;
+    --popover: 100 9% 8%;
+    --popover-foreground: 47 31% 94%;
 
-    --primary: 43 30% 91%;
-    --primary-foreground: 240 6% 4%;
-    --primary-dark: 43 20% 80%;
-    --primary-light: 43 30% 96%;
+    /* Primary = chartreuse (#c7f36b) with obsidian text on fills */
+    --primary: 79 85% 69%;
+    --primary-foreground: 100 9% 7%;
+    --primary-dark: 79 60% 55%;
+    --primary-light: 79 90% 80%;
 
-    --secondary: 240 5% 12%;
-    --secondary-foreground: 43 30% 91%;
+    --secondary: 100 9% 13%;
+    --secondary-foreground: 47 31% 94%;
 
-    --accent: 240 5% 14%;
-    --accent-foreground: 43 30% 91%;
+    --accent: 100 9% 15%;
+    --accent-foreground: 47 31% 94%;
 
-    --input: 43 20% 91% / 0.12;
+    --input: 47 20% 91% / 0.12;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 43 20% 91% / 0.12; /* cream hairline */
-    --border-light: 43 20% 91% / 0.08;
-    --border-dark: 43 20% 91% / 0.18;
+    --border: 47 20% 91% / 0.12; /* ivory hairline */
+    --border-light: 47 20% 91% / 0.08;
+    --border-dark: 47 20% 91% / 0.18;
 
-    --ring: 43 30% 91%;
+    --ring: 79 85% 69%;
 
-    /* Decorative glow — soft cream/white */
+    /* Decorative glow — soft ivory */
     --glow: 0 0% 100%;
 
-    --screen: 240 8% 6%;
-    --screen-panel: 240 7% 10%;
+    --screen: 100 9% 7%;
+    --screen-panel: 100 9% 11%;
 
     /* Hero code editor (VSCodeLive) — dark syntax theme (VS Code Dark+). */
     --code-bg: 240 6% 4%;
@@ -327,7 +329,7 @@
   inset: 0;
   background: radial-gradient(
     500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(168, 85, 247, 0.18),
+    rgba(199, 243, 107, 0.14),
     transparent 40%
   );
   opacity: var(--mouse-glow-opacity, 0);

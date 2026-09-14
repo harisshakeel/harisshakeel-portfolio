@@ -243,7 +243,9 @@ export function BrutalistExperience() {
       {/* Section intro panel */}
       <div
         className="relative w-full py-24 md:py-32"
-        style={{ backgroundColor: PALETTE.stoneBeige, color: PALETTE.inkOlive }}
+        // Chartreuse band: the brand accent at full strength, between the
+        // ivory About section and the first (navy) role panel.
+        style={{ backgroundColor: PALETTE.chartreuse, color: PALETTE.inkOlive }}
       >
         <div className="mx-auto w-full max-w-[1600px] px-8 md:px-16">
           <motion.h2

@@ -287,20 +287,20 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
             className="mt-16 border-t pt-10 md:mt-20"
             style={{ borderColor: PALETTE.borderIvory }}
           >
-            <h3 className="font-hero-sub text-[10px] font-semibold uppercase tracking-[0.22em]" style={{ color: PALETTE.sage }}>
+            <h3 className="font-hero-sub text-xs font-semibold uppercase tracking-[0.22em]" style={{ color: PALETTE.chartreuse }}>
               Tech stack
             </h3>
-            <div className="mt-5 flex flex-wrap gap-2">
+            <ul className="mt-5 flex flex-wrap gap-2.5">
               {data.technologies.map((tech) => (
-                <span
+                <li
                   key={tech}
-                  className="font-hero-sub rounded-full border px-3.5 py-1.5 text-xs font-medium"
-                  style={{ borderColor: PALETTE.borderIvory, backgroundColor: `${PALETTE.ivory}08`, color: `${PALETTE.ivory}cc` }}
+                  className="font-hero-sub rounded-full border px-4 py-2 text-sm font-medium"
+                  style={{ borderColor: PALETTE.borderIvory, backgroundColor: `${PALETTE.ivory}0f`, color: `${PALETTE.ivory}eb` }}
                 >
                   {tech}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </motion.section>
         )}
 

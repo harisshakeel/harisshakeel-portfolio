@@ -175,11 +175,18 @@ const scaleUp: Variants = {
 
 const MODAL_HEIGHT = 350
 
+/** Work surface: deep olive, a step lighter and greener than the obsidian footer below. */
+const WORK_BG = "#151B13"
+/** Raised card surface for the client-build grid. */
+const CARD_BG = "#1D241A"
+
 /**
  * Editorial project thumbnail list — hover over a project name to reveal
- * its unique screenshot in a floating modal that follows the cursor.
+ * its unique screenshot in a floating modal that follows the cursor — then
+ * a bento grid of client builds.
  *
- * Uses the Haris dark olive palette — stone beige background, obsidian text.
+ * Dark olive section with ivory type and chartreuse accents, so the work
+ * reads as the most vivid band on the page rather than a grey-beige pause.
  */
 export function BrutalistProjects() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -220,10 +227,19 @@ export function BrutalistProjects() {
   return (
     <section
       id="work"
-      className="relative w-full scroll-mt-24 px-6 py-24 md:px-10 md:py-36"
-      style={{ backgroundColor: PALETTE.stoneBeige, color: PALETTE.inkOlive }}
+      className="relative w-full scroll-mt-24 overflow-hidden border-b px-6 py-24 md:px-10 md:py-36"
+      style={{ backgroundColor: WORK_BG, color: PALETTE.ivory, borderColor: `${PALETTE.ivory}14` }}
     >
-      <div className="mx-auto max-w-7xl">
+      {/* Soft chartreuse wash behind the heading */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[520px]"
+        style={{
+          background: `radial-gradient(60% 70% at 20% 0%, ${PALETTE.chartreuse}1f 0%, transparent 70%)`,
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl">
         {/* Heading */}
         <div className="mb-16 md:mb-24">
           <motion.p
@@ -232,7 +248,7 @@ export function BrutalistProjects() {
             whileInView="visible"
             viewport={{ once: true, margin: "-15%" }}
             className="mb-4 font-mono text-[11px] uppercase tracking-[0.3em]"
-            style={{ color: PALETTE.warmGrey }}
+            style={{ color: PALETTE.chartreuse }}
           >
             (Selected Work)
           </motion.p>
@@ -241,7 +257,7 @@ export function BrutalistProjects() {
             whileInView="visible"
             viewport={{ once: true, margin: "-15%" }}
             className="overflow-hidden font-display uppercase leading-[0.85] tracking-[-0.01em]"
-            style={{ color: PALETTE.inkOlive }}
+            style={{ color: PALETTE.ivory }}
           >
             <motion.span
               variants={{
@@ -260,10 +276,10 @@ export function BrutalistProjects() {
             whileInView="visible"
             viewport={{ once: true, margin: "-15%" }}
             className="mt-6 max-w-2xl text-base leading-relaxed md:text-lg"
-            style={{ color: PALETTE.warmGrey }}
+            style={{ color: PALETTE.sage }}
           >
-            From full-stack platforms and AI systems to high-converting funnels,
-            every build here solves a real-world problem with speed and craft.
+            From computer-vision pipelines and multi-tenant agent platforms to
+            full-stack client builds, every project here shipped and solved a real problem.
           </motion.p>
         </div>
 
@@ -277,10 +293,10 @@ export function BrutalistProjects() {
             {projects.map((project, index) => (
               <li
                 key={project.slug}
-                className="transition-all relative last-of-type:border-b hover:!opacity-100 group-hover:opacity-50"
+                className="transition-all relative last-of-type:border-b hover:!opacity-100 group-hover:opacity-40"
                 style={{
-                  borderTop: `1px solid ${PALETTE.inkOlive}1a`,
-                  borderBottomColor: `${PALETTE.inkOlive}1a`,
+                  borderTop: `1px solid ${PALETTE.ivory}1a`,
+                  borderBottomColor: `${PALETTE.ivory}1a`,
                   paddingInline: "calc(clamp(1em,3vw,4em) * 2)",
                   paddingBlock: "clamp(1em,3vw,4em)",
                 }}
@@ -296,12 +312,18 @@ export function BrutalistProjects() {
                 <div
                   className="flex items-center justify-between max-lg:flex-wrap max-lg:gap-3 relative z-10 pointer-events-none"
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-4 md:gap-6">
+                    <span
+                      className="font-mono text-xs tabular-nums md:text-sm"
+                      style={{ color: PALETTE.chartreuse }}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                     <h3
                       className="font-display uppercase leading-none tracking-tight"
                       style={{
                         fontSize: "calc(clamp(3.25em, 7vw, 8em) * 0.75)",
-                        color: PALETTE.inkOlive,
+                        color: PALETTE.ivory,
                       }}
                     >
                       {project.name}
@@ -313,11 +335,7 @@ export function BrutalistProjects() {
                         rel="noopener noreferrer"
                         aria-label={`Visit ${project.name} live`}
                         data-cursor
-                        className="pointer-events-auto relative z-20 flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
-                        style={{
-                          backgroundColor: `${PALETTE.inkOlive}15`,
-                          color: PALETTE.warmGrey,
-                        }}
+                        className="pointer-events-auto relative z-20 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F5F3EC]/10 text-[#F5F3EC]/70 transition-all duration-300 hover:scale-110 hover:bg-[#C7F36B] hover:text-[#161A15]"
                       >
                         <ArrowUpRight className="h-4 w-4" />
                       </a>
@@ -325,7 +343,7 @@ export function BrutalistProjects() {
                   </div>
                   <p
                     className="text-base font-medium md:text-lg"
-                    style={{ color: PALETTE.warmGrey }}
+                    style={{ color: PALETTE.sage }}
                   >
                     {project.niche}
                   </p>
@@ -407,96 +425,123 @@ export function BrutalistProjects() {
           </motion.div>
         </div>
 
-        {/* Secondary projects — compact card grid */}
-        <div
-          className="mt-20 border-t pt-16"
-          style={{ borderColor: `${PALETTE.inkOlive}1a` }}
-        >
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-10%" }}
-            className="mb-10 font-mono text-[11px] uppercase tracking-[0.3em]"
-            style={{ color: PALETTE.warmGrey }}
-          >
-            (More work)
-          </motion.p>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {secondaryProjects.map((project, i) => (
-              <motion.article
-                key={project.slug}
-                variants={fadeUp}
-                custom={i * 0.06}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-8%" }}
-                className="group overflow-hidden rounded-2xl border transition-colors duration-500"
-                style={{
-                  borderColor: `${PALETTE.inkOlive}15`,
-                  backgroundColor: PALETTE.warmIvory,
-                }}
+        {/* Client builds — bento grid: one wide card, then the rest, with no orphan gaps at 2 or 3 columns */}
+        <div className="mt-24 border-t pt-16 md:mt-32" style={{ borderColor: `${PALETTE.ivory}1a` }}>
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-6 md:mb-14">
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-10%" }}
+            >
+              <p
+                className="mb-3 font-mono text-[11px] uppercase tracking-[0.3em]"
+                style={{ color: PALETTE.chartreuse }}
               >
-                {/* Thumbnail */}
-                <Link href={`/projects/${project.slug}`} data-cursor>
-                  <div className="relative aspect-[16/10] w-full overflow-hidden">
-                    <Image
-                      src={project.shot}
-                      alt={`${project.name} screenshot`}
-                      fill
-                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover object-top transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
-                    />
-                  </div>
-                </Link>
+                (More work)
+              </p>
+              <h3
+                className="font-display text-4xl uppercase leading-none tracking-tight md:text-6xl"
+                style={{ color: PALETTE.ivory }}
+              >
+                Client builds
+              </h3>
+            </motion.div>
+            <motion.p
+              variants={fadeUp}
+              custom={0.1}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-10%" }}
+              className="max-w-sm text-[15px] leading-relaxed"
+              style={{ color: PALETTE.sage }}
+            >
+              Sites, SaaS products, and booking funnels shipped for clients across
+              the US, Canada, the UAE, and Pakistan.
+            </motion.p>
+          </div>
 
-                <div className="p-5">
-                  <div className="flex items-start justify-between gap-3">
-                    <Link href={`/projects/${project.slug}`} data-cursor>
-                      <h3
-                        className="font-display text-2xl uppercase leading-none tracking-tight"
-                        style={{ color: PALETTE.inkOlive }}
-                      >
-                        {project.name}
-                      </h3>
-                    </Link>
-                    {project.href && (
-                      <a
-                        href={project.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Visit ${project.name}`}
-                        data-cursor
-                        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-transform duration-300 hover:scale-110"
-                        style={{
-                          backgroundColor: PALETTE.obsidian,
-                          color: PALETTE.ivory,
-                        }}
-                      >
-                        <ArrowUpRight className="h-3.5 w-3.5" />
-                      </a>
-                    )}
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {secondaryProjects.map((project, i) => {
+              const featured = i === 0
+              return (
+                <motion.article
+                  key={project.slug}
+                  variants={fadeUp}
+                  custom={i * 0.06}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-8%" }}
+                  className={cn(
+                    "group flex flex-col overflow-hidden rounded-2xl border border-[#F5F3EC]/10 transition-colors duration-500 hover:border-[#C7F36B]/45",
+                    featured && "md:col-span-2"
+                  )}
+                  style={{ backgroundColor: CARD_BG }}
+                >
+                  {/* Thumbnail — muted until hovered on desktop so five different brand palettes don't compete */}
+                  <Link href={`/projects/${project.slug}`} data-cursor className="block overflow-hidden">
+                    <div className={cn("relative aspect-[16/10] w-full", featured && "lg:aspect-[32/10]")}>
+                      <Image
+                        src={project.shot}
+                        alt={`${project.name} screenshot`}
+                        fill
+                        sizes={featured ? "(min-width: 768px) 66vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"}
+                        className="object-cover object-top transition-[transform,filter] duration-700 ease-out group-hover:scale-[1.03] md:brightness-[.8] md:saturate-[.55] md:group-hover:brightness-100 md:group-hover:saturate-100"
+                      />
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3"
+                        style={{ background: `linear-gradient(to top, ${CARD_BG}, transparent)` }}
+                      />
+                    </div>
+                  </Link>
+
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-xs font-medium" style={{ color: PALETTE.chartreuse }}>
+                          {project.niche}
+                        </p>
+                        <Link href={`/projects/${project.slug}`} data-cursor>
+                          <h4
+                            className="mt-2 font-display text-3xl uppercase leading-none tracking-tight"
+                            style={{ color: PALETTE.ivory }}
+                          >
+                            {project.name}
+                          </h4>
+                        </Link>
+                      </div>
+                      {project.href && (
+                        <a
+                          href={project.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Visit ${project.name}`}
+                          data-cursor
+                          className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[#F5F3EC]/20 text-[#F5F3EC] transition-colors duration-300 hover:border-[#C7F36B] hover:bg-[#C7F36B] hover:text-[#161A15]"
+                        >
+                          <ArrowUpRight className="h-4 w-4" />
+                        </a>
+                      )}
+                    </div>
+                    <p className="mt-3 text-[15px] leading-relaxed" style={{ color: "#C9CEC3" }}>
+                      {project.description}
+                    </p>
+                    <ul className="mt-auto flex flex-wrap gap-2 pt-5" aria-label={`${project.name} focus areas`}>
+                      {project.tags.map((tag) => (
+                        <li
+                          key={tag}
+                          className="rounded-full px-3 py-1 text-[13px]"
+                          style={{ backgroundColor: `${PALETTE.ivory}0f`, color: "#E4E7DF" }}
+                        >
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p
-                    className="mt-2 text-sm leading-relaxed"
-                    style={{ color: PALETTE.warmGrey }}
-                  >
-                    {project.description}
-                  </p>
-                  <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
-                    {project.tags.map((tag) => (
-                      <li
-                        key={tag}
-                        className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em]"
-                        style={{ color: `${PALETTE.warmGrey}99` }}
-                      >
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.article>
-            ))}
+                </motion.article>
+              )
+            })}
           </div>
         </div>
       </div>
