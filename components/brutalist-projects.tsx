@@ -180,8 +180,10 @@ const MODAL_HEIGHT = 350
 
 /** Work surface: deep olive, a step lighter and greener than the obsidian footer below. */
 const WORK_BG = "#151B13"
-/** Raised card surface for the client-build grid. */
-const CARD_BG = "#1D241A"
+/** Light card surface for the client-build grid, sitting on the champagne band. */
+const CARD_BG = "#FAF8F2"
+/** Citron darkened enough to read on the light cards (~5.6:1). */
+const CARD_ACCENT = "#5E6B22"
 /** Client builds get a champagne band: its own colour (ivory is About's), warm against the olive above and obsidian footer below. */
 const BUILDS_BG = PALETTE.champagne
 
@@ -433,7 +435,7 @@ export function BrutalistProjects() {
       </div>
     </section>
 
-    {/* Client builds — bento grid of dark cards on a warm-ivory band: one wide card, then the rest, with no orphan gaps at 2 or 3 columns */}
+    {/* Client builds — bento grid of light cards on a champagne band: one wide card, then the rest, with no orphan gaps at 2 or 3 columns */}
     <section
       aria-labelledby="client-builds-heading"
       className="relative w-full overflow-hidden px-6 py-24 md:px-10 md:py-32"
@@ -487,7 +489,7 @@ export function BrutalistProjects() {
                   whileInView="visible"
                   viewport={{ once: true, margin: "-8%" }}
                   className={cn(
-                    "group flex flex-col overflow-hidden rounded-2xl border border-[#F5F3EC]/10 transition-colors duration-500 hover:border-[#D2E76A]/45",
+                    "group flex flex-col overflow-hidden rounded-2xl border border-[#161A15]/10 shadow-[0_1px_2px_rgba(22,26,21,0.06)] transition-[border-color,box-shadow] duration-500 hover:border-[#161A15]/25 hover:shadow-[0_18px_40px_-18px_rgba(22,26,21,0.35)]",
                     featured && "md:col-span-2"
                   )}
                   style={{ backgroundColor: CARD_BG }}
@@ -500,7 +502,7 @@ export function BrutalistProjects() {
                         alt={`${project.name} screenshot`}
                         fill
                         sizes={featured ? "(min-width: 768px) 66vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"}
-                        className="object-cover object-top transition-[transform,filter] duration-700 ease-out group-hover:scale-[1.03] md:brightness-[.8] md:saturate-[.55] md:group-hover:brightness-100 md:group-hover:saturate-100"
+                        className="object-cover object-top transition-[transform,filter] duration-700 ease-out group-hover:scale-[1.03] md:saturate-[.7] md:group-hover:saturate-100"
                       />
                       <div
                         aria-hidden
@@ -513,13 +515,13 @@ export function BrutalistProjects() {
                   <div className="flex flex-1 flex-col p-6">
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <p className="text-xs font-medium" style={{ color: PALETTE.chartreuse }}>
+                        <p className="text-xs font-semibold" style={{ color: CARD_ACCENT }}>
                           {project.niche}
                         </p>
                         <Link href={`/projects/${project.slug}`} data-cursor>
                           <h4
                             className="mt-2 font-display text-3xl uppercase leading-none tracking-tight"
-                            style={{ color: PALETTE.ivory }}
+                            style={{ color: PALETTE.inkOlive }}
                           >
                             {project.name}
                           </h4>
@@ -532,13 +534,13 @@ export function BrutalistProjects() {
                           rel="noopener noreferrer"
                           aria-label={`Visit ${project.name}`}
                           data-cursor
-                          className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[#F5F3EC]/20 text-[#F5F3EC] transition-colors duration-300 hover:border-[#D2E76A] hover:bg-[#D2E76A] hover:text-[#161A15]"
+                          className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[#161A15]/20 text-[#161A15] transition-colors duration-300 hover:border-[#161A15] hover:bg-[#161A15] hover:text-[#F5F3EC]"
                         >
                           <ArrowUpRight className="h-4 w-4" />
                         </a>
                       )}
                     </div>
-                    <p className="mt-3 text-[15px] leading-relaxed" style={{ color: "#C9CEC3" }}>
+                    <p className="mt-3 text-[15px] leading-relaxed" style={{ color: PALETTE.warmGrey }}>
                       {project.description}
                     </p>
                     <ul className="mt-auto flex flex-wrap gap-2 pt-5" aria-label={`${project.name} focus areas`}>
@@ -546,7 +548,7 @@ export function BrutalistProjects() {
                         <li
                           key={tag}
                           className="rounded-full px-3 py-1 text-[13px]"
-                          style={{ backgroundColor: `${PALETTE.ivory}0f`, color: "#E4E7DF" }}
+                          style={{ backgroundColor: `${PALETTE.inkOlive}0d`, color: PALETTE.inkOlive }}
                         >
                           {tag}
                         </li>
