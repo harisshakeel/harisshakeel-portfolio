@@ -495,7 +495,7 @@ export function BrutalistProjects() {
                   style={{ backgroundColor: CARD_BG }}
                 >
                   {/* Thumbnail — muted until hovered on desktop so five different brand palettes don't compete */}
-                  <Link href={`/projects/${project.slug}`} data-cursor className="block overflow-hidden">
+                  <Link href={`/projects/${project.slug}`} data-cursor className="block overflow-hidden border-b border-[#161A15]/10">
                     <div className={cn("relative aspect-[16/10] w-full", featured && "lg:aspect-[32/10]")}>
                       <Image
                         src={project.shot}
@@ -503,11 +503,6 @@ export function BrutalistProjects() {
                         fill
                         sizes={featured ? "(min-width: 768px) 66vw, 100vw" : "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"}
                         className="object-cover object-top transition-[transform,filter] duration-700 ease-out group-hover:scale-[1.03] md:saturate-[.7] md:group-hover:saturate-100"
-                      />
-                      <div
-                        aria-hidden
-                        className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3"
-                        style={{ background: `linear-gradient(to top, ${CARD_BG}, transparent)` }}
                       />
                     </div>
                   </Link>
