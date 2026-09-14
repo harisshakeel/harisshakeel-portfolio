@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react"
 
 import { TransitionLink } from "@/components/ui/transition-link"
 import { ModelViewer } from "@/components/ui/model-viewer"
+import { PALETTE } from "@/lib/palette"
 
 export interface CaseStudyData {
   /** Slug used to drive the shared-element view transition from the listing */
@@ -57,11 +58,12 @@ const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
 export function CaseStudy({ data }: { data: CaseStudyData }) {
   return (
-    <article className="relative">
-      {/* Soft ambient purple glow */}
+    <article className="relative" style={{ backgroundColor: PALETTE.obsidian, color: PALETTE.ivory }}>
+      {/* Soft ambient chartreuse glow — matches the hero/nav accent, not the old purple */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-primary/10 blur-[140px]"
+        className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full blur-[140px]"
+        style={{ backgroundColor: `${PALETTE.chartreuse}14` }}
       />
 
       <div className="relative mx-auto max-w-3xl px-6 pb-32 pt-12 md:pt-20">
@@ -73,7 +75,8 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
         >
           <TransitionLink
             href="/"
-            className="group inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            className="font-hero-sub group inline-flex items-center gap-2 text-sm transition-colors"
+            style={{ color: PALETTE.sage }}
           >
             <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
             Back to home
@@ -88,8 +91,8 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
           className="mt-12 md:mt-16"
         >
           <div
-            style={{ viewTransitionName: `project-${data.slug}-chip` }}
-            className="flex h-28 w-28 items-center justify-center rounded-2xl border border-foreground/[0.08] bg-foreground/[0.04] backdrop-blur-sm md:h-32 md:w-32"
+            style={{ viewTransitionName: `project-${data.slug}-chip`, borderColor: PALETTE.borderIvory, backgroundColor: `${PALETTE.ivory}0a` }}
+            className="flex h-28 w-28 items-center justify-center rounded-2xl border backdrop-blur-sm md:h-32 md:w-32"
           >
             <Image
               src={data.logo}
@@ -100,14 +103,24 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
             />
           </div>
 
-          <span className="mt-8 inline-flex w-fit items-center rounded-md bg-primary/15 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary ring-1 ring-inset ring-primary/20">
+          <span
+            className="font-hero-sub mt-8 inline-flex w-fit items-center rounded-md px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] ring-1 ring-inset"
+            style={{
+              backgroundColor: `${PALETTE.chartreuse}26`,
+              color: PALETTE.chartreuse,
+              boxShadow: `inset 0 0 0 1px ${PALETTE.chartreuse}33`,
+            }}
+          >
             {data.category}
           </span>
 
-          <h1 className="mt-5 text-4xl font-semibold leading-[1.1] tracking-[-0.025em] text-foreground md:text-5xl lg:text-[56px]">
+          <h1
+            className="font-hero-display mt-5 text-4xl uppercase leading-[1.1] tracking-tight md:text-5xl lg:text-[56px]"
+            style={{ color: PALETTE.ivory }}
+          >
             {data.headline}
           </h1>
-          <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
+          <p className="font-hero-sub mt-6 text-lg leading-relaxed md:text-xl" style={{ color: PALETTE.sage }}>
             {data.summary}
           </p>
         </motion.header>
@@ -119,21 +132,27 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7, ease: easeOut }}
-            className="mt-14 grid grid-cols-2 gap-x-6 gap-y-6 border-y border-foreground/[0.07] py-8 md:mt-20 md:grid-cols-4"
+            className="mt-14 grid grid-cols-2 gap-x-6 gap-y-6 border-y py-8 md:mt-20 md:grid-cols-4"
+            style={{ borderColor: PALETTE.borderIvory }}
           >
             {data.industry && <MetaItem label="Industry" value={data.industry} />}
             {data.founded && <MetaItem label="Founded" value={data.founded} />}
             {data.partnership && <MetaItem label="Partnership" value={data.partnership} />}
             {data.website && (
               <div className="flex flex-col gap-1.5">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                <span
+                  className="font-hero-sub text-[10px] font-semibold uppercase tracking-[0.2em]"
+                  style={{ color: PALETTE.sage }}
+                >
                   Website
                 </span>
                 <a
                   href={data.website.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex w-fit items-center gap-1 text-sm font-medium text-foreground transition-colors hover:text-primary"
+                  data-cursor
+                  className="font-hero-sub group inline-flex w-fit items-center gap-1 text-sm font-medium transition-colors"
+                  style={{ color: PALETTE.ivory }}
                 >
                   {data.website.label}
                   <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -152,18 +171,24 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
             transition={{ duration: 0.8, ease: easeOut }}
             className="mt-14 md:mt-20"
           >
-            <div className="relative overflow-hidden rounded-2xl border border-foreground/[0.08] bg-foreground/[0.03]">
+            <div
+              className="relative overflow-hidden rounded-2xl border"
+              style={{ borderColor: PALETTE.borderIvory, backgroundColor: `${PALETTE.ivory}08` }}
+            >
               <ModelViewer
                 src={data.model.src}
                 alt={data.model.alt}
                 className="h-[440px] w-full md:h-[560px]"
               />
-              <span className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full border border-foreground/10 bg-background/70 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground backdrop-blur-sm">
+              <span
+                className="font-hero-sub pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full border px-3 py-1 text-[10px] uppercase tracking-[0.18em] backdrop-blur-sm"
+                style={{ borderColor: PALETTE.borderIvory, backgroundColor: `${PALETTE.obsidian}b3`, color: PALETTE.sage }}
+              >
                 Drag to rotate
               </span>
             </div>
             {data.model.caption && (
-              <figcaption className="mt-4 text-sm leading-relaxed text-muted-foreground">
+              <figcaption className="font-hero-sub mt-4 text-sm leading-relaxed" style={{ color: PALETTE.sage }}>
                 {data.model.caption}
               </figcaption>
             )}
@@ -180,11 +205,11 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.7, ease: easeOut, delay: Math.min(i * 0.05, 0.2) }}
             >
-              <h2 className="text-2xl font-semibold tracking-[-0.015em] text-foreground md:text-3xl">
+              <h2 className="font-hero-display text-2xl uppercase tracking-tight md:text-3xl" style={{ color: PALETTE.ivory }}>
                 {section.heading}
               </h2>
               {section.body && (
-                <p className="mt-5 text-base leading-[1.75] text-muted-foreground md:text-lg">
+                <p className="font-hero-sub mt-5 text-base leading-[1.75] md:text-lg" style={{ color: PALETTE.sage }}>
                   {section.body}
                 </p>
               )}
@@ -193,11 +218,13 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
                   {section.bullets.map((b) => (
                     <li
                       key={b}
-                      className="flex items-start gap-3 text-base leading-relaxed text-muted-foreground md:text-lg"
+                      className="font-hero-sub flex items-start gap-3 text-base leading-relaxed md:text-lg"
+                      style={{ color: PALETTE.sage }}
                     >
                       <span
                         aria-hidden
-                        className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+                        className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: PALETTE.chartreuse }}
                       />
                       <span>{b}</span>
                     </li>
@@ -215,15 +242,22 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.8, ease: easeOut }}
-            className="my-16 border-l-2 border-primary/60 pl-6 md:my-20 md:pl-8"
+            className="my-16 border-l-2 pl-6 md:my-20 md:pl-8"
+            style={{ borderColor: `${PALETTE.chartreuse}99` }}
           >
-            <blockquote className="text-2xl font-medium leading-snug tracking-[-0.01em] text-foreground md:text-3xl">
-              <span className="text-primary">&ldquo;</span>
+            <blockquote
+              className="font-hero-display text-2xl leading-snug tracking-tight md:text-3xl"
+              style={{ color: PALETTE.ivory }}
+            >
+              <span style={{ color: PALETTE.chartreuse }}>&ldquo;</span>
               {data.quote.text}
-              <span className="text-primary">&rdquo;</span>
+              <span style={{ color: PALETTE.chartreuse }}>&rdquo;</span>
             </blockquote>
             <figcaption className="mt-6 flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/15 text-xs font-semibold text-primary ring-1 ring-primary/20">
+              <span
+                className="font-hero-sub flex h-9 w-9 items-center justify-center rounded-full text-xs font-semibold ring-1"
+                style={{ backgroundColor: `${PALETTE.chartreuse}26`, color: PALETTE.chartreuse, boxShadow: `inset 0 0 0 1px ${PALETTE.chartreuse}33` }}
+              >
                 {data.quote.author
                   .split(" ")
                   .map((s) => s[0])
@@ -232,10 +266,10 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
                   .toUpperCase()}
               </span>
               <div className="flex flex-col">
-                <span className="text-sm font-medium text-foreground">
+                <span className="font-hero-sub text-sm font-medium" style={{ color: PALETTE.ivory }}>
                   {data.quote.author}
                 </span>
-                <span className="text-xs text-muted-foreground">
+                <span className="font-hero-sub text-xs" style={{ color: PALETTE.sage }}>
                   {data.quote.role}
                 </span>
               </div>
@@ -250,16 +284,18 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7, ease: easeOut }}
-            className="mt-16 border-t border-foreground/[0.07] pt-10 md:mt-20"
+            className="mt-16 border-t pt-10 md:mt-20"
+            style={{ borderColor: PALETTE.borderIvory }}
           >
-            <h3 className="text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
+            <h3 className="font-hero-sub text-[10px] font-semibold uppercase tracking-[0.22em]" style={{ color: PALETTE.sage }}>
               Tech stack
             </h3>
             <div className="mt-5 flex flex-wrap gap-2">
               {data.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full border border-foreground/10 bg-foreground/[0.03] px-3.5 py-1.5 text-xs font-medium text-foreground/80"
+                  className="font-hero-sub rounded-full border px-3.5 py-1.5 text-xs font-medium"
+                  style={{ borderColor: PALETTE.borderIvory, backgroundColor: `${PALETTE.ivory}08`, color: `${PALETTE.ivory}cc` }}
                 >
                   {tech}
                 </span>
@@ -275,14 +311,16 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.8, ease: easeOut }}
-            className="mt-20 flex border-t border-foreground/[0.07] pt-10 md:mt-28"
+            className="mt-20 flex border-t pt-10 md:mt-28"
+            style={{ borderColor: PALETTE.borderIvory }}
           >
             <a
               href={data.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              data-cursor
-              className="inline-flex items-center gap-1.5 rounded-full border border-foreground/15 bg-foreground/[0.03] px-5 py-2.5 text-sm font-medium text-foreground/90 transition-colors hover:border-foreground/25 hover:bg-foreground/[0.06]"
+              data-cursor="cta"
+              className="font-hero-sub inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 text-sm font-medium transition-colors"
+              style={{ backgroundColor: PALETTE.chartreuse, color: PALETTE.obsidian }}
             >
               {data.liveLabel ?? "View live site"}
               <ArrowUpRight className="h-3.5 w-3.5" />
@@ -297,10 +335,10 @@ export function CaseStudy({ data }: { data: CaseStudyData }) {
 function MetaItem({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+      <span className="font-hero-sub text-[10px] font-semibold uppercase tracking-[0.2em]" style={{ color: PALETTE.sage }}>
         {label}
       </span>
-      <span className="text-sm font-medium text-foreground">{value}</span>
+      <span className="font-hero-sub text-sm font-medium" style={{ color: PALETTE.ivory }}>{value}</span>
     </div>
   )
 }

@@ -111,7 +111,7 @@ export function Header() {
 						<motion.div style={{ scale: useTransform(scrollY, [0, 90], [1, 0.9]) }}>
 							<Image
 								src="/logos/logo.png"
-								alt="TwoPixel"
+								alt="Haris Shakeel"
 								width={100}
 								height={32}
 								className="h-7 w-auto object-contain"
@@ -119,7 +119,7 @@ export function Header() {
 							/>
 						</motion.div>
 						<span className="text-foreground font-semibold tracking-tight text-sm hidden sm:block">
-							TwoPixel
+							Haris Shakeel
 						</span>
 					</Link>
 

@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { Anton, Space_Grotesk, Geist_Mono, Press_Start_2P } from 'next/font/google'
+import { Anton, Space_Grotesk, Geist_Mono, Press_Start_2P, Montserrat, Michroma } from 'next/font/google'
 import StoreProvider from '@/components/store-provider'
-import { ThemeProvider } from '@/components/theme-provider'
 import { FloatingContactWidgetLazy } from '@/components/floating-contact-widget-lazy'
 import { CursorDot } from '@/components/ui/cursor-dot'
+import SmoothScroll from '@/components/smooth-scroll'
 import { defaultMetadata, personSchema, websiteSchema } from '@/lib/seo'
+import 'lenis/dist/lenis.css'
 import './globals.css'
 
 // Brutalist editorial type system: Anton for giant display headings,
@@ -14,6 +15,16 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-sans"
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
 const pressStart = Press_Start_2P({ subsets: ["latin"], weight: "400", variable: "--font-pixel", display: "swap" });
 
+// Hero-only pairing (components/haris-hero/) — Michroma, a wide geometric
+// display face (its only weight is 400; Tailwind's `font-bold` etc. on it
+// just triggers the browser's own synthetic-bold, which is fine for a face
+// this wide already), for the big cinematic headlines; Montserrat for the
+// smaller supporting copy. The italic accent word still uses Apple's
+// system serif "New York" (--font-hero-serif, declared as a plain CSS font
+// stack in globals.css since it isn't a Google font).
+const heroDisplay = Michroma({ subsets: ["latin"], weight: "400", variable: "--font-hero-display", display: "swap" });
+const heroSub = Montserrat({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-hero-sub", display: "swap" });
+
 export const metadata: Metadata = defaultMetadata
 
 export default function RootLayout({
@@ -22,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${anton.variable} ${geistMono.variable} ${pressStart.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${spaceGrotesk.variable} ${anton.variable} ${geistMono.variable} ${pressStart.variable} ${heroDisplay.variable} ${heroSub.variable} dark`} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -34,18 +45,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
           <StoreProvider>
-            {children}
+            <SmoothScroll>{children}</SmoothScroll>
             <FloatingContactWidgetLazy />
             <CursorDot />
           </StoreProvider>
-        </ThemeProvider>
       </body>
     </html>
   )

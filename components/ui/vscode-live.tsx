@@ -267,7 +267,7 @@ export function VSCodeLive() {
         </div>
         <div className="flex items-center gap-2 text-[11px] text-code-chrome/60">
           <FolderClosed className="h-3 w-3" />
-          <span>twopixel-agents</span>
+          <span>harisshakeel-agents</span>
           <ChevronRight className="h-3 w-3 text-code-chrome/40" />
           <span>src/hooks</span>
           <ChevronRight className="h-3 w-3 text-code-chrome/40" />
@@ -336,7 +336,7 @@ export function VSCodeLive() {
           <span>Ln {lineFromTyped(typed)}, Col {colFromTyped(typed)}</span>
           <span>UTF-8</span>
           <span>LF</span>
-          <span className="font-semibold">TwoPixel</span>
+          <span className="font-semibold">Haris Shakeel</span>
         </div>
       </div>
     </div>

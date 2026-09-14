@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils"
 
 const faqData = [
   {
-    question: "What is TwoPixel and who is it for?",
+    question: "What is Haris Shakeel and who is it for?",
     answer:
-      "TwoPixel is a two-person indie digital studio specializing in custom software development, design, and digital solutions. We work with startups, growing businesses, and established companies who need high-quality digital products built with expertise and precision.",
+      "Haris Shakeel is a two-person indie digital studio specializing in custom software development, design, and digital solutions. We work with startups, growing businesses, and established companies who need high-quality digital products built with expertise and precision.",
   },
   {
     question: "What services do you offer?",
@@ -150,7 +150,7 @@ export function FAQSection() {
           </span>
         </h2>
         <p className="mx-auto mt-7 max-w-xl text-balance text-[15px] leading-relaxed text-foreground/70 md:text-base">
-          Everything you need to know about TwoPixel and how we work, pricing,
+          Everything you need to know about Haris Shakeel and how we work, pricing,
           process, timelines, and what happens after launch.
         </p>
       </div>

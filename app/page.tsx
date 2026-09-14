@@ -1,5 +1,5 @@
 import { HeroSection } from "@/components/hero-section"
-import { BrutalistAbout } from "@/components/brutalist-about"
+import { AboutSection } from "@/components/haris-about/about-section"
 import { BrutalistExperience } from "@/components/brutalist-experience"
 import { BrutalistProjects } from "@/components/brutalist-projects"
 import { BrutalistFooter } from "@/components/brutalist-footer"
@@ -11,7 +11,9 @@ export default function PortfolioPage() {
       <HeroSection />
 
       {/* About me — giant statement + intro + tech stack */}
-      <BrutalistAbout />
+      <div id="main-content">
+        <AboutSection />
+      </div>
 
       {/* Experience — company logos, roles, timeline */}
       <BrutalistExperience />

@@ -7,7 +7,7 @@ import { CaseStudy, type CaseStudyData } from "@/components/ui/case-study"
 export const metadata: Metadata = buildPageMetadata({
   title: "ClusterDen Case Study, MERN CRM with WhatsApp Automation",
   description:
-    "How TwoPixel built ClusterDen: a MERN-stack CRM workspace with Role-Based Access Control (RBAC), real-time collaboration, and automated WhatsApp integrations.",
+    "How Haris Shakeel built ClusterDen: a MERN-stack CRM workspace with Role-Based Access Control (RBAC), real-time collaboration, and automated WhatsApp integrations.",
   path: "/projects/clusterden",
 })
 

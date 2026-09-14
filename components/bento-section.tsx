@@ -237,14 +237,14 @@ function BrandVisual() {
                 <span className="brand-mark-pulse flex h-7 w-7 items-center justify-center">
                   <Image
                     src="/logos/logo.png"
-                    alt="TwoPixel"
+                    alt="Haris Shakeel"
                     width={28}
                     height={28}
                     className="h-7 w-7 object-contain"
                   />
                 </span>
                 <span className="text-[15px] font-semibold tracking-[-0.02em] text-foreground">
-                  TwoPixel
+                  Haris Shakeel
                 </span>
               </div>
 
@@ -334,12 +334,12 @@ function BrandVisual() {
 function BuildVisual() {
   // Vercel-style deployment dashboard with streaming build logs.
   const logs = [
-    { delay: 0.4, status: "done", label: "Cloning github.com/twopixel/site", time: "2.1s" },
+    { delay: 0.4, status: "done", label: "Cloning github.com/harisshakeel/site", time: "2.1s" },
     { delay: 0.9, status: "done", label: "Installing dependencies (pnpm i)", time: "18.2s" },
     { delay: 1.4, status: "done", label: "Running checks · TypeScript strict", time: "3.4s" },
     { delay: 1.9, status: "done", label: "Building Next.js · 24 routes", time: "12.1s" },
     { delay: 2.4, status: "done", label: "Optimizing assets · 1.8MB gzipped", time: "4.6s" },
-    { delay: 2.9, status: "active", label: "Deploying to twopixel.studio", time: "" },
+    { delay: 2.9, status: "active", label: "Deploying to harisshakeel.studio", time: "" },
   ]
 
   return (
@@ -416,7 +416,7 @@ function BuildVisual() {
         {/* Footer URL bar */}
         <div className="absolute inset-x-0 bottom-0 flex items-center gap-2 border-t border-foreground/[0.06] bg-foreground/[0.015] px-4 py-2 font-mono text-[10px]">
           <span className="text-emerald-600 dark:text-emerald-300/85">●</span>
-          <span className="text-foreground/75">https://twopixel.studio</span>
+          <span className="text-foreground/75">https://harisshakeel.studio</span>
           <span className="ml-auto text-foreground/40">edge · iad1</span>
         </div>
       </div>

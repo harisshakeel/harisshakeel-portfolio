@@ -7,7 +7,7 @@ import { CaseStudy, type CaseStudyData } from "@/components/ui/case-study"
 export const metadata: Metadata = buildPageMetadata({
   title: "Dynasty Petroleum Case Study, Energy Trading Website",
   description:
-    "How TwoPixel built dynastyfm.com: a B2B marketing site for a UAE-based petroleum trading firm with service showcases, partner highlights, and quote request flows.",
+    "How Haris Shakeel built dynastyfm.com: a B2B marketing site for a UAE-based petroleum trading firm with service showcases, partner highlights, and quote request flows.",
   path: "/projects/dynasty",
 })
 

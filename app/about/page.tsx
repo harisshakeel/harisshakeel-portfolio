@@ -12,43 +12,41 @@ import { buildPageMetadata } from "@/lib/seo"
 import { breadcrumbSchema } from "@/lib/schema"
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "About TwoPixel, Indie Digital Studio",
+  title: "About Haris Shakeel, AI/ML & Systems Engineer",
   description:
-    "TwoPixel is a two-person indie digital studio founded by Haris Shakeel and Asma Zahid. We build websites, mobile apps, and AI automations for modern businesses, fast, clean, and built to last.",
+    "Haris Shakeel is an AI/ML and Systems Engineer specializing in applied computer vision, multi-agent AI, and highly scalable full-stack applications.",
   path: "/about",
 })
 
-const whyTwoPixel: ParallaxFeatureItem[] = [
+const aboutHaris: ParallaxFeatureItem[] = [
   {
     id: 1,
     number: "01",
-    title: "Built and Run by the Founders",
+    title: "Engineering from the Ground Up",
     description:
-      "Unlike large agencies where junior talent does most of the work and senior leaders are out of reach, every TwoPixel project is run directly by Haris and Asma, the people who designed and shipped it.\n\nYou get senior-level engineering, design, and product thinking on every call, every commit, every pixel.",
-    imageUrl: "/images/owners/harus.png",
-    imageAlt: "Haris Shakeel, CEO & Co-founder",
-    secondImageUrl: "/images/owners/asmeow.png",
-    secondImageAlt: "Asma Zahid, Co-founder & Designer",
+      "I believe in building systems that solve real problems, from high-performance computer vision pipelines to scalable multi-tenant architectures.\n\nWorking directly on core infrastructure ensures that every layer of the stack is optimized, secure, and built to scale.",
+    imageUrl: "/images/haris-portrait.webp",
+    imageAlt: "Haris Shakeel",
   },
   {
     id: 2,
     number: "02",
-    title: "Collaboration Beats Process",
+    title: "Applied AI & Computer Vision",
     description:
-      "We treat communication and transparency as the product. You get shared notion boards, async Loom updates, and a Slack/WhatsApp line that actually responds, not a ticket queue.\n\nWorking with both early-stage startups and established companies has made us fast where speed matters and structured where stakes are high.",
+      "My recent work focuses heavily on bringing state-of-the-art AI out of research and into production. Whether it's training real-time YOLOv8 models for anomaly detection or developing complex 3D simulation pipelines for virtual try-on software.\n\nI treat AI not as a gimmick, but as a core architectural component that must be reliable, fast, and measurable.",
     imageUrl:
       "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80",
-    imageAlt: "Team collaborating around a whiteboard",
+    imageAlt: "Technical architecture diagramming",
   },
   {
     id: 3,
     number: "03",
     title: "Built to Outlast the Trend Cycle",
     description:
-      "We design and engineer for years, not launch day. Clean architecture, sensible defaults, and Core Web Vitals that hold up months later, even after we've handed the keys over.\n\nMost of the sites and products we shipped 3+ years ago are still running on the same stack, untouched.",
+      "I design and engineer for years, not launch day. Clean architecture, sensible defaults, and robust backend services that hold up months later.\n\nI focus on resilient systems like row-level security in PostgreSQL and distributed agentic AI platforms that operate seamlessly in production.",
     imageUrl:
       "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80",
-    imageAlt: "Developer focused on a laptop with a coffee nearby",
+    imageAlt: "Developer focused on engineering work",
   },
 ]
 
@@ -104,9 +102,9 @@ export default function AboutPage() {
           <Breadcrumb items={crumbs} />
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-6 leading-tight">
-              Two founders.<br />One shared{" "}
+              One engineer.<br />A singular{" "}
               <AnimatedTextCycle
-                words={["mission.", "vision.", "standard.", "obsession.", "promise."]}
+                words={["focus.", "vision.", "standard.", "obsession.", "expertise."]}
                 interval={2800}
                 className="text-primary"
               />
@@ -115,7 +113,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Studio manifesto */}
+      {/* Manifesto */}
       <section className="relative overflow-hidden border-y border-foreground/[0.06]">
         <div
           aria-hidden
@@ -125,7 +123,7 @@ export default function AboutPage() {
           <div className="grid gap-12 md:grid-cols-12">
             <div className="md:col-span-4">
               <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
-                Studio · est. 2025
+                Haris Shakeel
               </p>
             </div>
             <div className="md:col-span-8">
@@ -141,7 +139,7 @@ export default function AboutPage() {
                     delay: 0.1,
                   }}
                 >
-                  {`We're a two-person studio with one rule: ship work we'd be proud to put our names on. `}
+                  {`I build full-stack platforms and AI systems that solve real-world problems. `}
                 </VerticalCutReveal>
                 <VerticalCutReveal
                   splitBy="words"
@@ -155,7 +153,7 @@ export default function AboutPage() {
                     delay: 0.95,
                   }}
                 >
-                  {`No middle management. `}
+                  {`No fluff. `}
                 </VerticalCutReveal>
                 <VerticalCutReveal
                   splitBy="words"
@@ -168,7 +166,7 @@ export default function AboutPage() {
                     delay: 1.15,
                   }}
                 >
-                  {`No template-shop output. No silent weeks.`}
+                  {`Just robust, scalable, and high-performance engineering.`}
                 </VerticalCutReveal>
               </div>
             </div>
@@ -176,21 +174,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Why TwoPixel, parallax */}
-      <ParallaxScrollFeatureSection features={whyTwoPixel} />
+      {/* Why Haris Shakeel, parallax */}
+      <ParallaxScrollFeatureSection features={aboutHaris} />
 
       {/* CTA */}
       <CtaWithTextMarquee
         title="Ready to build something great?"
-        description="Tell us about your project. We respond within 24 hours and start most engagements within a week."
-        primary={{ label: "START A PROJECT", href: "/contact" }}
+        description="I'm open for collaboration on AI and Full-Stack projects."
+        primary={{ label: "GET IN TOUCH", href: "/#contact" }}
         marqueeItems={[
-          "Founders & Execs",
-          "Startup Teams",
-          "SaaS Builders",
-          "Indie Makers",
-          "Ecommerce Brands",
-          "Growth Teams",
+          "Agentic AI",
+          "Computer Vision",
+          "Full-Stack Dev",
+          "MERN Stack",
+          "System Architecture",
+          "AWS / GCP",
         ]}
       />
     </PageLayout>

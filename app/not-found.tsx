@@ -13,7 +13,7 @@ export default function NotFound() {
           <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logos/logo.png"
-              alt="TwoPixel Logo"
+              alt="Haris Shakeel Logo"
               width={120}
               height={40}
               className="h-12 w-auto object-contain"

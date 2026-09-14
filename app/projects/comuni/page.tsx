@@ -7,7 +7,7 @@ import { CaseStudy, type CaseStudyData } from "@/components/ui/case-study"
 export const metadata: Metadata = buildPageMetadata({
   title: "Comuni Case Study, Local Social Platform with Event Discovery",
   description:
-    "How TwoPixel built Comuni: a Next.js social platform connecting communities through local event discovery, interactive maps, and neighborhood networking.",
+    "How Haris Shakeel built Comuni: a Next.js social platform connecting communities through local event discovery, interactive maps, and neighborhood networking.",
   path: "/projects/comuni",
 })
 

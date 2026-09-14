@@ -56,7 +56,7 @@ export function VSCodeMockup() {
           <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
           <div className="w-3 h-3 rounded-full bg-[#28c840]" />
         </div>
-        <span className="ml-3 text-[#6e6a86] text-[11px]">TwoPixel, Visual Studio Code</span>
+        <span className="ml-3 text-[#6e6a86] text-[11px]">Haris Shakeel, Visual Studio Code</span>
       </div>
 
       {/* Tabs */}

@@ -25,6 +25,13 @@ const config = {
         display: ["var(--font-display)", ...fontFamily.sans],
         pixel: ["var(--font-pixel)", ...fontFamily.mono],
         mono: ["var(--font-geist-mono)", ...fontFamily.mono],
+        // Hero-only pairing (components/haris-hero/) — New York (Apple's
+        // system serif) for the big cinematic headlines, distinct from the
+        // site's condensed-poster `font-display` (Anton) used everywhere
+        // else, plus Montserrat for the hero's smaller supporting copy.
+        "hero-display": ["var(--font-hero-display)", ...fontFamily.serif],
+        "hero-serif": ["var(--font-hero-serif)", ...fontFamily.serif],
+        "hero-sub": ["var(--font-hero-sub)", ...fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -72,11 +72,11 @@ export function FullScreenSignup() {
           </motion.p>
           <motion.a
             variants={itemVariants}
-            href="mailto:contact@twopixel.org"
+            href="mailto:harisshakeel061@gmail.com"
             className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground/90 transition-colors hover:text-primary"
           >
             <span className="border-b border-foreground/20 pb-0.5 transition-colors group-hover:border-primary">
-              contact@twopixel.org
+              harisshakeel061@gmail.com
             </span>
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </motion.a>
@@ -129,7 +129,7 @@ export function FullScreenSignup() {
           </motion.p>
           <motion.a
             variants={itemVariants}
-            href="mailto:contact@twopixel.org?subject=Careers"
+            href="mailto:harisshakeel061@gmail.com?subject=Careers"
             className="group mt-8 inline-flex items-center gap-2 text-sm font-medium text-foreground/90 transition-colors hover:text-primary"
           >
             <span className="border-b border-foreground/20 pb-0.5 transition-colors group-hover:border-primary">

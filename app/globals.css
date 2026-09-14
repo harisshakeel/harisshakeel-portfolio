@@ -10,6 +10,14 @@
    * use --font-display (Anton); body/UI use --font-sans (Space Grotesk).
    */
   :root {
+    /* Hero-only italic accent word (components/haris-hero/) — Apple's
+       system serif "New York". Not a next/font/google entry: New York ships
+       with macOS/iOS rather than being fetchable, so it's a plain font
+       stack with a serif fallback for non-Apple browsers. The upright
+       display headlines use --font-hero-display (Michroma), set via
+       next/font/google in app/layout.tsx instead. */
+    --font-hero-serif: "New York", ui-serif, Georgia, "Times New Roman", serif;
+
     /* Light — warm paper canvas with near-black ink */
     --background: 40 33% 95%; /* #f5f2ea */
     --foreground: 240 6% 8%; /* near-black */
@@ -143,8 +151,13 @@
   * {
     @apply border-border;
   }
-  html {
-    scroll-behavior: smooth;
+  /* No `scroll-behavior: smooth` here — Lenis (components/smooth-scroll.tsx)
+     owns page scrolling, and the native smooth behaviour fights it on anchor
+     jumps. Respect users who ask for less motion by handing scroll back. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
   body {
     @apply bg-background text-foreground;
@@ -366,4 +379,30 @@
 
 .glitch-effect {
   animation: glitch 0.3s ease-in-out;
+}
+
+/* Haris hero — cinematic overlays for the scroll-scrubbed frame sequence
+   (components/haris-hero/). Fixed to the viewport, not the scaled canvas
+   stage, so they stay put while the frame beneath them drifts. */
+.hh-vignette {
+  background: radial-gradient(
+    120% 120% at 50% 45%,
+    transparent 72%,
+    rgba(16, 18, 15, 0.16) 100%
+  );
+}
+
+.hh-grain {
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Premium nav — the hover label-swap's incoming duplicate (components/
+   premium-nav/nav-link.tsx). Generated content, so it is never a real DOM
+   text node: unlike a second <span>, it cannot be grabbed by a mouse-drag
+   selection, Cmd+A, or a programmatic Range, no matter what aria/select-
+   none attributes that second span carried. */
+.nav-link-duplicate::after {
+  content: attr(data-label);
 }

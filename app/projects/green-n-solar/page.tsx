@@ -7,7 +7,7 @@ import { CaseStudy, type CaseStudyData } from "@/components/ui/case-study"
 export const metadata: Metadata = buildPageMetadata({
   title: "Green N Solar Case Study, Sustainable Energy Company Website",
   description:
-    "How TwoPixel built Green N Solar: a fast-loading, responsive React website for a sustainable energy company with dynamic UI and seamless domain migration.",
+    "How Haris Shakeel built Green N Solar: a fast-loading, responsive React website for a sustainable energy company with dynamic UI and seamless domain migration.",
   path: "/projects/green-n-solar",
 })
 

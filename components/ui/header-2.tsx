@@ -50,8 +50,8 @@ export function Header() {
 			>
 				{/* Logo */}
 				<Link href="/" className="flex items-center gap-2">
-					<Image src="/logo.png" alt="TwoPixel" width={24} height={24} className="h-6 w-6 object-contain" />
-					<span className="font-semibold text-sm tracking-tight text-foreground">TwoPixel</span>
+					<Image src="/logo.png" alt="Haris Shakeel" width={24} height={24} className="h-6 w-6 object-contain" />
+					<span className="font-semibold text-sm tracking-tight text-foreground">Haris Shakeel</span>
 				</Link>
 
 				{/* Desktop nav */}

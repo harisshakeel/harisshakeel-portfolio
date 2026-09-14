@@ -7,7 +7,7 @@ import { CaseStudy, type CaseStudyData } from "@/components/ui/case-study"
 export const metadata: Metadata = buildPageMetadata({
   title: "Payback Case Study, Full-Stack Loyalty Rewards Platform",
   description:
-    "How TwoPixel built Payback: a full-stack loyalty rewards platform with React, PostgreSQL, QR/barcode scanning, and real-time points tracking.",
+    "How Haris Shakeel built Payback: a full-stack loyalty rewards platform with React, PostgreSQL, QR/barcode scanning, and real-time points tracking.",
   path: "/projects/payback",
 })
 

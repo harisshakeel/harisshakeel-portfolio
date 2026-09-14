@@ -7,7 +7,7 @@ import { CaseStudy, type CaseStudyData } from "@/components/ui/case-study"
 export const metadata: Metadata = buildPageMetadata({
   title: "Meddo Case Study, Business Management System",
   description:
-    "How TwoPixel built Meddo: a comprehensive business management system for contracts, inventory, and user admin with secure authentication and dual-database architecture.",
+    "How Haris Shakeel built Meddo: a comprehensive business management system for contracts, inventory, and user admin with secure authentication and dual-database architecture.",
   path: "/projects/meddo",
 })
 

@@ -7,7 +7,7 @@ import { CaseStudy, type CaseStudyData } from "@/components/ui/case-study"
 export const metadata: Metadata = buildPageMetadata({
   title: "Metamorphix Case Study, Multi-Agent AI Sales Intelligence Pipeline",
   description:
-    "How TwoPixel built Metamorphix: a Python multi-agent pipeline that researches B2B prospects end-to-end, scores fit with LLMs, and provisions personalized, CRM-ready outreach in Zoho.",
+    "How Haris Shakeel built Metamorphix: a Python multi-agent pipeline that researches B2B prospects end-to-end, scores fit with LLMs, and provisions personalized, CRM-ready outreach in Zoho.",
   path: "/projects/metamorphix",
 })
 

@@ -4,17 +4,17 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Login to AI Assistant | TwoPixel',
-  description: 'Sign in to access your TwoPixel AI assistant. Secure login portal for authorized users to chat with our Groq-powered AI chatbot.',
+  title: 'Login to AI Assistant | Haris Shakeel',
+  description: 'Sign in to access your Haris Shakeel AI assistant. Secure login portal for authorized users to chat with our Groq-powered AI chatbot.',
   openGraph: {
-    title: 'Login to AI Assistant | TwoPixel',
-    description: 'Sign in to access your TwoPixel AI assistant. Secure login portal for authorized users.',
+    title: 'Login to AI Assistant | Haris Shakeel',
+    description: 'Sign in to access your Haris Shakeel AI assistant. Secure login portal for authorized users.',
     type: 'website',
   },
   twitter: {
     card: 'summary',
-    title: 'Login to AI Assistant | TwoPixel',
-    description: 'Sign in to access your TwoPixel AI assistant.',
+    title: 'Login to AI Assistant | Haris Shakeel',
+    description: 'Sign in to access your Haris Shakeel AI assistant.',
   },
 }
 */

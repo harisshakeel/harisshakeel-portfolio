@@ -207,13 +207,12 @@ export function BrutalistAbout() {
                   <motion.li
                     key={item}
                     variants={chipVariant}
-                    data-cursor
-                    className="group/chip relative cursor-default select-none overflow-hidden rounded-full border border-foreground/15 bg-foreground/[0.03] px-3.5 py-1.5 text-[13.5px] font-medium text-foreground/80 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.07] hover:border-[#5b6cff]/50 hover:text-white hover:shadow-[0_18px_44px_-10px_rgba(24,44,130,0.95),0_0_22px_-4px_rgba(90,110,255,0.55)]"
+                    className="group relative cursor-default select-none overflow-hidden rounded-full border border-foreground/15 bg-foreground/[0.03] px-3.5 py-1.5 text-[13.5px] font-medium text-foreground/80 transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-[1.07] hover:border-[#5b6cff]/50 hover:text-white hover:shadow-[0_18px_44px_-10px_rgba(24,44,130,0.95),0_0_22px_-4px_rgba(90,110,255,0.55)]"
                   >
                     {/* deep navy fill */}
-                    <span className="absolute inset-0 z-0 bg-[radial-gradient(130%_130%_at_50%_0%,#22326f_0%,#0b1330_55%,#05070f_100%)] opacity-0 transition-opacity duration-300 group-hover/chip:opacity-100" />
+                    <span className="absolute inset-0 z-0 bg-gradient-to-br from-[#22326f] via-[#0b1330] to-[#05070f] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     {/* glossy shine sweep */}
-                    <span className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-1/2 -translate-x-[220%] -skew-x-[20deg] bg-[linear-gradient(90deg,transparent,rgba(160,180,255,0.55),transparent)] transition-transform duration-700 ease-out group-hover/chip:translate-x-[320%]" />
+                    <span className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-1/2 -translate-x-[220%] -skew-x-[20deg] bg-[linear-gradient(90deg,transparent,rgba(160,180,255,0.55),transparent)] transition-transform duration-700 ease-out group-hover:translate-x-[320%]" />
                     <span className="relative z-10">{item}</span>
                   </motion.li>
                 ))}

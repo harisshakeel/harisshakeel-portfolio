@@ -1,7 +1,11 @@
 "use client"
 
 import { Header } from "./header"
-import { BrutalistHero } from "@/components/ui/brutalist-hero"
+import { HarisHeader } from "@/components/haris-header/haris-header"
+
+// The previous scroll-scrubbed 45-frame hero is preserved at:
+//   import { HarisHero } from "@/components/haris-hero/haris-hero"
+// Swap HarisHeader → HarisHero below to revert to the video hero.
 
 export function HeroSection() {
   return (
@@ -11,30 +15,7 @@ export function HeroSection() {
         <Header />
       </div>
 
-      <BrutalistHero
-        firstName="Haris"
-        lastName="Shakeel"
-        imageSrc="/images/owners/harus.png"
-        imageAlt="Haris Shakeel"
-        bookingHref="https://calendly.com/harisshakeel/haris"
-        availabilityText="DM or book a call now"
-        leftLine={
-          <>
-            Agentic AI &amp; full-stack developer, architecting autonomous
-            systems with the{" "}
-            <span className="hl-marker font-medium text-foreground">
-              Claude Agent SDK
-            </span>{" "}
-            and Gemini.
-          </>
-        }
-        rightLine={
-          <>
-            Building scalable MERN platforms end to end, from databases and
-            APIs to polished, accessible interfaces.
-          </>
-        }
-      />
+      <HarisHeader />
     </>
   )
 }

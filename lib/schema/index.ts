@@ -35,7 +35,7 @@ export function serviceSchema({
     image: image ? `${BASE}${image}` : undefined,
     provider: {
       '@type': 'Organization',
-      name: 'TwoPixel',
+      name: 'Haris Shakeel',
       url: BASE,
     },
     areaServed: 'Worldwide',
@@ -83,12 +83,12 @@ export function articleSchema({
     image: image ? `${BASE}${image}` : `${BASE}/images/og-image.png`,
     author: {
       '@type': 'Person',
-      name: authorName ?? 'TwoPixel Team',
+      name: authorName ?? 'Haris Shakeel',
       url: `${BASE}/about`,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'TwoPixel',
+      name: 'Haris Shakeel',
       logo: { '@type': 'ImageObject', url: `${BASE}/logos/logo.png` },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${BASE}${url}` },
@@ -114,7 +114,7 @@ export function caseStudySchema({
     name,
     description,
     url: `${BASE}${url}`,
-    creator: { '@type': 'Organization', name: 'TwoPixel', url: BASE },
+    creator: { '@type': 'Organization', name: 'Haris Shakeel', url: BASE },
     about: { '@type': 'Organization', name: clientName },
     ...(result ? { abstract: result } : {}),
   }
@@ -138,7 +138,7 @@ export function personSchema({
     jobTitle,
     email,
     description,
-    worksFor: { '@type': 'Organization', name: 'TwoPixel', url: BASE },
+    worksFor: { '@type': 'Organization', name: 'Haris Shakeel', url: BASE },
     url: BASE + '/about',
   }
 }
@@ -166,7 +166,7 @@ export function reviewSchema({
       bestRating: 5,
       worstRating: 1,
     },
-    itemReviewed: { '@type': 'Organization', name: 'TwoPixel', url: BASE },
+    itemReviewed: { '@type': 'Organization', name: 'Haris Shakeel', url: BASE },
   }
 }
 
@@ -180,7 +180,7 @@ export function aggregateRatingSchema({
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'TwoPixel',
+    name: 'Haris Shakeel',
     url: BASE,
     aggregateRating: {
       '@type': 'AggregateRating',

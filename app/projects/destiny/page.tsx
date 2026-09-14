@@ -7,7 +7,7 @@ import { CaseStudy, type CaseStudyData } from "@/components/ui/case-study"
 export const metadata: Metadata = buildPageMetadata({
   title: "Destiny.pk Case Study, Online Jewelry Store for Designer's Destiny",
   description:
-    "How TwoPixel built Destiny.pk: an online jewelry store for Designer's Destiny with a curated catalog of AD silver necklace sets, bangles, earrings, and rings, plus cart, wishlist, and WhatsApp ordering.",
+    "How Haris Shakeel built Destiny.pk: an online jewelry store for Designer's Destiny with a curated catalog of AD silver necklace sets, bangles, earrings, and rings, plus cart, wishlist, and WhatsApp ordering.",
   path: "/projects/destiny",
 })
 

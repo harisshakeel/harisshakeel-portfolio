@@ -91,10 +91,10 @@ export function ContactFloatingHero() {
                 Become a Client
               </p>
               <Link
-                href="mailto:contact@twopixel.org"
+                href="mailto:harisshakeel061@gmail.com"
                 className="group inline-block border-b border-foreground/20 pb-1 text-xl font-medium tracking-[-0.01em] text-foreground transition-colors hover:border-primary hover:text-primary md:text-2xl"
               >
-                contact@twopixel.org
+                harisshakeel061@gmail.com
               </Link>
             </motion.div>
           </div>

@@ -7,7 +7,7 @@ import { CaseStudy, type CaseStudyData } from "@/components/ui/case-study"
 export const metadata: Metadata = buildPageMetadata({
   title: "613 Guys Case Study, Commercial Service Website & Booking Funnel",
   description:
-    "How TwoPixel built 613 Guys: a professional commercial service website with optimized image loading, brand identity design, and a client booking conversion funnel.",
+    "How Haris Shakeel built 613 Guys: a professional commercial service website with optimized image loading, brand identity design, and a client booking conversion funnel.",
   path: "/projects/613-guys",
 })
 

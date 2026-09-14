@@ -6,9 +6,9 @@ import { buildPageMetadata } from "@/lib/seo"
 import { breadcrumbSchema } from "@/lib/schema"
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Contact TwoPixel, Start Your Project",
+  title: "Contact Haris Shakeel, Start Your Project",
   description:
-    "Get in touch with TwoPixel to discuss your web development, mobile app, AI automation, or design project. We respond within 24 hours. WhatsApp: +92 322 4778575.",
+    "Get in touch with Haris Shakeel to discuss your web development, mobile app, AI automation, or design project. We respond within 24 hours. WhatsApp: +92 322 4778575.",
   path: "/contact",
 })
 

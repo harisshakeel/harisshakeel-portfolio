@@ -64,7 +64,7 @@ export function ContactFormSection({ variant = "section" }: ContactFormSectionPr
         message: detailsBlock ? `${detailsBlock}\n\n${formData.message}` : formData.message,
       }
 
-      // Send first email (notification to TwoPixel team)
+      // Send first email (notification to Haris Shakeel team)
       await emailjs.send(serviceId, templateId1, templateData, userId)
 
       // Send second email (confirmation to client) - Optional

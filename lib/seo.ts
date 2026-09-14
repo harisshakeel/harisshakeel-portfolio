@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 export const siteConfig = {
   name: 'Haris Shakeel',
-  url: 'https://www.twopixel.org',
+  url: 'https://www.harisshakeel.site',
   description:
     "Haris Shakeel is an Agentic AI and full-stack developer. He architects AI systems with the Claude Agent SDK and builds scalable MERN platforms, and also designs high-converting landing pages and funnels for D2C and e-commerce brands.",
   location: 'Lahore, Pakistan',
@@ -61,7 +61,6 @@ export const defaultMetadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-video-preview': -1, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
-  icons: { icon: '/icon.svg', shortcut: '/icon.svg' },
   manifest: '/manifest.json',
   alternates: { canonical: siteConfig.url },
 }
@@ -140,7 +139,7 @@ export function buildPageMetadata({
       url,
       images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
       type: 'website',
-      siteName: 'TwoPixel',
+      siteName: 'Haris Shakeel',
     },
     twitter: { card: 'summary_large_image', title, description, images: [ogImage] },
     robots: noIndex ? { index: false, follow: false } : undefined,
