@@ -1,29 +1,31 @@
 {
-  "name": "Haris Shakeel - Indie Digital Studio",
+  "name": "Haris Shakeel | AI/ML Engineer",
   "short_name": "Haris Shakeel",
-  "description": "We're a 2-person indie digital studio building websites, apps, and automations for modern businesses. Clean design, fast development, zero corporate BS.",
+  "description": "Haris Shakeel is an AI/ML engineer building applied computer vision, physics-based simulation, and agentic AI systems.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#8b5cf6",
-  "orientation": "portrait-primary",
+  "background_color": "#10120F",
+  "theme_color": "#10120F",
   "icons": [
-    {
-      "src": "/icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
-    },
     {
       "src": "/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
-  "categories": ["business", "productivity", "development"],
+  "categories": ["portfolio", "technology"],
   "lang": "en-US"
 }

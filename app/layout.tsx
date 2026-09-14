@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Anton, Space_Grotesk, Geist_Mono, Press_Start_2P, Montserrat, Michroma } from 'next/font/google'
 import StoreProvider from '@/components/store-provider'
 import { FloatingContactWidgetLazy } from '@/components/floating-contact-widget-lazy'
@@ -26,6 +26,12 @@ const heroDisplay = Michroma({ subsets: ["latin"], weight: "400", variable: "--f
 const heroSub = Montserrat({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-hero-sub", display: "swap" });
 
 export const metadata: Metadata = defaultMetadata
+
+// Browser UI tint (mobile address bar, PWA title bar) — the hero's obsidian.
+export const viewport: Viewport = {
+  themeColor: '#10120F',
+  colorScheme: 'dark',
+}
 
 export default function RootLayout({
   children,
