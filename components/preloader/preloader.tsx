@@ -35,7 +35,10 @@ export function Preloader() {
 
   return (
     <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center cursor-wait bg-background text-foreground"
+      // Sized with top/left + h-screen/w-screen, not `inset-0`: the exit slides
+      // by animating `top`, and `inset-0` also pins `bottom: 0`, which makes the
+      // curtain stretch upward instead of moving off-screen.
+      className="fixed left-0 top-0 z-50 flex h-screen w-screen items-center justify-center cursor-wait bg-background text-foreground"
       variants={slideUp}
       initial="initial"
       exit="exit"
