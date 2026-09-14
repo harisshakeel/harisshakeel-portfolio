@@ -1,11 +1,13 @@
 import { Variants } from "framer-motion";
 
+// Slide with a transform, not `top`: animating `top` on a full-screen fixed
+// element registers a layout shift every frame (~0.8 CLS per page load).
 export const slideUp: Variants = {
   initial: {
-    top: 0,
+    y: 0,
   },
   exit: {
-    top: "-100vh",
+    y: "-100vh",
     transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 },
   },
 };

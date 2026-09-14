@@ -99,6 +99,10 @@ export function PremiumNav() {
 
       <motion.header
         role="banner"
+        // Render the resting geometry in the server HTML. Without this the
+        // header paints unpositioned, then jumps into place on hydration,
+        // which counts as a layout shift.
+        initial={false}
         animate={{
           top: dims.top,
           height: dims.height,

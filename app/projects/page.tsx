@@ -8,9 +8,9 @@ import { ProjectsFeed, type Project } from "@/components/ui/projects-feed"
 import { ProjectsMetrics } from "@/components/ui/projects-metrics"
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Projects & Case Studies, Haris Shakeel Portfolio",
+  title: "Projects & Case Studies",
   description:
-    "Explore Haris Shakeel's portfolio of custom web apps, mobile apps, SaaS platforms, and ecommerce projects. Real results for real clients across multiple industries.",
+    "Case studies by Haris Shakeel in computer vision, machine learning, agentic AI, and full-stack engineering, from production CV pipelines to client builds.",
   path: "/projects",
 })
 

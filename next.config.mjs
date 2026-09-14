@@ -18,6 +18,28 @@ const nextConfig = {
       { protocol: 'https', hostname: 'images.unsplash.com' },
     ],
   },
+  // No Content-Security-Policy on purpose: inline JSON-LD, GSAP, Google Fonts,
+  // Calendly links and the WhatsApp widget would need careful allowlisting.
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()' },
+          { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
+        ],
+      },
+    ]
+  },
+  async redirects() {
+    return [
+      // Retired case study; the page file stays but the URL points at the index.
+      { source: '/projects/destiny', destination: '/projects', permanent: true },
+    ]
+  },
 }
 
 export default nextConfig

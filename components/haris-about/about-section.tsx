@@ -170,7 +170,8 @@ export function AboutSection() {
 
         // Word-by-word illumination on the lead only, scrubbed against scroll.
         // Starts legible and finishes before the lead reaches mid-screen.
-        const split = new SplitText("[data-illuminate]", { type: "words" })
+        // aria "none": the default adds aria-label to the <p>, which isn't allowed on a paragraph.
+        const split = new SplitText("[data-illuminate]", { type: "words", aria: "none" })
 
         gsap.fromTo(
           split.words,

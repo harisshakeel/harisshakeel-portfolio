@@ -4,7 +4,7 @@ export const siteConfig = {
   name: 'Haris Shakeel',
   url: 'https://www.harisshakeel.site',
   description:
-    "Haris Shakeel is an AI/ML engineer building applied computer vision, physics-based simulation, and agentic AI systems, from production CV pipelines to multi-tenant platforms on the Claude Agent SDK and MCP.",
+    "Haris Shakeel is an AI/ML engineer building computer vision, machine learning, and agentic AI systems, from CV pipelines to Claude Agent SDK platforms.",
   location: 'Lahore, Pakistan',
   email: 'harisshakeel061@gmail.com',
   author: 'Haris Shakeel',
@@ -29,6 +29,7 @@ export const defaultMetadata: Metadata = {
     'Haris Shakeel',
     'AI/ML engineer',
     'computer vision engineer',
+    'machine learning engineer',
     'agentic AI developer',
     'Claude Agent SDK',
     'Model Context Protocol',
@@ -92,6 +93,7 @@ export const personSchema = {
   },
   knowsAbout: [
     'Computer Vision',
+    'Machine Learning',
     'Pose Estimation',
     'Monocular Depth Estimation',
     '3D Body Modelling',

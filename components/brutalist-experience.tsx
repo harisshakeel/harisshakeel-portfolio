@@ -128,7 +128,7 @@ function RolePanel({ role, index }: { role: Role; index: number }) {
     <Panel theme={role.theme}>
       <div className="mx-auto flex size-full max-w-[1600px] flex-col px-8 py-24 md:px-16 md:py-28">
         {/* Number */}
-        <span className="block text-sm tabular-nums opacity-50">
+        <span className="block text-sm tabular-nums opacity-75">
           {String(index + 1).padStart(2, "0")}
         </span>
 
@@ -150,7 +150,7 @@ function RolePanel({ role, index }: { role: Role; index: number }) {
               ) : null}
 
               {role.current && (
-                <span className="mt-1 flex shrink-0 items-center gap-2 text-xs uppercase tracking-[0.18em] opacity-60">
+                <span className="mt-1 flex shrink-0 items-center gap-2 text-xs uppercase tracking-[0.18em] opacity-75">
                   <span className="relative flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-70" />
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
@@ -161,7 +161,7 @@ function RolePanel({ role, index }: { role: Role; index: number }) {
             </div>
 
             {/* Summary */}
-            <p className="max-w-[38ch] text-base leading-[1.7] opacity-60 md:text-lg">
+            <p className="max-w-[38ch] text-base leading-[1.7] opacity-75 md:text-lg">
               {role.role}
               {role.location ? ` · ${role.location}` : ""}
             </p>
@@ -276,7 +276,7 @@ export function BrutalistExperience() {
             whileInView={{ opacity: 1 }}
             viewport={VIEWPORT}
             transition={{ duration: 0.9, ease: EASE, delay: 0.45 }}
-            className="mt-10 max-w-md text-base leading-[1.8] opacity-60 md:mt-14"
+            className="mt-10 max-w-md text-base leading-[1.8] opacity-75 md:mt-14"
           >
             The teams I&apos;ve built with, from full-stack product work to the AI systems I&apos;m shipping today.
           </motion.p>

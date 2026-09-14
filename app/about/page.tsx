@@ -12,9 +12,9 @@ import { buildPageMetadata } from "@/lib/seo"
 import { breadcrumbSchema } from "@/lib/schema"
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "About Haris Shakeel, AI/ML & Systems Engineer",
+  title: "About, AI/ML Engineer",
   description:
-    "Haris Shakeel is an AI/ML and Systems Engineer specializing in applied computer vision, multi-agent AI, and highly scalable full-stack applications.",
+    "Haris Shakeel is a Lahore-based AI/ML engineer working across computer vision, machine learning, agentic AI, and full-stack systems in Python and Next.js.",
   path: "/about",
 })
 

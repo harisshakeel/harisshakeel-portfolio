@@ -1,23 +1,14 @@
-// AI Bot layout disabled
+// AI Bot layout disabled. The route still resolves, so keep it out of search indexes.
 
-/*
 import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'AI Chat Assistant | Haris Shakeel',
-  description: 'Chat with our AI-powered assistant for instant help and support. Get answers to your questions using advanced Groq AI technology.',
-  openGraph: {
-    title: 'AI Chat Assistant | Haris Shakeel',
-    description: 'Chat with our AI-powered assistant for instant help and support. Get answers to your questions using advanced Groq AI technology.',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'AI Chat Assistant | Haris Shakeel',
-    description: 'Chat with our AI-powered assistant for instant help and support.',
-  },
-}
-*/
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Assistant',
+  description: 'Private assistant area on the Haris Shakeel portfolio. This page is not intended for search results.',
+  path: '/bot',
+  noIndex: true,
+})
 
 export default function BotLayout({
   children,

@@ -6,9 +6,9 @@ import { buildPageMetadata } from "@/lib/seo"
 import { breadcrumbSchema } from "@/lib/schema"
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Contact Haris Shakeel, Start Your Project",
+  title: "Contact & Hire",
   description:
-    "Get in touch with Haris Shakeel to discuss your web development, mobile app, AI automation, or design project. We respond within 24 hours. WhatsApp: +92 322 4778575.",
+    "Contact Haris Shakeel about AI/ML roles, freelance projects, and collaborations in computer vision, machine learning, and agentic AI. Email or book a call.",
   path: "/contact",
 })
 

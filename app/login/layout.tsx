@@ -1,23 +1,14 @@
-// AI Bot login layout disabled
+// AI Bot login layout disabled. The route still resolves, so keep it out of search indexes.
 
-/*
 import type { Metadata } from 'next'
+import { buildPageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Login to AI Assistant | Haris Shakeel',
-  description: 'Sign in to access your Haris Shakeel AI assistant. Secure login portal for authorized users to chat with our Groq-powered AI chatbot.',
-  openGraph: {
-    title: 'Login to AI Assistant | Haris Shakeel',
-    description: 'Sign in to access your Haris Shakeel AI assistant. Secure login portal for authorized users.',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary',
-    title: 'Login to AI Assistant | Haris Shakeel',
-    description: 'Sign in to access your Haris Shakeel AI assistant.',
-  },
-}
-*/
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Login',
+  description: 'Private login area on the Haris Shakeel portfolio. This page is not intended for search results.',
+  path: '/login',
+  noIndex: true,
+})
 
 export default function LoginLayout({
   children,

@@ -3,8 +3,7 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /bot/
-Disallow: /login/
+# /bot and /login are noindex; leave them crawlable so crawlers can see that.
 
 # AI Crawlers — allowed for GEO (Generative Engine Optimization)
 User-agent: GPTBot

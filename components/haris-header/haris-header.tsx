@@ -125,7 +125,6 @@ export function HarisHeader() {
           fill={true}
           priority={true}
           sizes="100vw"
-          unoptimized
           alt="Haris Shakeel professional portrait"
         />
       </div>
@@ -146,8 +145,10 @@ export function HarisHeader() {
       <div className="relative flex h-full flex-col justify-end gap-2 md:flex-col-reverse md:justify-normal">
         {/* Name marquee — sized by width and height so short (landscape)
             screens don't get a marquee taller than the space it has. */}
-        <div className="select-none">
-          <h1
+        {/* Decorative: the marquee repeats the name four times, so it isn't the
+            page heading. The h1 below carries the name and role instead. */}
+        <div className="select-none" aria-hidden="true">
+          <div
             style={{
               color: PALETTE.ivory,
               fontSize: "clamp(2.75rem, min(15vw, 18vh), 14rem)",
@@ -159,7 +160,7 @@ export function HarisHeader() {
                 <span className="px-4 opacity-30">—</span>
               </span>
             </ParallaxSlider>
-          </h1>
+          </div>
         </div>
 
         {/* Role description — scramble text block */}
@@ -176,13 +177,14 @@ export function HarisHeader() {
               />
             </div>
 
-            <h4
+            <h1
               className="text-[clamp(1.35em,2.1vw,2.4em)] font-light leading-snug short:text-[1.05em]"
               style={{
                 fontFamily: "var(--font-hero-sub)",
                 textShadow: "0 1px 14px rgba(16, 18, 15, 0.45)",
               }}
             >
+              <span className="sr-only">Haris Shakeel, </span>
               {LINES.map((text, index) => (
                 <span
                   key={text}
@@ -194,7 +196,7 @@ export function HarisHeader() {
                   {text}
                 </span>
               ))}
-            </h4>
+            </h1>
           </div>
         </div>
       </div>
