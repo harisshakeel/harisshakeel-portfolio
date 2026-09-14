@@ -480,6 +480,9 @@ export function BrutalistProjects() {
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {secondaryProjects.map((project, i) => {
               const featured = i === 0
+              // At 3 columns this card shares a row with the wide 2:1 card, so its
+              // thumbnail grows to fill the extra height instead of leaving a gap.
+              const besideFeatured = i === 1
               return (
                 <motion.article
                   key={project.slug}
@@ -495,8 +498,22 @@ export function BrutalistProjects() {
                   style={{ backgroundColor: CARD_BG }}
                 >
                   {/* Thumbnail — muted until hovered on desktop so five different brand palettes don't compete */}
-                  <Link href={`/projects/${project.slug}`} data-cursor className="block overflow-hidden border-b border-[#161A15]/10">
-                    <div className={cn("relative aspect-[16/10] w-full", featured && "lg:aspect-[32/10]")}>
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    data-cursor
+                    className={cn(
+                      "block overflow-hidden border-b border-[#161A15]/10",
+                      besideFeatured && "lg:flex lg:grow lg:flex-col"
+                    )}
+                  >
+                    {/* Wide card matches its ~2:1 screenshots; a 32:10 crop cut off their heroes */}
+                    <div
+                      className={cn(
+                        "relative aspect-[16/10] w-full",
+                        featured && "md:aspect-[2/1]",
+                        besideFeatured && "lg:grow"
+                      )}
+                    >
                       <Image
                         src={project.shot}
                         alt={`${project.name} screenshot`}
@@ -507,7 +524,7 @@ export function BrutalistProjects() {
                     </div>
                   </Link>
 
-                  <div className="flex flex-1 flex-col p-6">
+                  <div className={cn("flex flex-1 flex-col p-6", besideFeatured && "lg:flex-none")}>
                     <div className="flex items-start justify-between gap-4">
                       <div>
                         <p className="text-xs font-semibold" style={{ color: CARD_ACCENT }}>
