@@ -181,6 +181,8 @@ const MODAL_HEIGHT = 350
 const WORK_BG = "#151B13"
 /** Raised card surface for the client-build grid. */
 const CARD_BG = "#1D241A"
+/** Client builds get their own warm-ivory band, so they read as a separate chapter from Selected Work. */
+const BUILDS_BG = PALETTE.warmIvory
 
 /**
  * Editorial project thumbnail list — hover over a project name to reveal
@@ -227,10 +229,11 @@ export function BrutalistProjects() {
   }
 
   return (
+    <>
     <section
       id="work"
-      className="relative w-full scroll-mt-24 overflow-hidden border-b px-6 py-24 md:px-10 md:py-36"
-      style={{ backgroundColor: WORK_BG, color: PALETTE.ivory, borderColor: `${PALETTE.ivory}14` }}
+      className="relative w-full scroll-mt-24 overflow-hidden px-6 py-24 md:px-10 md:py-36"
+      style={{ backgroundColor: WORK_BG, color: PALETTE.ivory }}
     >
       {/* Soft chartreuse wash behind the heading */}
       <div
@@ -426,9 +429,16 @@ export function BrutalistProjects() {
             View
           </motion.div>
         </div>
+      </div>
+    </section>
 
-        {/* Client builds — bento grid: one wide card, then the rest, with no orphan gaps at 2 or 3 columns */}
-        <div className="mt-24 border-t pt-16 md:mt-32" style={{ borderColor: `${PALETTE.ivory}1a` }}>
+    {/* Client builds — bento grid of dark cards on a warm-ivory band: one wide card, then the rest, with no orphan gaps at 2 or 3 columns */}
+    <section
+      aria-labelledby="client-builds-heading"
+      className="relative w-full overflow-hidden px-6 py-24 md:px-10 md:py-32"
+      style={{ backgroundColor: BUILDS_BG, color: PALETTE.inkOlive }}
+    >
+      <div className="relative mx-auto max-w-7xl">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-6 md:mb-14">
             <motion.div
               variants={fadeUp}
@@ -438,13 +448,14 @@ export function BrutalistProjects() {
             >
               <p
                 className="mb-3 font-mono text-[11px] uppercase tracking-[0.3em]"
-                style={{ color: PALETTE.chartreuse }}
+                style={{ color: PALETTE.warmGrey }}
               >
                 (More work)
               </p>
               <h3
+                id="client-builds-heading"
                 className="font-display text-4xl uppercase leading-none tracking-tight md:text-6xl"
-                style={{ color: PALETTE.ivory }}
+                style={{ color: PALETTE.inkOlive }}
               >
                 Client builds
               </h3>
@@ -456,7 +467,7 @@ export function BrutalistProjects() {
               whileInView="visible"
               viewport={{ once: true, margin: "-10%" }}
               className="max-w-sm text-[15px] leading-relaxed"
-              style={{ color: PALETTE.sage }}
+              style={{ color: PALETTE.warmGrey }}
             >
               Sites, SaaS products, and booking funnels shipped for clients across
               the US, Canada, the UAE, and Pakistan.
@@ -545,8 +556,8 @@ export function BrutalistProjects() {
               )
             })}
           </div>
-        </div>
       </div>
     </section>
+    </>
   )
 }
