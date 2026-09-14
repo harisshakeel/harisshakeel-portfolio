@@ -36,8 +36,9 @@ const projects: Project[] = [
       "An AI virtual try-on platform that turns a single phone scan into a measurement-accurate 3D body model, then physically simulates how real garments drape on it, returning a fit score, size recommendation, and pressure map instead of a guess.",
     tags: ["Computer Vision", "3D / Simulation", "Python", "FastAPI"],
     shot: "/images/product-ui.jpeg",
-    model: "/models/xision.glb",
     contain: true,
+    // Wordmark captured from xision.ai (it's live type there, not an image file).
+    hoverLogo: { src: "/images/projects/xision-logo.png", bg: "#0B0A0C" },
   },
   {
     slug: "mavis",
