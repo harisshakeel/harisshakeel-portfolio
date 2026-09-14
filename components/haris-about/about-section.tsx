@@ -20,8 +20,9 @@ const EASE = [0.22, 1, 0.36, 1] as const
 const HEADLINE = ["I build agents,", "train models,", "ship real systems."]
 
 // One plain-language lead, then what that means in practice, a line each.
+// Deliberately doesn't open with "I": the headline above already does.
 const INTRO_LEAD =
-  "I'm an AI/ML engineer and Computer Science graduate. I turn raw camera input and messy workflows into systems a product can actually rely on."
+  "AI/ML engineer and Computer Science graduate, turning raw camera input and messy workflows into systems a product can actually rely on."
 
 const FOCUS = [
   {
