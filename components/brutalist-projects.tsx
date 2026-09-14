@@ -17,6 +17,7 @@ interface Project {
   description: string
   href?: string
   tags: string[]
+  shot: string
   shotLight?: string
   model?: string
   contain?: boolean
@@ -150,7 +151,7 @@ const fadeUp: Variants = {
   }),
 }
 
-const scaleUp = {
+const scaleUp: Variants = {
   initial: { scale: 0, x: "-50%", y: "-50%" },
   open: {
     scale: 1,

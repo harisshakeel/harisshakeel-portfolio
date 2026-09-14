@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Dot } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useDimensions } from "@/hooks/use-dimensions";
@@ -22,7 +22,7 @@ export function Preloader() {
   const initialPath = `M0 0 L${width} 0 L${width} ${height} Q${width / 2} ${height + 300} 0 ${height}  L0 0`;
   const targetPath = `M0 0 L${width} 0 L${width} ${height} Q${width / 2} ${height} 0 ${height}  L0 0`;
 
-  const curve = {
+  const curve: Variants = {
     initial: {
       d: initialPath,
       transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] },

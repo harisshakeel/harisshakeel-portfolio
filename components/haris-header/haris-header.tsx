@@ -3,7 +3,7 @@
 import { useRef } from "react";
 
 import { useGSAP } from "@gsap/react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import { Globe, MoveDownRight } from "lucide-react";
@@ -31,7 +31,7 @@ const LINES = [
 const INTRO = { durations: [1.2, 1.4, 1.6], revealDelays: [0.2, 0.3, 0.4] };
 const REPLAY = { durations: [1, 1.1, 1.2], revealDelays: [0.1, 0.15, 0.2] };
 
-const fadeIn = {
+const fadeIn: Variants = {
   initial: { opacity: 0 },
   enter: {
     opacity: 1,

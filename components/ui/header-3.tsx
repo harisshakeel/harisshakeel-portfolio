@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence, type MotionValue } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
@@ -353,20 +353,20 @@ function ListItem({ title, description, icon: Icon, className, href, ...props }:
 
 /* ─── Motion value helpers ───────────────────────────────── */
 
-function useMotionBackground(opacity: ReturnType<typeof useTransform>) {
+function useMotionBackground(opacity: MotionValue<number>) {
 	return useTransform(opacity, (v) => `rgba(10, 10, 14, ${v})`);
 }
 
-function useMotionBoxShadow(alpha: ReturnType<typeof useTransform>) {
+function useMotionBoxShadow(alpha: MotionValue<number>) {
 	return useTransform(alpha, (v) =>
-		`0 0 0 1px rgba(255,255,255,${(v as number) * 0.18}), 0 8px 32px rgba(0,0,0,${v}), 0 2px 8px rgba(0,0,0,${(v as number) * 0.6})`
+		`0 0 0 1px rgba(255,255,255,${v * 0.18}), 0 8px 32px rgba(0,0,0,${v}), 0 2px 8px rgba(0,0,0,${v * 0.6})`
 	);
 }
 
-function useMotionBorder(alpha: ReturnType<typeof useTransform>) {
+function useMotionBorder(alpha: MotionValue<number>) {
 	return useTransform(alpha, (v) => `1px solid rgba(255,255,255,${v})`);
 }
 
-function useMotionBlur(px: ReturnType<typeof useTransform>) {
+function useMotionBlur(px: MotionValue<number>) {
 	return useTransform(px, (v) => `blur(${v}px)`);
 }
