@@ -44,6 +44,9 @@ const FOCUS = [
 
 // Roles live in <BrutalistExperience /> — see components/brutalist-experience.tsx.
 
+/** Toolkit panel surface: smoked olive, lighter than the Work section and footer, so it reads as its own band. */
+const TOOLKIT_BG = PALETTE.smokedOlive
+
 // Mirrors the Skills section of the current resume — keep the two in sync.
 // Each group separates the tools themselves from the methods they're used
 // for, so it scans as "what I work with / what I do with it" instead of one
@@ -194,6 +197,7 @@ export function AboutSection() {
   )
 
   return (
+    <>
     <section
       id="about"
       ref={sectionRef}
@@ -271,8 +275,12 @@ export function AboutSection() {
                 className="block text-[12vw] md:text-[7.5vw] lg:text-[6rem]"
               >
                 {i === HEADLINE.length - 1 ? (
+                  // Underline only the last word: a whole-line inline-block goes full
+                  // width once the line wraps, dragging the underline past the text.
+                  <>
+                  {line.split(" ").slice(0, -1).join(" ")}{" "}
                   <span className="relative inline-block">
-                    {line}
+                    {line.split(" ").at(-1)}
                     <motion.span
                       aria-hidden
                       initial={{ scaleX: 0 }}
@@ -283,6 +291,7 @@ export function AboutSection() {
                       style={{ backgroundColor: PALETTE.chartreuse }}
                     />
                   </span>
+                  </>
                 ) : (
                   line
                 )}
@@ -350,16 +359,44 @@ export function AboutSection() {
           </ActionButton>
         </motion.div>
 
-        {/* Toolkit — one row per group: the tools, then the methods they're used for */}
-        <div className="mt-20 border-t pt-12 md:mt-24" style={{ borderColor: `${PALETTE.inkOlive}1a` }}>
-          <p
-            className="mb-4 font-hero-sub text-[11px] font-semibold uppercase tracking-[0.3em]"
-            style={{ color: PALETTE.warmGrey }}
+      </div>
+    </section>
+
+    {/* Toolkit — its own dark panel: one row per group, the tools, then the methods they're used for */}
+    <section
+      aria-labelledby="toolkit-heading"
+      className="relative w-full overflow-hidden px-6 py-24 md:px-10 md:py-32"
+      style={{ backgroundColor: TOOLKIT_BG, color: PALETTE.ivory }}
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[420px]"
+        style={{ background: `radial-gradient(55% 70% at 85% 0%, ${PALETTE.chartreuse}17 0%, transparent 70%)` }}
+      />
+      <div className="relative mx-auto max-w-7xl">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-10%" }}
+            className="mb-10 md:mb-14"
           >
-            (Toolkit)
-          </p>
+            <p
+              className="mb-4 font-hero-sub text-[11px] font-semibold uppercase tracking-[0.3em]"
+              style={{ color: PALETTE.chartreuse }}
+            >
+              (Toolkit)
+            </p>
+            <h2
+              id="toolkit-heading"
+              className="font-hero-display text-[9vw] uppercase leading-[0.95] tracking-tight md:text-6xl"
+              style={{ color: PALETTE.ivory }}
+            >
+              Tools &amp; methods
+            </h2>
+          </motion.div>
           {/* Each row animates as it scrolls in, so the keywords flow in from the left where you're reading */}
-          <dl>
+          <dl className="border-t" style={{ borderColor: `${PALETTE.ivory}1a` }}>
             {STACK.map((group, gi) => (
               <motion.div
                 key={group.label}
@@ -368,7 +405,7 @@ export function AboutSection() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-12%" }}
                 className="grid gap-5 border-b py-7 md:grid-cols-12 md:gap-10 md:py-9"
-                style={{ borderColor: `${PALETTE.inkOlive}14` }}
+                style={{ borderColor: `${PALETTE.ivory}14` }}
               >
                 <dt className="flex items-start gap-4 md:col-span-4">
                   <motion.span
@@ -381,7 +418,7 @@ export function AboutSection() {
                   <motion.span
                     variants={keywordItem}
                     className="pt-1.5 font-hero-display text-base uppercase leading-snug tracking-wide md:text-lg"
-                    style={{ color: PALETTE.inkOlive }}
+                    style={{ color: PALETTE.ivory }}
                   >
                     {group.label}
                   </motion.span>
@@ -394,21 +431,21 @@ export function AboutSection() {
                     <div key={line.label} className="grid grid-cols-[4.75rem_1fr] gap-3 md:grid-cols-[5.5rem_1fr]">
                       <span
                         className="pt-[0.35em] font-hero-sub text-[11px] font-semibold uppercase tracking-[0.18em]"
-                        style={{ color: `${PALETTE.warmGrey}b3` }}
+                        style={{ color: PALETTE.sage }}
                       >
                         {line.label}
                       </span>
                       <motion.p
                         variants={keywordLine}
                         className={`font-hero-sub leading-[1.8] ${line.strong ? "text-[16px] font-medium md:text-[17px]" : "text-[15px] md:text-base"}`}
-                        style={{ color: line.strong ? PALETTE.inkOlive : PALETTE.warmGrey }}
+                        style={{ color: line.strong ? PALETTE.ivory : PALETTE.sage }}
                       >
                         {line.items.map((item, i) => (
                           <motion.span key={item} variants={keywordItem} className="inline-block whitespace-nowrap">
                             {i > 0 && (
                               <>
                                 <span className="sr-only">, </span>
-                                <span aria-hidden className="mx-2" style={{ color: `${PALETTE.inkOlive}40` }}>
+                                <span aria-hidden className="mx-2" style={{ color: `${PALETTE.ivory}40` }}>
                                   ·
                                 </span>
                               </>
@@ -423,8 +460,8 @@ export function AboutSection() {
               </motion.div>
             ))}
           </dl>
-        </div>
       </div>
     </section>
+    </>
   )
 }

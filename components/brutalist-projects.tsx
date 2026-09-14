@@ -70,7 +70,8 @@ const projects: Project[] = [
     tags: ["Machine Learning", "YOLOv8", "Real-time", "Flutter"],
     shot: "/images/projects/sentinel-pipeline.svg",
     contain: true,
-    hoverLogo: { src: "/images/projects/sentinel-logo.svg", bg: "#101419" },
+    // New filename on purpose: public assets are cached for 4h, and browsers kept the old version with the wordmark.
+    hoverLogo: { src: "/images/projects/sentinel-camera.svg", bg: "#101419" },
   },
   {
     slug: "clusterden",
