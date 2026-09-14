@@ -87,9 +87,21 @@ const fadeUp: Variants = {
   }),
 }
 
-const chipContainer: Variants = {
+/** A toolkit row: badge, label, then each keyword line in turn. */
+const toolkitRow: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.025, delayChildren: 0.05 } },
+  visible: { transition: { staggerChildren: 0.12 } },
+}
+
+/** A line of keywords that flow in from the left, one after another. */
+const keywordLine: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.045 } },
+}
+
+const keywordItem: Variants = {
+  hidden: { opacity: 0, x: -32 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: EASE } },
 }
 
 const chipVariant: Variants = {
@@ -303,16 +315,15 @@ export function AboutSection() {
           >
             (Toolkit)
           </p>
-          <motion.dl
-            variants={chipContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-8%" }}
-          >
+          {/* Each row animates as it scrolls in, so the keywords flow in from the left where you're reading */}
+          <dl>
             {STACK.map((group, gi) => (
               <motion.div
                 key={group.label}
-                variants={fadeUp}
+                variants={toolkitRow}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-12%" }}
                 className="grid gap-5 border-b py-7 md:grid-cols-12 md:gap-10 md:py-9"
                 style={{ borderColor: `${PALETTE.inkOlive}14` }}
               >
@@ -324,12 +335,13 @@ export function AboutSection() {
                   >
                     {String(gi + 1).padStart(2, "0")}
                   </motion.span>
-                  <span
+                  <motion.span
+                    variants={keywordItem}
                     className="pt-1.5 font-hero-display text-base uppercase leading-snug tracking-wide md:text-lg"
                     style={{ color: PALETTE.inkOlive }}
                   >
                     {group.label}
-                  </span>
+                  </motion.span>
                 </dt>
                 <dd className="space-y-3 md:col-span-8">
                   {[
@@ -343,12 +355,13 @@ export function AboutSection() {
                       >
                         {line.label}
                       </span>
-                      <p
+                      <motion.p
+                        variants={keywordLine}
                         className={`font-hero-sub leading-[1.8] ${line.strong ? "text-[16px] font-medium md:text-[17px]" : "text-[15px] md:text-base"}`}
                         style={{ color: line.strong ? PALETTE.inkOlive : PALETTE.warmGrey }}
                       >
                         {line.items.map((item, i) => (
-                          <span key={item}>
+                          <motion.span key={item} variants={keywordItem} className="inline-block whitespace-nowrap">
                             {i > 0 && (
                               <>
                                 <span className="sr-only">, </span>
@@ -357,16 +370,16 @@ export function AboutSection() {
                                 </span>
                               </>
                             )}
-                            <span className="whitespace-nowrap">{item}</span>
-                          </span>
+                            {item}
+                          </motion.span>
                         ))}
-                      </p>
+                      </motion.p>
                     </div>
                   ))}
                 </dd>
               </motion.div>
             ))}
-          </motion.dl>
+          </dl>
         </div>
       </div>
     </section>

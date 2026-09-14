@@ -70,6 +70,7 @@ const projects: Project[] = [
     tags: ["Computer Vision", "YOLOv8", "Real-time", "Flutter"],
     shot: "/images/projects/sentinel-pipeline.svg",
     contain: true,
+    hoverLogo: { src: "/images/projects/sentinel-logo.svg", bg: "#101419" },
   },
   {
     slug: "clusterden",
@@ -98,6 +99,16 @@ const projects: Project[] = [
 /** Secondary projects shown as a compact grid below the main list. */
 const secondaryProjects: Project[] = [
   {
+    slug: "green-n-solar",
+    name: "Green N Solar",
+    niche: "Solar & Lead Generation",
+    description:
+      "A solar company website with service pages, trust-building sections, and lead-capture forms engineered to convert.",
+    href: "https://greennsolar.com",
+    tags: ["Landing Page", "Lead Gen", "Solar"],
+    shot: "/images/projects/green-n-solar/screen-1.png",
+  },
+  {
     slug: "meddo",
     name: "Meddo",
     niche: "Healthcare SaaS",
@@ -116,16 +127,6 @@ const secondaryProjects: Project[] = [
     href: "https://comuni-delta.vercel.app/",
     tags: ["Web App", "Events", "Marketing"],
     shot: "/images/projects/comuni/screen-1.png",
-  },
-  {
-    slug: "green-n-solar",
-    name: "Green N Solar",
-    niche: "Solar & Lead Generation",
-    description:
-      "A solar company website with service pages, trust-building sections, and lead-capture forms engineered to convert.",
-    href: "https://greennsolar.com",
-    tags: ["Landing Page", "Lead Gen", "Solar"],
-    shot: "/images/projects/green-n-solar/screen-1.png",
   },
   {
     slug: "dynasty",
