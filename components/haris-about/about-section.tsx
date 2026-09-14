@@ -26,46 +26,31 @@ const INTRO = [
 
 // Roles live in <BrutalistExperience /> — see components/brutalist-experience.tsx.
 
+// Mirrors the Skills section of the current resume — keep the two in sync.
 const STACK: { label: string; items: string[] }[] = [
   {
-    label: "Programming",
-    items: ["Python", "TypeScript", "JavaScript", "Go", "Java", "C++", "C#", "SQL", "Dart", "PHP"],
+    label: "ML & Computer Vision",
+    items: ["PyTorch", "TensorFlow", "Deep Learning", "CNNs", "Transfer Learning", "Model Training & Evaluation", "YOLOv8", "Ultralytics", "OpenCV", "ONNX Runtime", "MediaPipe", "SMPL-X", "Pose Estimation", "Monocular Depth Estimation", "3D Body Modelling", "Cloth-Physics Simulation", "scikit-learn", "SciPy", "NumPy", "Pandas", "Roboflow"],
   },
   {
-    label: "Frontend",
-    items: ["HTML5", "CSS3", "Tailwind CSS", "Material UI", "Shadcn/UI", "Bootstrap", "React", "Next.js", "Vue.js", "Vite", "Redux", "Zustand", "Framer Motion"],
+    label: "LLMs & Agentic AI",
+    items: ["Claude Agent SDK", "MCP (Model Context Protocol)", "Multi-Agent Orchestration", "LangChain", "LangGraph", "RAG", "GraphRAG", "Embeddings", "Vector Databases", "Function Calling", "Structured Output", "Prompt Engineering", "Human-in-the-Loop", "GPT-5", "Claude", "Gemini", "Llama", "DeepSeek"],
   },
   {
-    label: "Backend",
-    items: ["Node.js", "Express.js", "NestJS", "FastAPI", "Django", "Flask", "ASP.NET Core (.NET)", "Laravel", "REST APIs", "GraphQL", "WebSockets"],
+    label: "Languages",
+    items: ["Python", "TypeScript", "JavaScript", "SQL", "C++", "C# / .NET Core", "Dart"],
   },
   {
-    label: "Mobile",
-    items: ["Flutter", "React Native", "Expo"],
+    label: "Backend & Data",
+    items: ["FastAPI", "Node.js", "Express", "REST APIs", "WebSockets", "OAuth 2.0", "PostgreSQL", "Row-Level Security", "Prisma", "BullMQ", "Redis", "MongoDB", "MySQL", "Supabase", "Pydantic", "pytest", "Slack Bolt", "n8n"],
   },
   {
-    label: "Databases",
-    items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Supabase", "Firebase", "Elasticsearch", "Pinecone", "ChromaDB"],
+    label: "Frontend & Mobile",
+    items: ["React", "Next.js", "MERN Stack", "React Native", "Flutter", "Tailwind CSS", "Redux"],
   },
   {
-    label: "AI / LLMs",
-    items: ["OpenAI API", "GPT-5", "Claude SDK", "Gemini", "Llama", "DeepSeek", "LangChain", "LangGraph", "MCP (Model Context Protocol)", "AI Agents", "RAG", "Embeddings", "Prompt Engineering", "Function Calling", "Vector Databases"],
-  },
-  {
-    label: "Machine Learning",
-    items: ["TensorFlow", "PyTorch", "Hugging Face", "OpenCV", "YOLOv8", "Ultralytics", "NumPy", "Pandas", "Scikit-learn", "Roboflow"],
-  },
-  {
-    label: "Automation",
-    items: ["n8n", "Zapier", "Make", "Cron Jobs"],
-  },
-  {
-    label: "Cloud & DevOps",
-    items: ["Docker", "Kubernetes", "AWS", "Google Cloud (GCP)", "Microsoft Azure", "Cloudflare", "Vercel", "Railway", "Render", "GitHub Actions"],
-  },
-  {
-    label: "Tools",
-    items: ["Git", "GitHub", "Jira", "Figma", "Slack", "Slack Bolt", "Postman", "Prisma", "Drizzle ORM"],
+    label: "Cloud, DevOps & AI Tools",
+    items: ["Claude Code", "Cursor", "Codex", "Google Cloud (GCP)", "AWS", "Docker", "Sentry", "Railway", "Vercel", "Git", "GitHub", "JIRA"],
   },
 ]
 
