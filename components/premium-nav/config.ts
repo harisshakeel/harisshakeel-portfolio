@@ -10,7 +10,7 @@ export type NavStyle = {
   glass: "dark" | "warm-ivory" | "smoked-olive";
 };
 
-/** Center links — desktop only. Contact is reached via the CTA, not a center link. */
+/** Right-aligned links — desktop only. Contact is reached via the CTA, not a nav link. */
 export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },

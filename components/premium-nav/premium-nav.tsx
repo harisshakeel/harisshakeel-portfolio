@@ -112,14 +112,9 @@ export function PremiumNav() {
             ? { duration: 0.35, ease: "easeInOut" }
             : { duration: 0.45, ease: [0.22, 1, 0.36, 1] }
         }
-        // Grid, not flex `justify-between`: with three unevenly-sized
-        // children (a short wordmark, a much wider dot+CTA group), a flex
-        // `justify-between` only evens the *gaps* either side of the middle
-        // item — it lands wherever that leaves it, visibly off toward
-        // whichever outer child is narrower, not at the bar's true centre.
-        // `1fr auto 1fr` forces both outer columns to equal width, so the
-        // centre column is centred regardless of what the other two contain.
-        className="fixed z-50 grid grid-cols-[1fr_auto_1fr] items-center rounded-[18px] px-6"
+        // Brand on the left, links + dot + CTA grouped on the right
+        // (the AsmaPortfolio navbar layout).
+        className="fixed z-50 flex items-center justify-between rounded-[18px] px-6"
         style={{
           backgroundColor: compact ? glassColor : "transparent",
           border: compact ? `1px solid ${PALETTE.borderIvory}` : "1px solid transparent",
@@ -130,7 +125,6 @@ export function PremiumNav() {
         }}
       >
         <motion.div
-          className="justify-self-start"
           initial={reduceMotion ? false : { opacity: 0, y: 12 }}
           animate={mounted ? { opacity: 1, y: 0 } : {}}
           transition={entranceTransition}
@@ -150,32 +144,32 @@ export function PremiumNav() {
           </Link>
         </motion.div>
 
-        <nav className="hidden items-center gap-8 justify-self-center md:flex" aria-label="Primary">
-          {NAV_LINKS.map((link, i) => (
-            <motion.div
-              key={link.href}
-              initial={reduceMotion ? false : { opacity: 0, y: 10 }}
-              animate={mounted ? { opacity: 1, y: 0 } : {}}
-              transition={{ ...entranceTransition, delay: 0.1 + i * 0.06 }}
-            >
-              {isHome ? (
-                <NavLink
-                  label={link.label}
-                  href={link.href}
-                  active={style.id === link.href.slice(1)}
-                  color={textColor}
-                  onNavigate={(href) => handleNavigate(href)}
-                />
-              ) : (
-                <Link href={`/${link.href}`} className="text-[13px] font-medium" style={{ color: textColor }}>
-                  {link.label}
-                </Link>
-              )}
-            </motion.div>
-          ))}
-        </nav>
+        <div className="flex items-center gap-4">
+          <nav className="mr-4 hidden items-center gap-8 md:flex" aria-label="Primary">
+            {NAV_LINKS.map((link, i) => (
+              <motion.div
+                key={link.href}
+                initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+                animate={mounted ? { opacity: 1, y: 0 } : {}}
+                transition={{ ...entranceTransition, delay: 0.1 + i * 0.06 }}
+              >
+                {isHome ? (
+                  <NavLink
+                    label={link.label}
+                    href={link.href}
+                    active={style.id === link.href.slice(1)}
+                    color={textColor}
+                    onNavigate={(href) => handleNavigate(href)}
+                  />
+                ) : (
+                  <Link href={`/${link.href}`} className="text-[13px] font-medium" style={{ color: textColor }}>
+                    {link.label}
+                  </Link>
+                )}
+              </motion.div>
+            ))}
+          </nav>
 
-        <div className="flex items-center justify-self-end gap-4">
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, scale: 0 }}
             animate={mounted ? { opacity: 1, scale: 1 } : {}}
