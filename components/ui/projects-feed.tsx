@@ -125,10 +125,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             {project.description}
           </p>
           <div
-            className="font-hero-sub mt-5 inline-flex items-center gap-2 text-sm font-medium transition-colors group-hover:text-[#C7F36B]"
+            className="font-hero-sub mt-5 inline-flex items-center gap-2 text-sm font-medium transition-colors group-hover:text-[#D2E76A]"
             style={{ color: `${PALETTE.ivory}cc` }}
           >
-            <span className="border-b pb-0.5 transition-colors group-hover:border-[#C7F36B]" style={{ borderColor: `${PALETTE.ivory}26` }}>
+            <span className="border-b pb-0.5 transition-colors group-hover:border-[#D2E76A]" style={{ borderColor: `${PALETTE.ivory}26` }}>
               Read case study
             </span>
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

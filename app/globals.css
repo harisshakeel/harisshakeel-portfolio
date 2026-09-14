@@ -99,8 +99,8 @@
     --popover: 100 9% 8%;
     --popover-foreground: 47 31% 94%;
 
-    /* Primary = chartreuse (#c7f36b) with obsidian text on fills */
-    --primary: 79 85% 69%;
+    /* Primary = chartreuse (#d2e76a) with obsidian text on fills */
+    --primary: 70 72% 66%;
     --primary-foreground: 100 9% 7%;
     --primary-dark: 79 60% 55%;
     --primary-light: 79 90% 80%;
@@ -119,7 +119,7 @@
     --border-light: 47 20% 91% / 0.08;
     --border-dark: 47 20% 91% / 0.18;
 
-    --ring: 79 85% 69%;
+    --ring: 70 72% 66%;
 
     /* Decorative glow — soft ivory */
     --glow: 0 0% 100%;
@@ -329,7 +329,7 @@
   inset: 0;
   background: radial-gradient(
     500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(199, 243, 107, 0.14),
+    rgba(210, 231, 106, 0.14),
     transparent 40%
   );
   opacity: var(--mouse-glow-opacity, 0);

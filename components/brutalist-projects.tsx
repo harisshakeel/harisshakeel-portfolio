@@ -337,7 +337,7 @@ export function BrutalistProjects() {
                         rel="noopener noreferrer"
                         aria-label={`Visit ${project.name} live`}
                         data-cursor
-                        className="pointer-events-auto relative z-20 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F5F3EC]/10 text-[#F5F3EC]/70 transition-all duration-300 hover:scale-110 hover:bg-[#C7F36B] hover:text-[#161A15]"
+                        className="pointer-events-auto relative z-20 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F5F3EC]/10 text-[#F5F3EC]/70 transition-all duration-300 hover:scale-110 hover:bg-[#D2E76A] hover:text-[#161A15]"
                       >
                         <ArrowUpRight className="h-4 w-4" />
                       </a>
@@ -475,7 +475,7 @@ export function BrutalistProjects() {
                   whileInView="visible"
                   viewport={{ once: true, margin: "-8%" }}
                   className={cn(
-                    "group flex flex-col overflow-hidden rounded-2xl border border-[#F5F3EC]/10 transition-colors duration-500 hover:border-[#C7F36B]/45",
+                    "group flex flex-col overflow-hidden rounded-2xl border border-[#F5F3EC]/10 transition-colors duration-500 hover:border-[#D2E76A]/45",
                     featured && "md:col-span-2"
                   )}
                   style={{ backgroundColor: CARD_BG }}
@@ -520,7 +520,7 @@ export function BrutalistProjects() {
                           rel="noopener noreferrer"
                           aria-label={`Visit ${project.name}`}
                           data-cursor
-                          className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[#F5F3EC]/20 text-[#F5F3EC] transition-colors duration-300 hover:border-[#C7F36B] hover:bg-[#C7F36B] hover:text-[#161A15]"
+                          className="flex size-10 shrink-0 items-center justify-center rounded-full border border-[#F5F3EC]/20 text-[#F5F3EC] transition-colors duration-300 hover:border-[#D2E76A] hover:bg-[#D2E76A] hover:text-[#161A15]"
                         >
                           <ArrowUpRight className="h-4 w-4" />
                         </a>

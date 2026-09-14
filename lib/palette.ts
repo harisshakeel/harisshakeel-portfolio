@@ -21,7 +21,7 @@ export const PALETTE = {
   sage: "#A7ADA1", // secondary text on dark
   inkOlive: "#161A15", // primary text on light
   warmGrey: "#696D65", // muted text on light
-  chartreuse: "#C7F36B", // primary accent — kept under ~8% of the visible interface
+  chartreuse: "#D2E76A", // primary accent — kept under ~8% of the visible interface
   mineralSage: "#91A883", // softer accent
   champagne: "#C8AA72", // premium highlight, used sparingly
   borderIvory: "rgba(245, 243, 236, 0.14)",

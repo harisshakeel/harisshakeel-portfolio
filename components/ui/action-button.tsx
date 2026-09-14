@@ -11,7 +11,7 @@ const EASE_IN_EXPO = "ease-[cubic-bezier(0.7,0,0.84,0)]";
 const VARIANTS = {
   solid: {
     base: "border-[#161A15] bg-[#161A15] text-[#F5F3EC]",
-    fill: "bg-[#C7F36B]",
+    fill: "bg-[#D2E76A]",
     hoverText: "group-hover:text-[#161A15]",
   },
   outline: {

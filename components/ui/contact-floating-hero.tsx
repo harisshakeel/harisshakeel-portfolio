@@ -35,7 +35,7 @@ export function ContactFloatingHero() {
           className="absolute -left-[12%] top-[5%] h-[520px] w-[520px] rounded-full blur-3xl animate-drift-a animate-aurora-pulse"
           style={{
             background:
-              "radial-gradient(circle at 50% 50%, rgba(199,243,107,0.22) 0%, rgba(199,243,107,0.08) 40%, transparent 70%)",
+              "radial-gradient(circle at 50% 50%, rgba(210,231,106,0.22) 0%, rgba(210,231,106,0.08) 40%, transparent 70%)",
           }}
         />
         <div
@@ -46,7 +46,7 @@ export function ContactFloatingHero() {
           }}
         />
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-foreground/15 to-transparent" />
-        <div className="absolute inset-x-[10%] -bottom-24 h-48 rounded-[100%] bg-[radial-gradient(closest-side,rgba(199,243,107,0.16),rgba(199,243,107,0.04)_45%,transparent_75%)] blur-2xl" />
+        <div className="absolute inset-x-[10%] -bottom-24 h-48 rounded-[100%] bg-[radial-gradient(closest-side,rgba(210,231,106,0.16),rgba(210,231,106,0.04)_45%,transparent_75%)] blur-2xl" />
       </div>
 
       <div className="relative mx-auto max-w-[1320px] px-6 pt-24 pb-16 md:px-10 md:pt-32 md:pb-24">
@@ -125,7 +125,7 @@ export function ContactFloatingHero() {
                   className="pointer-events-none absolute inset-0 mix-blend-screen"
                   style={{
                     background:
-                      "radial-gradient(50% 50% at 80% 20%, rgba(199,243,107,0.14), transparent 70%)",
+                      "radial-gradient(50% 50% at 80% 20%, rgba(210,231,106,0.14), transparent 70%)",
                   }}
                 />
 
