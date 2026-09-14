@@ -48,10 +48,11 @@ const ROLES: Role[] = [
     summary:
       "Building the applied computer-vision and simulation pipeline behind xision.ai: pose estimation, monocular depth, parametric body modelling, and cloth-physics fit derivation that turn a single phone scan into a measurement-accurate 3D body and a physically simulated garment fit. Also engineered MAVIS, a multi-tenant platform putting Claude Code agents on real client work, with per-user OAuth across 3,000+ connected apps, Postgres row-level security as the tenant boundary, and humans holding the approval loop on everything an agent produces. The through-line is making model output something a product can actually act on: typed, validated, and reviewable rather than prose a human has to re-check.",
     tags: ["Computer Vision", "3D / Simulation", "Agentic AI", "FastAPI", "Multi-Tenant SaaS"],
+    // Midnight navy: lets the white wordmark and sky-blue arc of the logo carry.
     theme: {
-      surface: PALETTE.obsidian,
-      text: PALETTE.ivory,
-      rule: `${PALETTE.ivory}33`,
+      surface: "#0A1C30",
+      text: "#EAF4FB",
+      rule: "#EAF4FB33",
     },
   },
   {
@@ -64,10 +65,11 @@ const ROLES: Role[] = [
     summary:
       "Led the end-to-end build of payback.pk, a live cashback platform with QR-based transactions, POS integration, and TOTP-based authentication behind its financial operations. Managed a team of four to five interns while acting as the primary technical contributor across backend, infrastructure, and core product decisions, and deployed it on AWS as a live platform with active business onboarding and real user transactions.",
     tags: ["Team Lead", "AWS", "Payments / POS", "Full-Stack"],
+    // Butter cream: warm enough to echo the amber mark, light enough for the black wordmark.
     theme: {
-      surface: PALETTE.stoneBeige,
-      text: PALETTE.obsidian,
-      rule: `${PALETTE.obsidian}33`,
+      surface: "#FFF1CC",
+      text: "#1E1A12",
+      rule: "#1E1A1233",
     },
   },
   {
@@ -80,10 +82,11 @@ const ROLES: Role[] = [
     summary:
       "Designed and implemented clusterden.com, a CRM platform with scalable WhatsApp automation built on an action-trigger workflow engine of triggers, revisions, and runs, wired to the WhatsApp Business API through webhooks for real-time responsiveness. Cut automated message delivery from 20 seconds to 3, shipping weekly demos to consistent stakeholder sign-off. Also built and optimised client sites including greennsolar.com, dynastyfm.com, 613 Guys, Meddo, DevPlob, and Comuni.",
     tags: ["MERN", "WhatsApp API", "Workflow Automation", "CRM"],
+    // Icy blue-grey: cool enough to sit with the logo's blue, light enough for its grey type and red mark.
     theme: {
-      surface: PALETTE.smokedOlive,
-      text: PALETTE.ivory,
-      rule: `${PALETTE.ivory}33`,
+      surface: "#E9EEF6",
+      text: "#15233F",
+      rule: "#15233F33",
     },
   },
 ]

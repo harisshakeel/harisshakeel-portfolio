@@ -1,9 +1,10 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, type Variants } from "framer-motion"
+import { gsap } from "gsap"
 import { ArrowUpRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { PALETTE } from "@/lib/palette"
@@ -21,6 +22,8 @@ interface Project {
   shotLight?: string
   model?: string
   contain?: boolean
+  /** Show the brand logo on this background in the hover preview instead of `shot`. */
+  hoverLogo?: { src: string; bg: string }
   niche: string
 }
 
@@ -45,6 +48,7 @@ const projects: Project[] = [
     tags: ["Agentic AI", "Multi-Tenant SaaS", "MCP", "Next.js"],
     shot: "/images/projects/mavis-architecture.svg",
     contain: true,
+    hoverLogo: { src: "/images/projects/mavis-logo.png", bg: "#F4F6FB" },
   },
   {
     slug: "metamorphix",
@@ -75,6 +79,7 @@ const projects: Project[] = [
     href: "https://www.clusterden.com",
     tags: ["Full-Stack", "CRM", "RBAC", "Integrations"],
     shot: "/images/projects/clusterden/screen-1.jpeg",
+    hoverLogo: { src: "/images/projects/clusterden.svg", bg: "#0E1A14" },
   },
   {
     slug: "payback",
@@ -85,6 +90,7 @@ const projects: Project[] = [
     href: "https://demo.payback.pk",
     tags: ["Frontend", "Backend", "Loyalty", "Real-time"],
     shot: "/images/projects/payback/screen-1.jpeg",
+    hoverLogo: { src: "/images/projects/payback.png", bg: "#1C170C" },
   },
 ]
 
@@ -182,15 +188,33 @@ export function BrutalistProjects() {
 
   const [modal, setModal] = useState({ active: false, index: 0 })
 
+  // gsap.quickTo gives the preview and the "View" label their own easing, so
+  // they glide after the pointer (the label a touch quicker than the image)
+  // rather than snapping to it.
+  const moveModalX = useRef<gsap.QuickToFunc | null>(null)
+  const moveModalY = useRef<gsap.QuickToFunc | null>(null)
+  const moveCursorX = useRef<gsap.QuickToFunc | null>(null)
+  const moveCursorY = useRef<gsap.QuickToFunc | null>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.set([modalRef.current, cursorRef.current], {
+        left: window.innerWidth / 2,
+        top: window.innerHeight / 2,
+      })
+      moveModalX.current = gsap.quickTo(modalRef.current, "left", { duration: 0.8, ease: "power3" })
+      moveModalY.current = gsap.quickTo(modalRef.current, "top", { duration: 0.8, ease: "power3" })
+      moveCursorX.current = gsap.quickTo(cursorRef.current, "left", { duration: 0.45, ease: "power3" })
+      moveCursorY.current = gsap.quickTo(cursorRef.current, "top", { duration: 0.45, ease: "power3" })
+    })
+    return () => ctx.revert()
+  }, [])
+
   const moveItems = (x: number, y: number) => {
-    if (modalRef.current) {
-      modalRef.current.style.left = `${x}px`
-      modalRef.current.style.top = `${y}px`
-    }
-    if (cursorRef.current) {
-      cursorRef.current.style.left = `${x}px`
-      cursorRef.current.style.top = `${y}px`
-    }
+    moveModalX.current?.(x)
+    moveModalY.current?.(y)
+    moveCursorX.current?.(x)
+    moveCursorY.current?.(y)
   }
 
   return (
@@ -332,9 +356,9 @@ export function BrutalistProjects() {
                   className="relative w-full"
                   style={{
                     height: MODAL_HEIGHT,
-                    backgroundColor: project.contain
-                      ? PALETTE.smokedOlive
-                      : PALETTE.forestCharcoal,
+                    backgroundColor:
+                      project.hoverLogo?.bg ??
+                      (project.contain ? PALETTE.smokedOlive : PALETTE.forestCharcoal),
                   }}
                 >
                   {project.model ? (
@@ -345,6 +369,14 @@ export function BrutalistProjects() {
                         className="h-full w-full object-cover"
                       />
                     </div>
+                  ) : project.hoverLogo ? (
+                    <Image
+                      src={project.hoverLogo.src}
+                      alt={`${project.name} logo`}
+                      fill
+                      sizes="400px"
+                      className="object-contain p-20"
+                    />
                   ) : (
                     <Image
                       src={project.shotLight || project.shot}

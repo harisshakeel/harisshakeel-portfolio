@@ -7,6 +7,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { SplitText } from "gsap/SplitText"
 
+import { ActionButton } from "@/components/ui/action-button"
 import { PALETTE } from "@/lib/palette"
 
 if (typeof window !== "undefined") {
@@ -263,6 +264,21 @@ export function AboutSection() {
             </motion.p>
           ))}
         </div>
+
+        {/* Next steps — pill CTAs with a sweep fill */}
+        <motion.div
+          variants={fadeUp}
+          custom={0.2}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-10%" }}
+          className="mt-12 flex flex-wrap items-center gap-3"
+        >
+          <ActionButton href="#work">View my work</ActionButton>
+          <ActionButton href="https://calendly.com/harisshakeel/haris" variant="outline">
+            Book a call
+          </ActionButton>
+        </motion.div>
 
         {/* Tech stack — interactive chips with premium hover */}
         <div

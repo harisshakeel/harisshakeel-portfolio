@@ -1,26 +1,39 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, type ReactNode } from "react"
 import Image from "next/image"
-import { motion, type Variants } from "framer-motion"
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion"
 import { ArrowDownLeft } from "lucide-react"
 
+import { Magnetic } from "@/components/ui/magnetic"
 import { PALETTE } from "@/lib/palette"
-
-const EASE = [0.22, 1, 0.36, 1] as const
 
 const EMAIL = "harisshakeel061@gmail.com"
 const CALENDLY = "https://calendly.com/harisshakeel/haris"
 const LINKEDIN = "https://www.linkedin.com/in/haris-shakeel-5559852b9"
 const GITHUB = "https://github.com/harisshakeel"
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (d: number = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: EASE, delay: d },
-  }),
+/** Outline pill whose ivory fill sweeps up on hover, flipping the text dark. */
+function ContactPill({ href, external, children }: { href: string; external?: boolean; children: ReactNode }) {
+  return (
+    <Magnetic>
+      <a
+        href={href}
+        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        data-cursor
+        className="group relative inline-flex h-12 items-center justify-center overflow-hidden whitespace-nowrap rounded-full border px-8 text-base font-light md:h-16 md:px-10 md:text-lg"
+        style={{ borderColor: `${PALETTE.sage}4d` }}
+      >
+        <span
+          aria-hidden
+          className="absolute inset-0 origin-bottom scale-y-0 bg-[#F5F3EC] transition-transform duration-500 ease-[cubic-bezier(0.7,0,0.84,0)] group-hover:scale-y-100"
+        />
+        <span className="relative text-[#F5F3EC] transition-colors duration-500 group-hover:text-[#10120F]">
+          {children}
+        </span>
+      </a>
+    </Magnetic>
+  )
 }
 
 /**
@@ -29,11 +42,23 @@ const fadeUp: Variants = {
  * "Get in touch" button (chartreuse accent, not blue),
  * email + calendly pills, socials, version/local-time strip.
  *
+ * Motion (from the AsmaPortfolio contact section): as the footer scrolls in,
+ * its content drifts up into place and the "Get in touch" button slides along
+ * the divider; both settle exactly at the end of the page. Buttons, pills and
+ * socials are magnetic.
+ *
  * All contact data preserved: email, Calendly, LinkedIn, GitHub.
  */
 export function BrutalistFooter() {
   const year = new Date().getFullYear()
   const [timeString, setTimeString] = useState("")
+  const footerRef = useRef<HTMLElement>(null)
+  const reduceMotion = useReducedMotion()
+
+  // From the footer's top entering the viewport to the last scroll position.
+  const { scrollYProgress } = useScroll({ target: footerRef, offset: ["start end", "end end"] })
+  const contentY = useTransform(scrollYProgress, [0, 1], [-60, 0])
+  const buttonX = useTransform(scrollYProgress, [0, 1], [-120, 0])
 
   useEffect(() => {
     const updateTime = () => {
@@ -53,13 +78,14 @@ export function BrutalistFooter() {
   return (
     <footer
       id="contact"
+      ref={footerRef}
       className="relative scroll-mt-24 overflow-hidden"
       style={{
         backgroundColor: PALETTE.obsidian,
         color: PALETTE.ivory,
       }}
     >
-      <div style={{ paddingTop: "clamp(5em, 21vh, 12em)" }}>
+      <motion.div style={{ paddingTop: "clamp(5em, 21vh, 12em)", y: reduceMotion ? 0 : contentY }}>
         {/* Main heading area */}
         <div className="mx-auto w-full max-w-[1600px] px-8 md:px-16">
           {/* Row 1 — "Let's work" with headshot */}
@@ -105,50 +131,34 @@ export function BrutalistFooter() {
               style={{ backgroundColor: `${PALETTE.sage}4d` }}
             />
             <div className="absolute right-12 top-0 z-20 -translate-y-1/2 md:right-28">
-              <a
-                href={CALENDLY}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex size-36 items-center justify-center rounded-full text-base font-semibold transition-all duration-300 hover:scale-105 md:size-44 md:text-lg"
-                style={{
-                  backgroundColor: PALETTE.chartreuse,
-                  color: PALETTE.obsidian,
-                }}
-                data-cursor
-              >
-                <span className="transition-transform duration-300 group-hover:scale-110">
-                  Get in touch
-                </span>
-              </a>
+              <motion.div style={{ x: reduceMotion ? 0 : buttonX }}>
+                <Magnetic>
+                  <a
+                    href={CALENDLY}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex size-36 items-center justify-center rounded-full text-base font-semibold transition-transform duration-300 hover:scale-105 md:size-44 md:text-lg"
+                    style={{
+                      backgroundColor: PALETTE.chartreuse,
+                      color: PALETTE.obsidian,
+                    }}
+                    data-cursor
+                  >
+                    <span className="transition-transform duration-300 group-hover:scale-110">
+                      Get in touch
+                    </span>
+                  </a>
+                </Magnetic>
+              </motion.div>
             </div>
           </div>
 
           {/* Contact pills */}
           <div className="flex w-full flex-wrap items-center gap-4 pt-12 md:gap-6">
-            <a
-              href={`mailto:${EMAIL}`}
-              data-cursor
-              className="inline-flex h-12 items-center justify-center whitespace-nowrap rounded-full border px-8 text-base font-light transition-all duration-300 hover:border-current md:h-16 md:px-10 md:text-lg"
-              style={{
-                borderColor: `${PALETTE.sage}4d`,
-                color: PALETTE.ivory,
-              }}
-            >
-              {EMAIL}
-            </a>
-            <a
-              href={CALENDLY}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor
-              className="inline-flex h-12 items-center justify-center whitespace-nowrap rounded-full border px-8 text-base font-light transition-all duration-300 hover:border-current md:h-16 md:px-10 md:text-lg"
-              style={{
-                borderColor: `${PALETTE.sage}4d`,
-                color: PALETTE.ivory,
-              }}
-            >
+            <ContactPill href={`mailto:${EMAIL}`}>{EMAIL}</ContactPill>
+            <ContactPill href={CALENDLY} external>
               Book a call
-            </a>
+            </ContactPill>
           </div>
         </div>
 
@@ -200,23 +210,25 @@ export function BrutalistFooter() {
                   { href: CALENDLY, label: "Book a Call" },
                 ].map(({ href, label }) => (
                   <li key={label}>
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      data-cursor
-                      className="text-sm font-normal transition-opacity duration-300 hover:opacity-100 md:text-base"
-                      style={{ color: PALETTE.ivory, opacity: 0.8 }}
-                    >
-                      {label}
-                    </a>
+                    <Magnetic>
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-cursor
+                        className="inline-block py-1 text-sm font-normal transition-opacity duration-300 hover:opacity-100 md:text-base"
+                        style={{ color: PALETTE.ivory, opacity: 0.8 }}
+                      >
+                        {label}
+                      </a>
+                    </Magnetic>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   )
 }

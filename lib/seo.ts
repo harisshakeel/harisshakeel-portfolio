@@ -53,13 +53,13 @@ export const defaultMetadata: Metadata = {
     siteName: siteConfig.name,
     title: defaultTitle,
     description: siteConfig.description,
-    images: [{ url: '/images/og-image.png', width: 1200, height: 630, alt: defaultTitle }],
+    images: [{ url: '/images/og-image.jpg', width: 1200, height: 630, alt: defaultTitle }],
   },
   twitter: {
     card: 'summary_large_image',
     title: defaultTitle,
     description: siteConfig.description,
-    images: ['/images/og-image.png'],
+    images: ['/images/og-image.jpg'],
   },
   robots: {
     index: true,
@@ -136,7 +136,7 @@ export function buildPageMetadata({
   noIndex?: boolean
 }): Metadata {
   const url = `${siteConfig.url}${path}`
-  const ogImage = image ?? '/images/og-image.png'
+  const ogImage = image ?? '/images/og-image.jpg'
   return {
     title,
     description,

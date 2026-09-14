@@ -80,7 +80,7 @@ export function articleSchema({
     url: `${BASE}${url}`,
     datePublished,
     dateModified: dateModified ?? datePublished,
-    image: image ? `${BASE}${image}` : `${BASE}/images/og-image.png`,
+    image: image ? `${BASE}${image}` : `${BASE}/images/og-image.jpg`,
     author: {
       '@type': 'Person',
       name: authorName ?? 'Haris Shakeel',
