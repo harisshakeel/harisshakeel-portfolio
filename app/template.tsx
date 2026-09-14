@@ -19,6 +19,17 @@ export default function Template({ children }: { children: React.ReactNode }) {
     callback: () => {
       setLoading(false);
       window.scrollTo(0, 0);
+
+      // Arriving on /#about, /#work, etc. from another page: the reset above
+      // would otherwise undo the anchor. Wait a beat for the preloader to
+      // unmount and layout to settle, then jump, clearing the fixed nav.
+      const { hash } = window.location;
+      const target = hash ? document.querySelector<HTMLElement>(hash) : null;
+      if (target) {
+        window.setTimeout(() => {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 90 });
+        }, 150);
+      }
     },
     duration: 1000,
     deps: [],

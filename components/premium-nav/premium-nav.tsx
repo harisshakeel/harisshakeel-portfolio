@@ -16,7 +16,6 @@ import {
   SCROLL_DURATION,
   SCROLL_OFFSET,
 } from "./config";
-import { CtaButton } from "./cta-button";
 import { MobileMenu } from "./mobile-menu";
 import { NavLink } from "./nav-link";
 import { useNavScrollState } from "./use-nav-scroll-state";
@@ -176,19 +175,6 @@ export function PremiumNav() {
             transition={{ ...entranceTransition, delay: 0.3 }}
           >
             <AvailabilityDot color={textColor} />
-          </motion.div>
-
-          <motion.div
-            className="hidden md:block"
-            initial={reduceMotion ? false : { opacity: 0, x: 16 }}
-            animate={mounted ? { opacity: 1, x: 0 } : {}}
-            transition={{ ...entranceTransition, delay: 0.35 }}
-          >
-            {isHome ? (
-              <CtaButton onClick={(e) => handleNavigate("#contact", e)} />
-            ) : (
-              <CtaButton onClick={() => {}} />
-            )}
           </motion.div>
 
           <button
