@@ -1,6 +1,8 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { Mail } from "lucide-react"
+import { usePathname } from "next/navigation"
 
 // WhatsApp Icon SVG
 const WhatsAppIcon = ({ className }: { className?: string }) => (
@@ -16,8 +18,32 @@ export function FloatingContactWidget() {
   const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, "")}`
   const mailtoUrl = `mailto:${email}`
 
+  // On the home page the buttons would sit on top of the hero's role text and
+  // name marquee, so they wait until the hero is mostly scrolled past.
+  const isHome = usePathname() === "/"
+  const [pastHero, setPastHero] = useState(false)
+
+  useEffect(() => {
+    if (!isHome) return
+    const update = () => setPastHero(window.scrollY > window.innerHeight * 0.6)
+    update()
+    window.addEventListener("scroll", update, { passive: true })
+    window.addEventListener("resize", update)
+    return () => {
+      window.removeEventListener("scroll", update)
+      window.removeEventListener("resize", update)
+    }
+  }, [isHome])
+
+  const hidden = isHome && !pastHero
+
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+    <div
+      className={`fixed bottom-6 right-6 z-50 flex flex-col gap-3 transition-all duration-300 ${
+        hidden ? "pointer-events-none translate-y-4 opacity-0" : "translate-y-0 opacity-100"
+      }`}
+      inert={hidden}
+    >
       {/* WhatsApp Button */}
       <a
         href={whatsappUrl}
@@ -29,7 +55,7 @@ export function FloatingContactWidget() {
       >
         <WhatsAppIcon className="w-[18px] h-[18px] text-white" />
       </a>
-      
+
       {/* Email Button */}
       <a
         href={mailtoUrl}
@@ -42,4 +68,3 @@ export function FloatingContactWidget() {
     </div>
   )
 }
-

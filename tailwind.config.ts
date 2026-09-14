@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss"
 import { fontFamily } from "tailwindcss/defaultTheme"
+import plugin from "tailwindcss/plugin"
 
 const config = {
   darkMode: ["class"],
@@ -145,7 +146,15 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    // `short:` — landscape phones. A variant rather than a raw `screens`
+    // entry, because a non-min-width screen disables Tailwind's `max-*`
+    // variants (`max-md:` etc.) across the whole site.
+    plugin(({ addVariant }) => {
+      addVariant("short", "@media (orientation: landscape) and (max-height: 500px)")
+    }),
+  ],
 } satisfies Config
 
 export default config

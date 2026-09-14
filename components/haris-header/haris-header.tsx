@@ -39,6 +39,11 @@ const fadeIn: Variants = {
   },
 };
 
+// The portrait is a light studio photo, so the ivory type needs a scrim:
+// a short fade under the nav and a taller one under the marquee/role text.
+const TOP_SCRIM = `linear-gradient(to bottom, rgba(16, 18, 15, 0.55) 0%, rgba(16, 18, 15, 0) 100%)`;
+const BOTTOM_SCRIM = `linear-gradient(to top, rgba(16, 18, 15, 0.82) 0%, rgba(16, 18, 15, 0.45) 35%, rgba(16, 18, 15, 0) 70%)`;
+
 /**
  * AsmaPortfolio-style hero — full-viewport dark section with:
  * - Haris's professional portrait centered with parallax
@@ -50,6 +55,9 @@ const fadeIn: Variants = {
  * The previous scroll-scrubbed 45-frame hero (components/haris-hero/)
  * is kept in the codebase for potential future use — this component
  * replaces it on the homepage only.
+ *
+ * `short:` (tailwind.config.ts) targets landscape phones, where the
+ * desktop layout otherwise runs out of height and collides with the nav.
  */
 export function HarisHeader() {
   const lineRefs = useRef<(HTMLSpanElement | null)[]>([]);
@@ -78,7 +86,9 @@ export function HarisHeader() {
 
   return (
     <motion.header
-      className="relative h-screen overflow-hidden"
+      // 100svh where supported: iOS Safari's `100vh` is the toolbar-hidden
+      // height, which would tuck the bottom-anchored role text under it.
+      className="relative h-screen overflow-hidden supports-[height:100svh]:h-[100svh]"
       style={{ backgroundColor: PALETTE.obsidian, color: PALETTE.ivory }}
       variants={fadeIn}
       initial="initial"
@@ -86,7 +96,7 @@ export function HarisHeader() {
     >
       {/* Left Capsule Badge — "Open to work" */}
       <div
-        className="absolute left-0 top-1/2 z-20 hidden -translate-y-1/2 items-center gap-4 rounded-r-full py-3.5 pl-8 pr-3.5 shadow-2xl transition-transform duration-300 hover:scale-105 md:flex"
+        className="absolute left-0 top-1/2 z-20 hidden -translate-y-1/2 items-center gap-4 rounded-r-full py-3.5 pl-8 pr-3.5 shadow-2xl transition-transform duration-300 hover:scale-105 md:flex short:!hidden"
         style={{ backgroundColor: PALETTE.forestCharcoal }}
       >
         <span
@@ -120,11 +130,29 @@ export function HarisHeader() {
         />
       </div>
 
+      {/* Readability scrims over the photo, under the text */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-40"
+        style={{ background: TOP_SCRIM }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{ background: BOTTOM_SCRIM }}
+      />
+
       {/* Content layout — name marquee at bottom, role text above it (reversed on md) */}
       <div className="relative flex h-full flex-col justify-end gap-2 md:flex-col-reverse md:justify-normal">
-        {/* Name marquee */}
+        {/* Name marquee — sized by width and height so short (landscape)
+            screens don't get a marquee taller than the space it has. */}
         <div className="select-none">
-          <h1 className="text-[clamp(2.75rem,15vw,9em)]" style={{ color: PALETTE.ivory }}>
+          <h1
+            style={{
+              color: PALETTE.ivory,
+              fontSize: "clamp(2.75rem, min(15vw, 18vh), 14rem)",
+            }}
+          >
             <ParallaxSlider repeat={4} baseVelocity={2}>
               <span className="pe-12">
                 Haris Shakeel
@@ -140,7 +168,7 @@ export function HarisHeader() {
             className="mx-6 cursor-pointer max-md:my-12 md:mr-12 lg:mr-24 xl:mr-32"
             onMouseEnter={handleScramble}
           >
-            <div className="mb-6 md:mb-12 md:-translate-y-8">
+            <div className="mb-6 md:mb-12 md:-translate-y-8 short:hidden">
               <MoveDownRight
                 size={30}
                 strokeWidth={1.25}
@@ -149,8 +177,11 @@ export function HarisHeader() {
             </div>
 
             <h4
-              className="text-[clamp(1.35em,2.1vw,2.4em)] font-light leading-snug"
-              style={{ fontFamily: "var(--font-hero-sub)" }}
+              className="text-[clamp(1.35em,2.1vw,2.4em)] font-light leading-snug short:text-[1.05em]"
+              style={{
+                fontFamily: "var(--font-hero-sub)",
+                textShadow: "0 1px 14px rgba(16, 18, 15, 0.45)",
+              }}
             >
               {LINES.map((text, index) => (
                 <span

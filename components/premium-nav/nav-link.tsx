@@ -69,7 +69,9 @@ export function NavLink({ label, href, active, color, onNavigate }: NavLinkProps
         to be — `Range.selectNodeContents` (and a real Cmd+A) still walks
         past both regardless of either attribute.
       */}
-      <span className="relative block h-[1.1em] overflow-hidden">
+      {/* Box and line-height match at 1.3em so descenders ("p" in
+          Experience) fit inside the overflow-hidden swap window. */}
+      <span className="relative block h-[1.3em] overflow-hidden leading-[1.3em]">
         <motion.span
           className="block"
           animate={{ y: hover ? "-100%" : "0%" }}
