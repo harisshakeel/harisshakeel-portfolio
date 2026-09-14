@@ -182,8 +182,8 @@ const MODAL_HEIGHT = 350
 const WORK_BG = "#151B13"
 /** Raised card surface for the client-build grid. */
 const CARD_BG = "#1D241A"
-/** Client builds get their own warm-ivory band, so they read as a separate chapter from Selected Work. */
-const BUILDS_BG = PALETTE.warmIvory
+/** Client builds get a champagne band: its own colour (ivory is About's), warm against the olive above and obsidian footer below. */
+const BUILDS_BG = PALETTE.champagne
 
 /**
  * Editorial project thumbnail list — hover over a project name to reveal
@@ -449,7 +449,7 @@ export function BrutalistProjects() {
             >
               <p
                 className="mb-3 font-mono text-[11px] uppercase tracking-[0.3em]"
-                style={{ color: PALETTE.warmGrey }}
+                style={{ color: `${PALETTE.inkOlive}b3` }}
               >
                 (More work)
               </p>
@@ -468,7 +468,7 @@ export function BrutalistProjects() {
               whileInView="visible"
               viewport={{ once: true, margin: "-10%" }}
               className="max-w-sm text-[15px] leading-relaxed"
-              style={{ color: PALETTE.warmGrey }}
+              style={{ color: `${PALETTE.inkOlive}d9` }}
             >
               Sites, SaaS products, and booking funnels shipped for clients across
               the US, Canada, the UAE, and Pakistan.

@@ -44,8 +44,12 @@ const FOCUS = [
 
 // Roles live in <BrutalistExperience /> — see components/brutalist-experience.tsx.
 
-/** Toolkit panel surface: smoked olive, lighter than the Work section and footer, so it reads as its own band. */
-const TOOLKIT_BG = PALETTE.smokedOlive
+/**
+ * Toolkit panel surface: deep petrol. The page already uses ivory (About),
+ * olive (Work) and obsidian (hero, footer), so this needs its own hue; petrol
+ * sits well against the citron band that follows.
+ */
+const TOOLKIT_BG = "#0F2B2E"
 
 // Mirrors the Skills section of the current resume — keep the two in sync.
 // Each group separates the tools themselves from the methods they're used
