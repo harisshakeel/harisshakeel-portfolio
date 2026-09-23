@@ -121,6 +121,7 @@ export function HarisHeader() {
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <Image
           src="/images/haris-portrait-hero.webp"
+          quality={90}
           className="object-cover object-center"
           fill={true}
           priority={true}
