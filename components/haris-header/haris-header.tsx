@@ -7,7 +7,6 @@ import { motion, type Variants } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 import { Globe, MoveDownRight } from "lucide-react";
-import Image from "next/image";
 
 import { PALETTE } from "@/lib/palette";
 
@@ -29,9 +28,9 @@ if (typeof window !== "undefined") {
 // below; it also stays in the page <title>, the Person schema's jobTitle and
 // the experience timeline further down this same page.
 const LINES = [
-  "I build agents that",
-  "do real work, and the",
-  "SaaS around them.",
+  "Agentic AI Engineer",
+  "Full-Stack SaaS, Automations",
+  "& Computer Vision",
 ];
 
 /** Longer, more staggered on load; quicker on a hover replay. */
@@ -126,22 +125,43 @@ export function HarisHeader() {
 
       {/* Center portrait — positioned behind the text layers */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <Image
-          src="/images/haris-portrait-hero.webp"
-          quality={75}
-          className="object-cover object-center"
-          fill={true}
-          priority={true}
-          // NOT 100vw. `object-cover` in a 100vh box scales a 16:9 image to
-          // match the *height* whenever the viewport is narrower than 16:9,
-          // so the image is rendered far wider than the viewport and the
-          // sides are cropped away. On a 390x844 phone it paints 1500px wide
-          // (4500 device px at DPR 3) while `100vw` asked Next for 390 — a
-          // 3.75x upscale, which is why phones stayed blurry however large
-          // the source got. 16/9 = 1.778, so the rendered width is 177.8vh.
-          sizes="(max-aspect-ratio: 16/9) 178vh, 100vw"
-          alt="Haris Shakeel professional portrait"
-        />
+        {/*
+          Plain <picture>, not next/image, because this needs *art direction*:
+          a 16:9 frame on a tall phone is cropped to a narrow centre strip, so
+          mobile gets its own square crop instead. next/image can vary the
+          resolution of one source but cannot swap the source per breakpoint,
+          and two <Image> elements toggled with `hidden` would download both —
+          browsers still fetch images inside display:none.
+
+          `sizes` is the subtle part. With object-cover in a 100vh box the
+          image is painted as wide as the box is *tall* times its own aspect
+          ratio, not as wide as the viewport — on a 390x844 phone the 16:9
+          version paints 1500px wide (4500 device px at DPR 3). The old
+          `sizes="100vw"` asked for 390, so the browser upscaled ~3.75x, which
+          is why phones stayed blurry no matter how large the source was.
+          Square is 1:1, so its painted width is exactly 100vh; 16:9 is
+          1.778, so 178vh.
+        */}
+        <picture>
+          <source
+            media="(max-width: 767px)"
+            type="image/webp"
+            sizes="100vh"
+            srcSet="/images/hero/mobile-1080.webp 1080w, /images/hero/mobile-1440.webp 1440w, /images/hero/mobile-2160.webp 2160w"
+          />
+          <source
+            type="image/webp"
+            sizes="(max-aspect-ratio: 16/9) 178vh, 100vw"
+            srcSet="/images/hero/desktop-1920.webp 1920w, /images/hero/desktop-2560.webp 2560w, /images/hero/desktop-3840.webp 3840w"
+          />
+          <img
+            src="/images/hero/desktop-2560.webp"
+            alt="Haris Shakeel professional portrait"
+            fetchPriority="high"
+            decoding="async"
+            className="absolute inset-0 size-full object-cover object-center"
+          />
+        </picture>
       </div>
 
       {/* Readability scrims over the photo, under the text */}
