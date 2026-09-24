@@ -121,11 +121,18 @@ export function HarisHeader() {
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <Image
           src="/images/haris-portrait-hero.webp"
-          quality={90}
+          quality={75}
           className="object-cover object-center"
           fill={true}
           priority={true}
-          sizes="100vw"
+          // NOT 100vw. `object-cover` in a 100vh box scales a 16:9 image to
+          // match the *height* whenever the viewport is narrower than 16:9,
+          // so the image is rendered far wider than the viewport and the
+          // sides are cropped away. On a 390x844 phone it paints 1500px wide
+          // (4500 device px at DPR 3) while `100vw` asked Next for 390 — a
+          // 3.75x upscale, which is why phones stayed blurry however large
+          // the source got. 16/9 = 1.778, so the rendered width is 177.8vh.
+          sizes="(max-aspect-ratio: 16/9) 178vh, 100vw"
           alt="Haris Shakeel professional portrait"
         />
       </div>
