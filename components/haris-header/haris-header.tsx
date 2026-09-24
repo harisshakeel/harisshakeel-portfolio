@@ -21,17 +21,17 @@ if (typeof window !== "undefined") {
  * Single source of truth for the role lines displayed in the hero.
  * Drives the intro scramble, hover re-scramble, and server-rendered markup.
  */
-// A statement, not a label. The previous version ("AI/ML Engineer" /
+// A statement, not a label. The version before this ("AI/ML Engineer" /
 // "Agentic AI, Automation &" / "Systems Engineering") said Engineer and
 // Engineering, said AI twice, and used Automation for the thing Agentic AI
 // already means — three lines naming one category and never saying what gets
-// built. These lines ARE the <h1>, so the role moves to the sr-only span
+// built. These lines ARE the <h1>, so the job title moves to the sr-only span
 // below; it also stays in the page <title>, the Person schema's jobTitle and
 // the experience timeline further down this same page.
 const LINES = [
-  "I teach machines",
-  "to see, and agents",
-  "to do real work.",
+  "I build agents that",
+  "do real work, and the",
+  "SaaS around them.",
 ];
 
 /** Longer, more staggered on load; quicker on a hover replay. */
@@ -202,10 +202,10 @@ export function HarisHeader() {
               {/* The visible lines are a statement, not a job title, so the
                   role rides here instead — this <h1> is the page's strongest
                   on-page signal and the visible copy no longer contains it.
-                  Read aloud as "Haris Shakeel, AI/ML Engineer. I teach
-                  machines to see..." which is what a screen reader should
+                  Read aloud as "Haris Shakeel, Agentic AI Engineer. I build
+                  agents..." which is what a screen reader should
                   hear anyway. */}
-              <span className="sr-only">Haris Shakeel, AI/ML Engineer. </span>
+              <span className="sr-only">Haris Shakeel, Agentic AI Engineer. </span>
               {LINES.map((text, index) => (
                 <span
                   key={text}

@@ -4,7 +4,7 @@ export const siteConfig = {
   name: 'Haris Shakeel',
   url: 'https://www.harisshakeel.site',
   description:
-    "Haris Shakeel is an AI/ML engineer building computer vision, machine learning, and agentic AI systems, from CV pipelines to Claude Agent SDK platforms.",
+    "Haris Shakeel is an agentic AI engineer building multi-tenant SaaS platforms, automation pipelines, and the full-stack products around them on the Claude Agent SDK and MCP.",
   location: 'Lahore, Pakistan',
   email: 'harisshakeel061@gmail.com',
   author: 'Haris Shakeel',
@@ -15,7 +15,7 @@ export const siteConfig = {
   },
 }
 
-const defaultTitle = 'Haris Shakeel | AI/ML Engineer, Computer Vision & Agentic AI'
+const defaultTitle = 'Haris Shakeel | Agentic AI Engineer, Full-Stack & SaaS Automation'
 
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -27,10 +27,11 @@ export const defaultMetadata: Metadata = {
   // Mirrors the current resume.
   keywords: [
     'Haris Shakeel',
-    'AI/ML engineer',
-    'computer vision engineer',
-    'machine learning engineer',
-    'agentic AI developer',
+    'agentic AI engineer',
+    'AI automation engineer',
+    'full-stack engineer',
+    'SaaS automation',
+    'multi-agent systems',
     'Claude Agent SDK',
     'Model Context Protocol',
     'virtual try-on',
@@ -77,7 +78,7 @@ export const personSchema = {
   image: `${siteConfig.url}/images/haris-portrait.webp`,
   description: siteConfig.description,
   email: siteConfig.email,
-  jobTitle: 'AI/ML Engineer',
+  jobTitle: 'Agentic AI Engineer',
   worksFor: { '@type': 'Organization', name: 'Xision' },
   address: {
     '@type': 'PostalAddress',

@@ -1,6 +1,6 @@
 # Haris Shakeel
 
-> Haris Shakeel (Muhammad Haris) is an AI/ML engineer based in Lahore, Pakistan, specializing in applied computer vision, physics-based simulation, and agentic AI systems. He builds production computer-vision pipelines, multi-tenant agent platforms on the Claude Agent SDK and MCP, and full-stack products in Python/FastAPI and TypeScript/Next.js.
+> Haris Shakeel (Muhammad Haris) is an agentic AI engineer based in Lahore, Pakistan, specializing in multi-agent systems, SaaS automation, and full-stack product engineering. He builds multi-tenant agent platforms on the Claude Agent SDK and MCP, automation pipelines that replace manual research and outreach, and full-stack products in Python/FastAPI and TypeScript/Next.js. He also works in applied computer vision and physics-based simulation.
 
 - Website: https://www.harisshakeel.site
 - Email: harisshakeel061@gmail.com

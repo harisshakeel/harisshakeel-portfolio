@@ -22,23 +22,26 @@ const HEADLINE = ["I build agents,", "train models,", "ship real systems."]
 // One plain-language lead, then what that means in practice, a line each.
 // Deliberately doesn't open with "I": the headline above already does.
 const INTRO_LEAD =
-  "AI/ML engineer and Computer Science graduate, turning raw camera input and messy workflows into systems a product can actually rely on."
+  "Agentic AI engineer and Computer Science graduate, building the agents that carry real work, the automations behind them, and the SaaS they run inside."
 
+// Ordered by positioning, not by what is technically hardest: agents first,
+// the platforms around them second, vision third. Accents stay in place so
+// the visual rhythm of the row is unchanged.
 const FOCUS = [
   {
-    label: "Computer vision",
-    accent: PALETTE.chartreuse,
-    text: "Reading a real body off an ordinary phone photo, accurately enough to tell someone what size to buy.",
-  },
-  {
     label: "Agentic AI",
-    accent: "#F2B84B",
+    accent: PALETTE.chartreuse,
     text: "Agents that carry real work on their own, with a person signing off on anything that reaches a customer.",
   },
   {
-    label: "Full-stack",
+    label: "SaaS & automation",
+    accent: "#F2B84B",
+    text: "Multi-tenant platforms and the pipelines underneath them, taking work off people's hands and running without them.",
+  },
+  {
+    label: "Computer vision",
     accent: "#7CC6B4",
-    text: "The unglamorous half that makes them usable: the database, the queue, the API, and the screen on top.",
+    text: "Reading a real body off an ordinary phone photo, accurately enough to tell someone what size to buy.",
   },
 ]
 
