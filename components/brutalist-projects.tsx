@@ -308,7 +308,10 @@ export function BrutalistProjects() {
                   paddingInline: "calc(clamp(1em,3vw,4em) * 2)",
                   paddingBlock: "clamp(1em,3vw,4em)",
                 }}
-                onPointerEnter={() => setModal({ active: true, index })}
+                // Mouse only: a tap on a phone also fires pointerenter, which
+                // flashed the 400px preview (wider than the screen) just as
+                // the row navigated to its case study.
+                onPointerEnter={(e) => e.pointerType === "mouse" && setModal({ active: true, index })}
                 onPointerLeave={() => setModal({ ...modal, active: false })}
               >
                 <Link

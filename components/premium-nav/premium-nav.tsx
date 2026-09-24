@@ -185,7 +185,9 @@ export function PremiumNav() {
             type="button"
             data-cursor
             onClick={() => setMobileOpen((v) => !v)}
-            className="font-mono text-[11px] tracking-[0.15em] uppercase md:hidden"
+            // -m-3 p-3 grows the tap target from 33x17 to ~57x41 without
+            // shifting the visible label.
+            className="-m-3 p-3 font-mono text-[11px] tracking-[0.15em] uppercase md:hidden"
             style={{ color: textColor }}
             aria-expanded={mobileOpen}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}

@@ -54,8 +54,10 @@ const metrics: Metric[] = [
   },
   {
     label: "Companies researched",
-    value: 13000,
-    suffix: "+",
+    // 13K rather than 13,000: this display face runs ~31px a digit, and
+    // "13,000+" is ~180px in a ~150px half-width cell on a phone.
+    value: 13,
+    suffix: "K+",
     description: "Profiled and contact-verified without a human in the loop. (Metamorphix)",
     icon: Building2,
   },
@@ -163,7 +165,7 @@ function MetricCard({ metric }: { metric: Metric }) {
       {/* Value */}
       <div className="mt-5 flex items-baseline gap-0.5">
         <span
-          className="font-hero-display text-[34px] leading-none tracking-tight [font-feature-settings:'tnum'] [font-variant-numeric:tabular-nums] md:text-[40px]"
+          className="font-hero-display text-[28px] leading-none tracking-tight [font-feature-settings:'tnum'] [font-variant-numeric:tabular-nums] sm:text-[34px] md:text-[40px]"
           style={{ color: PALETTE.ivory }}
         >
           {metric.prefix}
@@ -188,10 +190,13 @@ function MetricCard({ metric }: { metric: Metric }) {
 
 function Counter({ to, decimals = 0 }: { to: number; decimals?: number }) {
   const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: "-80px" })
+  // Bottom edge only. A bare "-80px" shrinks the root on all four sides, and
+  // on a phone the left column sits ~44px from the viewport edge, so its
+  // counters never intersected the shrunken box and stayed stuck at 0.
+  const inView = useInView(ref, { once: true, margin: "0px 0px -80px 0px" })
   const count = useMotionValue(0)
   const display = useTransform(count, (latest) =>
-    decimals > 0 ? latest.toFixed(decimals) : Math.round(latest).toString(),
+    decimals > 0 ? latest.toFixed(decimals) : Math.round(latest).toLocaleString("en-US"),
   )
 
   useEffect(() => {
@@ -204,7 +209,7 @@ function Counter({ to, decimals = 0 }: { to: number; decimals?: number }) {
   }, [inView, to, count])
 
   return (
-    <motion.span ref={ref} aria-label={String(to)}>
+    <motion.span ref={ref} aria-label={to.toLocaleString("en-US")}>
       {display}
     </motion.span>
   )

@@ -453,7 +453,12 @@ export function AboutSection() {
                                lines; the `built` sentence is prose and has to wrap normally. */
                             className={line.strong ? "inline-block whitespace-nowrap" : "inline"}
                           >
-                            {i > 0 && (
+                            {/* The separator trails its item instead of leading the next,
+                                so when a narrow screen wraps the list the dot stays at the
+                                end of the line and every new line starts flush with a tool
+                                name — a leading dot hung off the start of wrapped lines. */}
+                            {item}
+                            {i < line.items.length - 1 && (
                               <>
                                 <span className="sr-only">, </span>
                                 <span aria-hidden className="mx-2" style={{ color: `${PALETTE.ivory}40` }}>
@@ -461,7 +466,6 @@ export function AboutSection() {
                                 </span>
                               </>
                             )}
-                            {item}
                           </motion.span>
                         ))}
                       </motion.p>

@@ -30,8 +30,12 @@ export function OffcanvasToggle({ open, onToggle }: OffcanvasToggleProps) {
   const { hidden: navHidden } = useNavScrollState(usePathname() === "/");
 
   return (
+    // Desktop only. On phones the nav capsule already carries its own MENU
+    // button and comes back ~600ms after scrolling stops, so this burger was
+    // a second menu control — and resting 80px below the capsule, it sat on
+    // top of section headings.
     <motion.div
-      className="fixed right-0 top-0 z-[70] m-4 md:m-6"
+      className="fixed right-0 top-0 z-[70] m-4 hidden md:m-6 md:block"
       style={{ scale }}
       animate={{ y: navHidden || open ? 0 : BELOW_NAV_Y }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}

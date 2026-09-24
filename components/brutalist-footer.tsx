@@ -124,8 +124,13 @@ export function BrutalistFooter() {
             </div>
           </div>
 
-          {/* Divider with "Get in touch" button — chartreuse accent */}
-          <div className="relative mt-12 w-full">
+          {/* Divider with "Get in touch" button — chartreuse accent.
+              The button is centred on the rule, so it reaches half its size
+              above and below. On phones "together" and the email pill sit
+              directly over and under it, so the circle shrinks (112px, a 56px
+              reach) and the gaps grow to 64px to keep it clear. From sm up
+              they are side by side and never meet. */}
+          <div className="relative mt-16 w-full sm:mt-12">
             <div
               className="h-px"
               style={{ backgroundColor: `${PALETTE.sage}4d` }}
@@ -137,7 +142,7 @@ export function BrutalistFooter() {
                     href={CALENDLY}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group inline-flex size-36 items-center justify-center rounded-full text-base font-semibold transition-transform duration-300 hover:scale-105 md:size-44 md:text-lg"
+                    className="group inline-flex size-28 items-center justify-center rounded-full text-sm font-semibold transition-transform duration-300 hover:scale-105 sm:size-36 sm:text-base md:size-44 md:text-lg"
                     style={{
                       backgroundColor: PALETTE.chartreuse,
                       color: PALETTE.obsidian,
@@ -154,7 +159,7 @@ export function BrutalistFooter() {
           </div>
 
           {/* Contact pills */}
-          <div className="flex w-full flex-wrap items-center gap-4 pt-12 md:gap-6">
+          <div className="flex w-full flex-wrap items-center gap-4 pt-16 sm:pt-12 md:gap-6">
             <ContactPill href={`mailto:${EMAIL}`}>{EMAIL}</ContactPill>
             <ContactPill href={CALENDLY} external>
               Book a call

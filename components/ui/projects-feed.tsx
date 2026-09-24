@@ -50,7 +50,7 @@ export function ProjectsFeed({ projects, tags }: ProjectsFeedProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: easeOut }}
-        className="font-hero-sub mb-12 flex flex-wrap items-center gap-x-8 gap-y-3 border-b md:mb-16"
+        className="font-hero-sub mb-12 flex flex-wrap items-center gap-x-5 gap-y-3 border-b sm:gap-x-8 md:mb-16"
         style={{ borderColor: PALETTE.borderIvory }}
         aria-label="Filter projects"
       >
@@ -60,7 +60,7 @@ export function ProjectsFeed({ projects, tags }: ProjectsFeedProps) {
             <button
               key={tab}
               onClick={() => setActive(tab)}
-              className="relative pb-4 text-base font-medium transition-colors md:text-lg"
+              className="relative whitespace-nowrap pb-4 text-[15px] font-medium transition-colors sm:text-base md:text-lg"
               style={{ color: isActive ? PALETTE.ivory : PALETTE.sage }}
             >
               {tab}
