@@ -33,7 +33,7 @@ const projects: Project[] = [
     name: "Xision",
     niche: "Computer Vision & 3D Simulation",
     description:
-      "An AI virtual try-on platform that turns a single phone scan into a measurement-accurate 3D body model, then physically simulates how real garments drape on it, returning a fit score, size recommendation, and pressure map instead of a guess.",
+      "Online fashion returns are mostly a fit problem. A phone scan becomes a body model with real measurements, then a physics engine drapes the actual garment on it and reports where it pulls.",
     tags: ["Computer Vision", "3D / Simulation", "Python", "FastAPI"],
     shot: "/images/product-ui.jpeg",
     contain: true,
@@ -45,7 +45,7 @@ const projects: Project[] = [
     name: "MAVIS",
     niche: "Agentic AI & Multi-Tenant SaaS",
     description:
-      "A multi-tenant platform where Claude Code agents run real client work end-to-end: spawned per VA on isolated workers, tool-connected through MCP servers and 3,000+ OAuth apps, with humans holding the approval loop.",
+      "Virtual assistants hand work to Claude Code agents instead of doing it by hand. Each VA gets an isolated worker, agents reach 3,000+ connected apps, and a person signs off before anything reaches a client.",
     tags: ["Agentic AI", "Multi-Tenant SaaS", "MCP", "Next.js"],
     shot: "/images/projects/mavis-architecture.svg",
     contain: true,
@@ -56,7 +56,7 @@ const projects: Project[] = [
     name: "Metamorphix",
     niche: "AI Automation & Multi-Agent",
     description:
-      "A Claude-powered AI pipeline that researches B2B prospects end-to-end with automated web scraping, LLM enrichment, and fit scoring, then provisions personalized, CRM-ready outreach into Zoho.",
+      "Prospect research used to take an analyst most of a day. Agents scrape each company, pull out the buying signals, verify who the decision-maker actually is, then write the outreach into Zoho ready for a human to send.",
     tags: ["AI Automation", "Multi-Agent", "Python", "Zoho CRM"],
     shot: "/images/projects/metamorphix.png",
     contain: true,
@@ -66,7 +66,7 @@ const projects: Project[] = [
     name: "Sentinel",
     niche: "Machine Learning & Real-time Detection",
     description:
-      "A real-time CCTV anomaly detection system that runs three trained YOLOv8 models over live RTSP feeds (accident, vandalism, and weapon) and pushes an annotated frame to the operator's phone the moment something fires.",
+      "A control room can't watch every feed at once. Three trained detectors watch instead — accidents, vandalism, weapons — and the annotated frame reaches the operator's phone the moment one fires.",
     tags: ["Machine Learning", "YOLOv8", "Real-time", "Flutter"],
     shot: "/images/projects/sentinel-pipeline.svg",
     contain: true,
@@ -78,7 +78,7 @@ const projects: Project[] = [
     name: "Clusterden",
     niche: "Full-Stack CRM Platform",
     description:
-      "A MERN-stack CRM workspace featuring advanced Role-Based Access Control and automated WhatsApp integrations, with real-time collaboration over Socket.io.",
+      "A CRM built around WhatsApp: a trigger fires a campaign, the team works the same records live, and automated messages go out in 3 seconds instead of 20.",
     href: "https://www.clusterden.com",
     tags: ["Full-Stack", "CRM", "RBAC", "Integrations"],
     shot: "/images/projects/clusterden/screen-1.jpeg",
@@ -89,7 +89,7 @@ const projects: Project[] = [
     name: "Payback",
     niche: "Loyalty & Payments Platform",
     description:
-      "A full-stack loyalty rewards platform with a type-safe React frontend, secure Node.js backend, and real-time points tracking.",
+      "Cashback at the counter. A customer scans a QR, the POS confirms the sale, and the points land in their account before they've left the shop.",
     href: "https://demo.payback.pk",
     tags: ["Frontend", "Backend", "Loyalty", "Real-time"],
     shot: "/images/projects/payback/screen-1.jpeg",
@@ -104,7 +104,7 @@ const secondaryProjects: Project[] = [
     name: "Green N Solar",
     niche: "Solar & Lead Generation",
     description:
-      "A solar company website with service pages, trust-building sections, and lead-capture forms engineered to convert.",
+      "Marketing site for a Pakistani solar installer, built so someone comparing quotes can find the service and ask for one in the same visit.",
     href: "https://greennsolar.com",
     tags: ["Landing Page", "Lead Gen", "Solar"],
     shot: "/images/projects/green-n-solar/screen-1.png",
@@ -114,7 +114,7 @@ const secondaryProjects: Project[] = [
     name: "Meddo",
     niche: "Healthcare SaaS",
     description:
-      "A US medical management platform with conversion-focused service pages and a clean, trustworthy UI over a secure backend.",
+      "One workspace for contracts, inventory and user admin. Sign a contract, track where it stands, and get warned before it expires.",
     href: "https://med-do.vercel.app/",
     tags: ["Healthcare", "SaaS", "Service Pages"],
     shot: "/images/projects/meddo.png",
@@ -124,7 +124,7 @@ const secondaryProjects: Project[] = [
     name: "Comuni",
     niche: "Events & Marketing",
     description:
-      "A Canadian event-planning app with polished marketing pages, interactive maps, and offer-page design for local discovery.",
+      "Event planning for a Canadian audience: browse what's on nearby, see it on a map, and open the offer without leaving the page.",
     href: "https://comuni-delta.vercel.app/",
     tags: ["Web App", "Events", "Marketing"],
     shot: "/images/projects/comuni/screen-1.png",
@@ -134,7 +134,7 @@ const secondaryProjects: Project[] = [
     name: "Dynasty",
     niche: "B2B Marketing",
     description:
-      "A B2B marketing site for a UAE-based petroleum trading firm with service showcases, partner highlights, and quote-request flows.",
+      "B2B site for a petroleum trading firm in the UAE, where a buyer can see what's traded, who they work with, and request a quote in one step.",
     href: "https://dynastyfm.com/",
     tags: ["B2B", "Marketing Site", "Lead Gen"],
     shot: "/images/projects/dynasty/screen-1.jpeg",
@@ -144,7 +144,7 @@ const secondaryProjects: Project[] = [
     name: "613 Guys",
     niche: "Home Care & Bookings",
     description:
-      "Landing pages for a Canadian home-care brand, optimized for bookings and inquiries with a streamlined contact funnel.",
+      "Home care for a Canadian brand. One page per service, with the enquiry form where the reader already is rather than three clicks away.",
     href: "https://613-guys.vercel.app/",
     tags: ["Landing Pages", "Home Care", "Bookings"],
     shot: "/images/projects/613-guys/613guys.jpeg",

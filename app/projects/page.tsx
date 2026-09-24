@@ -27,13 +27,58 @@ const projects: Project[] = [
   //   logo: "/images/projects/destiny/screen-1.png",
   //   url: "https://destiny.pk",
   // },
+  // The four deep builds lead the page. They were previously missing entirely,
+  // so a page titled "Projects & Case Studies" showed only client marketing
+  // sites while the actual case studies sat unlinked at /projects/<slug>.
+  {
+    slug: "xision",
+    title: "Xision",
+    category: "Computer Vision / 3D Simulation",
+    tag: "AI / ML",
+    description:
+      "Online fashion returns are mostly a fit problem. A phone scan becomes a body model with real measurements, then a physics engine drapes the actual garment on it and reports where it pulls.",
+    technologies: ["Python", "FastAPI", "MediaPipe", "SMPL-X", "ONNX Runtime", "Cloth physics"],
+    logo: "/images/projects/xision-logo.png",
+    url: "https://www.xision.ai",
+  },
+  {
+    slug: "mavis",
+    title: "MAVIS",
+    category: "Agentic AI / Multi-Tenant SaaS",
+    tag: "AI / ML",
+    description:
+      "Virtual assistants hand work to Claude Code agents instead of doing it by hand. Each VA gets an isolated worker, agents reach 3,000+ connected apps, and a person signs off before anything reaches a client.",
+    technologies: ["TypeScript", "Next.js", "Claude Agent SDK", "MCP", "PostgreSQL RLS"],
+    logo: "/images/projects/mavis-logo.png",
+    url: "https://app.thevagroup.com",
+  },
+  {
+    slug: "metamorphix",
+    title: "Metamorphix",
+    category: "AI Automation / Multi-Agent",
+    tag: "AI / ML",
+    description:
+      "Prospect research used to take an analyst most of a day. Agents scrape each company, pull out the buying signals, verify who the decision-maker actually is, then write the outreach into Zoho ready for a human to send.",
+    technologies: ["Python", "Claude", "Pydantic", "Apollo", "Zoho CRM"],
+    logo: "/images/projects/metamorphix.png",
+  },
+  {
+    slug: "sentinel",
+    title: "Sentinel",
+    category: "Machine Learning / Real-time Detection",
+    tag: "AI / ML",
+    description:
+      "A control room can't watch every feed at once. Three trained detectors watch instead — accidents, vandalism, weapons — and the annotated frame reaches the operator's phone the moment one fires.",
+    technologies: ["Python", "YOLOv8", "PyTorch", "OpenCV", "Flutter"],
+    logo: "/images/projects/sentinel-camera.svg",
+  },
   {
     slug: "clusterden",
     title: "ClusterDen",
     category: "CRM / SaaS",
     tag: "SaaS",
     description:
-      "A MERN-stack CRM workspace featuring advanced Role-Based Access Control (RBAC) and automated WhatsApp integrations.",
+      "A CRM built around WhatsApp: a trigger fires a campaign, the team works the same records live, and automated messages go out in 3 seconds instead of 20.",
     technologies: ["React", "Node.js", "Socket Programming", "Redis", "WhatsApp Webhooks"],
     logo: "/images/projects/clusterden.svg",
     url: "https://www.clusterden.com",
@@ -44,7 +89,7 @@ const projects: Project[] = [
     category: "Loyalty Rewards",
     tag: "SaaS",
     description:
-      "A full-stack loyalty rewards platform with type-safe React frontend, secure Node.js backend, and real-time tracking.",
+      "Cashback at the counter. A customer scans a QR, the POS confirms the sale, and the points land in their account before they've left the shop.",
     technologies: ["React", "ExpressJS", "PostgreSQL", "Sequelize", "QR & Barcode Scanner", "Redux"],
     logo: "/images/projects/payback.png",
     url: "https://demo.payback.pk",
@@ -55,7 +100,7 @@ const projects: Project[] = [
     category: "Business Management",
     tag: "Internal Tools",
     description:
-      "A comprehensive business management system handling contracts, inventory, and user admin with secure authentication.",
+      "One workspace for contracts, inventory and user admin. Sign a contract, track where it stands, and get warned before it expires.",
     technologies: ["MongoDB", "Express", "React", "Node.js", "MySQL"],
     logo: "/images/projects/meddo.png",
     url: "https://med-do.vercel.app/",
@@ -66,7 +111,7 @@ const projects: Project[] = [
     category: "Social Platform",
     tag: "Web App",
     description:
-      "A Next.js social platform bridging digital and physical connections through local event discovery and interactive maps.",
+      "Event planning for a Canadian audience: browse what's on nearby, see it on a map, and open the offer without leaving the page.",
     technologies: ["Next.js", "Material UI", "JavaScript", "UX & UI Design"],
     logo: "/images/projects/comuni.png",
     url: "https://comuni-delta.vercel.app/",
@@ -77,7 +122,7 @@ const projects: Project[] = [
     category: "Commercial Website",
     tag: "Marketing",
     description:
-      "A professional commercial website featuring high-performance image optimization and a streamlined client booking funnel.",
+      "Home care for a Canadian brand. One page per service, with the enquiry form where the reader already is rather than three clicks away.",
     technologies: ["Next.js", "Tailwind CSS", "Logo Design", "Responsive Design"],
     logo: "/images/projects/613guys.png",
     url: "https://613-guys.vercel.app/",
@@ -88,7 +133,7 @@ const projects: Project[] = [
     category: "Sustainable Energy",
     tag: "Marketing",
     description:
-      "A fast-loading, responsive frontend for sustainable energy solutions featuring dynamic UI rendering and modern design.",
+      "Marketing site for a Pakistani solar installer, built so someone comparing quotes can find the service and ask for one in the same visit.",
     technologies: ["React", "CSS 3", "Responsive Design", "Domain Migration"],
     logo: "/images/projects/gns.png",
     url: "https://green-n-solar-haris-shakeels-projects.vercel.app/",
@@ -99,14 +144,14 @@ const projects: Project[] = [
     category: "Energy Trading",
     tag: "Marketing",
     description:
-      "A B2B marketing site for a UAE-based petroleum trading firm featuring service showcases, partner highlights, and quote request flows.",
+      "B2B site for a petroleum trading firm in the UAE, where a buyer can see what's traded, who they work with, and request a quote in one step.",
     technologies: ["Next.js", "Tailwind CSS", "Responsive Design", "SEO"],
     logo: "/images/projects/dynasty.png",
     url: "https://dynastyfm.com/",
   },
 ]
 
-const tabs = ["Ecommerce", "SaaS"]
+const tabs = ["AI / ML", "SaaS", "Marketing"]
 
 export default function ProjectsPage() {
   const crumbs = [{ name: "Projects", href: "/projects" }]

@@ -39,9 +39,6 @@ export const defaultMetadata: Metadata = {
     'SMPL-X',
     'PyTorch',
     'FastAPI',
-    'Python',
-    'Next.js',
-    'MERN stack',
   ],
   authors: [{ name: siteConfig.author, url: siteConfig.url }],
   creator: siteConfig.author,
@@ -107,7 +104,6 @@ export const personSchema = {
     'Python',
     'TypeScript',
     'Next.js',
-    'MERN Stack',
   ],
   sameAs: [siteConfig.links.linkedin, siteConfig.links.github, siteConfig.links.upwork],
 }

@@ -28,17 +28,17 @@ const FOCUS = [
   {
     label: "Computer vision",
     accent: PALETTE.chartreuse,
-    text: "Pipelines that turn a phone scan into an accurate 3D body model: pose estimation, depth, body modelling, and cloth physics.",
+    text: "Reading a real body off an ordinary phone photo, accurately enough to tell someone what size to buy.",
   },
   {
     label: "Agentic AI",
     accent: "#F2B84B",
-    text: "Multi-agent systems on the Claude Agent SDK and MCP, with people kept in the approval loop.",
+    text: "Agents that carry real work on their own, with a person signing off on anything that reaches a customer.",
   },
   {
     label: "Full-stack",
     accent: "#7CC6B4",
-    text: "The platforms around them in Python, FastAPI, and the MERN stack, from the database to an accessible interface.",
+    text: "The unglamorous half that makes them usable: the database, the queue, the API, and the screen on top.",
   },
 ]
 
@@ -51,46 +51,43 @@ const FOCUS = [
  */
 const TOOLKIT_BG = "#0F2B2E"
 
-// Mirrors the Skills section of the current resume — keep the two in sync.
-// Each group separates the tools themselves from the methods they're used
-// for, so it scans as "what I work with / what I do with it" instead of one
-// undifferentiated wall of pills. `accent` colours the group's index badge.
-type StackGroup = { label: string; accent: string; tools: string[]; methods?: string[] }
+// Deliberately NOT a mirror of the resume's skills section. A resume lists
+// keywords because a parser matches strings; a visitor here learns nothing
+// from a wall of pills. So each group names only the tools that are actually
+// load-bearing, and `built` says what they produced — the tool list is the
+// claim, the `built` line is the evidence. `accent` colours the index badge.
+type StackGroup = { label: string; accent: string; tools: string[]; built?: string }
 
 const STACK: StackGroup[] = [
   {
-    label: "ML & Computer Vision",
+    label: "Seeing",
     accent: PALETTE.chartreuse,
-    tools: ["PyTorch", "TensorFlow", "OpenCV", "MediaPipe", "ONNX Runtime", "YOLOv8", "Ultralytics", "SMPL-X", "scikit-learn", "SciPy", "NumPy", "Pandas", "Roboflow"],
-    methods: ["Pose estimation", "Monocular depth estimation", "3D body modelling", "Cloth-physics simulation", "Deep learning & CNNs", "Transfer learning", "Model training & evaluation"],
+    tools: ["PyTorch", "ONNX Runtime", "OpenCV", "MediaPipe", "SMPL-X", "YOLOv8"],
+    built: "Xision's pipeline, which reads a body's real measurements off an ordinary phone scan, and Sentinel's three detectors watching live CCTV.",
   },
   {
-    label: "LLMs & Agentic AI",
+    label: "Reasoning",
     accent: "#F2B84B",
-    tools: ["Claude Agent SDK", "MCP", "LangChain", "LangGraph", "Vector databases", "Claude", "GPT-5", "Gemini", "Llama", "DeepSeek"],
-    methods: ["Multi-agent orchestration", "RAG & GraphRAG", "Embeddings", "Function calling", "Structured output", "Prompt engineering", "Human-in-the-loop design"],
+    tools: ["Claude Agent SDK", "MCP", "Pydantic"],
+    built: "MAVIS, where agents do client work across 3,000+ connected apps with a person approving every output, and the research pipeline behind Metamorphix.",
   },
   {
-    label: "Backend & Data",
+    label: "Serving",
     accent: "#7CC6B4",
-    tools: ["FastAPI", "Node.js", "Express", "PostgreSQL", "Supabase", "Prisma", "Redis", "BullMQ", "MongoDB", "MySQL", "Pydantic", "pytest", "Slack Bolt", "n8n"],
-    methods: ["REST APIs", "WebSockets", "OAuth 2.0", "Row-level security"],
+    tools: ["Python", "FastAPI", "Node.js", "PostgreSQL", "Redis"],
+    built: "The services underneath all of it: job queues that survive a bad asset, tenant isolation enforced by the database, and APIs that fail loudly rather than guess.",
   },
   {
-    label: "Frontend & Mobile",
+    label: "Interfaces",
     accent: "#8FB3F0",
-    tools: ["React", "Next.js", "React Native", "Flutter", "Tailwind CSS", "Redux"],
-    methods: ["MERN stack"],
+    tools: ["TypeScript", "React", "Next.js", "Tailwind CSS", "Flutter"],
+    built: "Client portals, this site, and the mobile app that puts a flagged CCTV frame in an operator's hand.",
   },
   {
-    label: "Cloud, DevOps & AI Tools",
+    label: "Shipping",
     accent: "#F08F6E",
-    tools: ["Google Cloud (GCP)", "AWS", "Docker", "Railway", "Vercel", "Sentry", "Git", "GitHub", "JIRA", "Claude Code", "Cursor", "Codex"],
-  },
-  {
-    label: "Languages",
-    accent: PALETTE.champagne,
-    tools: ["Python", "TypeScript", "JavaScript", "SQL", "C++", "C# / .NET Core", "Dart"],
+    tools: ["Docker", "GCP", "AWS", "GitHub Actions", "pytest", "Playwright"],
+    built: "Deployments that hold up, and test suites that catch a regression before a reviewer has to.",
   },
 ]
 
@@ -431,7 +428,7 @@ export function AboutSection() {
                 <dd className="space-y-3 md:col-span-8">
                   {[
                     { label: "Tools", items: group.tools, strong: true },
-                    ...(group.methods ? [{ label: "Methods", items: group.methods, strong: false }] : []),
+                    ...(group.built ? [{ label: "Built", items: [group.built], strong: false }] : []),
                   ].map((line) => (
                     <div key={line.label} className="grid grid-cols-[4.75rem_1fr] gap-3 md:grid-cols-[5.5rem_1fr]">
                       <span
@@ -446,7 +443,13 @@ export function AboutSection() {
                         style={{ color: line.strong ? PALETTE.ivory : PALETTE.sage }}
                       >
                         {line.items.map((item, i) => (
-                          <motion.span key={item} variants={keywordItem} className="inline-block whitespace-nowrap">
+                          <motion.span
+                            key={item}
+                            variants={keywordItem}
+                            /* Keywords stay unbroken so a two-word tool never splits across
+                               lines; the `built` sentence is prose and has to wrap normally. */
+                            className={line.strong ? "inline-block whitespace-nowrap" : "inline"}
+                          >
                             {i > 0 && (
                               <>
                                 <span className="sr-only">, </span>

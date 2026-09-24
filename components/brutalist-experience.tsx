@@ -46,7 +46,7 @@ const ROLES: Role[] = [
     location: "Remote",
     current: true,
     summary:
-      "Building the applied computer-vision and simulation pipeline behind xision.ai: pose estimation, monocular depth, parametric body modelling, and cloth-physics fit derivation that turn a single phone scan into a measurement-accurate 3D body and a physically simulated garment fit. Also engineered MAVIS, a multi-tenant platform putting Claude Code agents on real client work, with per-user OAuth across 3,000+ connected apps, Postgres row-level security as the tenant boundary, and humans holding the approval loop on everything an agent produces. The through-line is making model output something a product can actually act on: typed, validated, and reviewable rather than prose a human has to re-check.",
+      "I build the vision pipeline behind xision.ai: a phone scan goes in, a body model accurate enough to size a garment comes out, and a physics engine drapes the real garment on it. I also built MAVIS, where Claude Code agents do client work across 3,000+ connected apps, with a person approving everything before it reaches a client.",
     tags: ["Computer Vision", "3D / Simulation", "Agentic AI", "FastAPI", "Multi-Tenant SaaS"],
     // Midnight navy: lets the white wordmark and sky-blue arc of the logo carry.
     theme: {
@@ -63,7 +63,7 @@ const ROLES: Role[] = [
     role: "Technical Lead",
     location: "Lahore",
     summary:
-      "Led the end-to-end build of payback.pk, a live cashback platform with QR-based transactions, POS integration, and TOTP-based authentication behind its financial operations. Managed a team of four to five interns while acting as the primary technical contributor across backend, infrastructure, and core product decisions, and deployed it on AWS as a live platform with active business onboarding and real user transactions.",
+      "I led the build of payback.pk and ran a team of four to five interns while still writing most of the backend myself. It went live on AWS with businesses onboarding and real customers earning cashback at the till, through QR and the POS.",
     tags: ["Team Lead", "AWS", "Payments / POS", "Full-Stack"],
     // Butter cream: warm enough to echo the amber mark, light enough for the black wordmark.
     theme: {
@@ -80,7 +80,7 @@ const ROLES: Role[] = [
     role: "Associate Full-Stack Developer",
     location: "Lahore",
     summary:
-      "Designed and implemented clusterden.com, a CRM platform with scalable WhatsApp automation built on an action-trigger workflow engine of triggers, revisions, and runs, wired to the WhatsApp Business API through webhooks for real-time responsiveness. Cut automated message delivery from 20 seconds to 3, shipping weekly demos to consistent stakeholder sign-off. Also built and optimised client sites including greennsolar.com, dynastyfm.com, 613 Guys, Meddo, DevPlob, and Comuni.",
+      "I built clusterden.com, a CRM where a trigger fires a WhatsApp campaign and the whole team works the same records live. Message delivery went from 20 seconds down to 3. Alongside it I shipped client sites — greennsolar.com, dynastyfm.com, 613 Guys, Meddo, DevPlob and Comuni.",
     tags: ["MERN", "WhatsApp API", "Workflow Automation", "CRM"],
     // Icy blue-grey: cool enough to sit with the logo's blue, light enough for its grey type and red mark.
     theme: {

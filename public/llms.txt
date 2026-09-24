@@ -1,6 +1,6 @@
 # Haris Shakeel
 
-> Haris Shakeel (Muhammad Haris) is an AI/ML engineer based in Lahore, Pakistan, specializing in applied computer vision, physics-based simulation, and agentic AI systems. He builds production computer-vision pipelines, multi-tenant agent platforms on the Claude Agent SDK and MCP, and full-stack products in Python/FastAPI and the MERN stack.
+> Haris Shakeel (Muhammad Haris) is an AI/ML engineer based in Lahore, Pakistan, specializing in applied computer vision, physics-based simulation, and agentic AI systems. He builds production computer-vision pipelines, multi-tenant agent platforms on the Claude Agent SDK and MCP, and full-stack products in Python/FastAPI and TypeScript/Next.js.
 
 - Website: https://www.harisshakeel.site
 - Email: harisshakeel061@gmail.com
@@ -27,11 +27,11 @@
 
 ## Skills
 
-- Machine learning & computer vision: PyTorch, TensorFlow, YOLOv8, OpenCV, ONNX Runtime, MediaPipe, SMPL-X, pose and monocular depth estimation, cloth-physics simulation
-- LLMs & agentic AI: Claude Agent SDK, MCP, multi-agent orchestration, LangChain, LangGraph, RAG, structured output
-- Backend & data: FastAPI, Node.js, Express, PostgreSQL (RLS), Prisma, BullMQ, Redis, MongoDB, Supabase
-- Frontend & mobile: React, Next.js, React Native, Flutter, Tailwind CSS
-- Cloud & DevOps: Google Cloud, AWS, Docker, Railway, Vercel, Sentry
+- Machine learning & computer vision: PyTorch, ONNX Runtime, OpenCV, YOLOv8, MediaPipe, SMPL-X, pose and monocular depth estimation, 3D body modelling, cloth-physics simulation
+- LLMs & agentic AI: Claude Agent SDK, MCP, multi-agent orchestration, RAG, structured output, function calling, human-in-the-loop design
+- Backend & data: FastAPI, Pydantic, Node.js, Express, PostgreSQL (RLS), Prisma, BullMQ, Redis, MongoDB, Supabase
+- Frontend & mobile: React, Next.js, Tailwind CSS, React Native, Flutter
+- Infrastructure & testing: Docker, Google Cloud, AWS, Railway, Vercel, GitHub Actions, Sentry, pytest, Playwright
 
 ## Pages
 

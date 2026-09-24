@@ -186,7 +186,7 @@ export default function AboutPage() {
           "Agentic AI",
           "Computer Vision",
           "Full-Stack Dev",
-          "MERN Stack",
+          "Claude Agent SDK",
           "System Architecture",
           "AWS / GCP",
         ]}

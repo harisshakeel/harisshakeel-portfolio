@@ -11,8 +11,8 @@ import {
 } from "framer-motion"
 import {
   Boxes,
+  Building2,
   CheckCircle2,
-  Star,
   Timer,
   type LucideIcon,
 } from "lucide-react"
@@ -34,34 +34,37 @@ interface Metric {
 }
 
 const metrics: Metric[] = [
+  // Every figure here has to be traceable to a specific build. The previous set
+  // ("100% on-time delivery", "4.9/5 client satisfaction") was agency boilerplate
+  // that nothing on this site backs up — unsourced numbers read as invented, and
+  // one of them undoes the credibility of the work they sit next to.
   {
-    label: "Projects shipped",
-    value: 30,
-    suffix: "+",
-    description: "Across SaaS, internal tools, and marketing sites, and counting.",
-    icon: Boxes,
-  },
-  {
-    label: "Average response",
-    value: 24,
-    suffix: "h",
-    description: "First reply on every new brief, weekdays or weekends.",
+    label: "Message delivery",
+    value: 3,
+    suffix: "s",
+    description: "Down from 20 seconds, after the send path was rebuilt. (Clusterden)",
     icon: Timer,
   },
   {
-    label: "On-time delivery",
-    value: 100,
-    suffix: "%",
-    description: "Every milestone, every release. We don't move dates quietly.",
-    icon: CheckCircle2,
+    label: "Apps reachable",
+    value: 3000,
+    suffix: "+",
+    description: "What a single agent can act on through MCP, scoped per user. (MAVIS)",
+    icon: Boxes,
   },
   {
-    label: "Client satisfaction",
-    value: 4.9,
-    decimals: 1,
-    suffix: "/5",
-    description: "Across testimonials, reviews, and repeat-engagement signals.",
-    icon: Star,
+    label: "Companies researched",
+    value: 13000,
+    suffix: "+",
+    description: "Profiled and contact-verified without a human in the loop. (Metamorphix)",
+    icon: Building2,
+  },
+  {
+    label: "Factual accuracy",
+    value: 95,
+    suffix: "%",
+    description: "On that research, held up by a second independent validation pass.",
+    icon: CheckCircle2,
   },
 ]
 
