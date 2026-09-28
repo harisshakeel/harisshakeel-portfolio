@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react"
 import Image from "next/image"
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion"
 import { ArrowDownLeft } from "lucide-react"
+import { FaGithub, FaLinkedinIn, FaRegCalendar } from "react-icons/fa6"
 
 import { Magnetic } from "@/components/ui/magnetic"
 import { PALETTE } from "@/lib/palette"
@@ -208,23 +209,27 @@ export function BrutalistFooter() {
               >
                 Socials
               </span>
-              <ul className="flex gap-6 md:gap-8">
+              <ul className="flex gap-3 md:gap-4">
                 {[
-                  { href: LINKEDIN, label: "LinkedIn" },
-                  { href: GITHUB, label: "Github" },
-                  { href: CALENDLY, label: "Book a Call" },
-                ].map(({ href, label }) => (
+                  { href: LINKEDIN, label: "LinkedIn", Icon: FaLinkedinIn },
+                  { href: GITHUB, label: "GitHub", Icon: FaGithub },
+                  { href: CALENDLY, label: "Book a call", Icon: FaRegCalendar },
+                ].map(({ href, label, Icon }) => (
                   <li key={label}>
                     <Magnetic>
+                      {/* Icon only, so the label moves to aria-label and a title tooltip;
+                          size-11 keeps a thumb-sized 44px tap target. */}
                       <a
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={label}
+                        title={label}
                         data-cursor
-                        className="inline-block py-1 text-sm font-normal transition-opacity duration-300 hover:opacity-100 md:text-base"
-                        style={{ color: PALETTE.ivory, opacity: 0.8 }}
+                        className="flex size-11 items-center justify-center rounded-full border transition-opacity duration-300 hover:opacity-100"
+                        style={{ color: PALETTE.ivory, borderColor: `${PALETTE.sage}4d`, opacity: 0.8 }}
                       >
-                        {label}
+                        <Icon aria-hidden className="size-[18px]" />
                       </a>
                     </Magnetic>
                   </li>

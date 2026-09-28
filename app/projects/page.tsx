@@ -179,9 +179,6 @@ export default function ProjectsPage() {
           className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-primary/10 blur-[140px]"
         />
         <div className="relative mx-auto max-w-[1320px] px-6 pt-20 pb-16 md:px-10 md:pt-28 md:pb-20">
-          <p className="mb-6 text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
-            Projects
-          </p>
           <h1 className="max-w-4xl text-5xl font-semibold tracking-[-0.03em] text-foreground md:text-6xl lg:text-7xl">
             Things I&apos;ve built.
           </h1>

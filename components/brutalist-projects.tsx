@@ -263,16 +263,6 @@ export function BrutalistProjects() {
       <div className="relative mx-auto max-w-7xl">
         {/* Heading */}
         <div className="mb-16 md:mb-24">
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-15%" }}
-            className="mb-4 font-mono text-[11px] uppercase tracking-[0.3em]"
-            style={{ color: PALETTE.chartreuse }}
-          >
-            (Selected Work)
-          </motion.p>
           <motion.h2
             initial="hidden"
             whileInView="visible"
@@ -465,12 +455,6 @@ export function BrutalistProjects() {
               whileInView="visible"
               viewport={{ once: true, margin: "-10%" }}
             >
-              <p
-                className="mb-3 font-mono text-[11px] uppercase tracking-[0.3em]"
-                style={{ color: `${PALETTE.inkOlive}b3` }}
-              >
-                (More work)
-              </p>
               <h3
                 id="client-builds-heading"
                 className="font-display text-4xl uppercase leading-none tracking-tight md:text-6xl"

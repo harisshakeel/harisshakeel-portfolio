@@ -54,43 +54,46 @@ const FOCUS = [
  */
 const TOOLKIT_BG = "#0F2B2E"
 
-// Deliberately NOT a mirror of the resume's skills section. A resume lists
-// keywords because a parser matches strings; a visitor here learns nothing
-// from a wall of pills. So each group names only the tools that are actually
-// load-bearing, and `built` says what they produced — the tool list is the
-// claim, the `built` line is the evidence. `accent` colours the index badge.
+// Mirrors the resume's Skills section word for word and in the same order,
+// so a recruiter comparing the two sees one list. Update both together.
+// `built` is optional prose shown under a group; `accent` colours its badge.
 type StackGroup = { label: string; accent: string; tools: string[]; built?: string }
 
 const STACK: StackGroup[] = [
   {
-    label: "Seeing",
+    label: "Languages",
     accent: PALETTE.chartreuse,
-    tools: ["PyTorch", "ONNX Runtime", "OpenCV", "MediaPipe", "SMPL-X", "YOLOv8"],
-    built: "Xision's pipeline, which reads a body's real measurements off an ordinary phone scan, and Sentinel's three detectors watching live CCTV.",
+    tools: ["Python", "TypeScript", "SQL", "C++"],
   },
   {
-    label: "Reasoning",
+    label: "Backend & Data",
     accent: "#F2B84B",
-    tools: ["Claude Agent SDK", "MCP", "Pydantic"],
-    built: "MAVIS, where agents do client work across 3,000+ connected apps with a person approving every output, and the research pipeline behind Metamorphix.",
+    tools: ["FastAPI", "Pydantic", "Node.js", "Express", "REST APIs", "WebSockets", "OAuth 2.0", "RBAC", "PostgreSQL", "Prisma", "Redis / BullMQ", "Kafka", "MongoDB", "Supabase", "Firebase"],
   },
   {
-    label: "Serving",
+    label: "Frontend & Mobile",
     accent: "#7CC6B4",
-    tools: ["Python", "FastAPI", "Node.js", "PostgreSQL", "Redis"],
-    built: "The services underneath all of it: job queues that survive a bad asset, tenant isolation enforced by the database, and APIs that fail loudly rather than guess.",
+    tools: ["React", "Next.js", "Tailwind CSS", "Redux", "React Native", "Flutter"],
   },
   {
-    label: "Interfaces",
+    label: "Infrastructure & Testing",
     accent: "#8FB3F0",
-    tools: ["TypeScript", "React", "Next.js", "Tailwind CSS", "Flutter"],
-    built: "Client portals, this site, and the mobile app that puts a flagged CCTV frame in an operator's hand.",
+    tools: ["Docker", "Nginx", "AWS (EC2, S3, Fargate)", "GCP (Cloud Run, Compute Engine, Cloud Storage)", "Railway CLI", "Vercel CLI", "GitHub Actions", "Sentry", "pytest", "Playwright"],
   },
   {
-    label: "Shipping",
+    label: "LLMs & Agentic AI",
     accent: "#F08F6E",
-    tools: ["Docker", "GCP", "AWS", "GitHub Actions", "pytest", "Playwright"],
-    built: "Deployments that hold up, and test suites that catch a regression before a reviewer has to.",
+    tools: ["Claude, GPT and DeepSeek APIs", "MCP (Model Context Protocol)", "Multi-Agent Orchestration", "RAG", "Structured Output", "Function Calling", "Vector Databases", "Human-in-the-Loop Design"],
+  },
+  {
+    label: "Scraping & Data APIs",
+    accent: PALETTE.champagne,
+    tools: ["Firecrawl", "SERP APIs", "Apify"],
+  },
+  {
+    label: "Computer Vision & ML",
+    accent: "#C9A7F0",
+    tools: ["PyTorch", "OpenCV", "YOLOv8 / Ultralytics", "SMPL-X", "Pose Estimation", "3D Body Modelling", "Cloth-Physics Simulation", "NumPy", "scikit-learn"],
   },
 ]
 
@@ -151,27 +154,6 @@ export function AboutSection() {
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const enter = { trigger: sectionRef.current, start: "top 80%", once: true }
-
-        // Eyebrow rule wipe
-        gsap.fromTo(
-          "[data-about-rule]",
-          { scaleX: 0 },
-          { scaleX: 1, duration: 1.1, ease: "expo.out", scrollTrigger: enter }
-        )
-
-        gsap.fromTo(
-          "[data-about-eyebrow]",
-          { opacity: 0, x: -8 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.9,
-            ease: "expo.out",
-            delay: 0.15,
-            scrollTrigger: enter,
-          }
-        )
-
         // Word-by-word illumination on the lead only, scrubbed against scroll.
         // Starts legible and finishes before the lead reaches mid-screen.
         // aria "none": the default adds aria-label to the <p>, which isn't allowed on a paragraph.
@@ -222,48 +204,6 @@ export function AboutSection() {
       />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        {/* Eyebrow with decorative rule + availability badge */}
-        <div className="mb-10 flex items-center gap-4 text-xs uppercase tracking-[0.22em]" style={{ color: `${PALETTE.warmGrey}99` }}>
-          <span
-            data-about-rule
-            aria-hidden="true"
-            className="h-px w-10 origin-left"
-            style={{ backgroundColor: `${PALETTE.inkOlive}40` }}
-          />
-          <span data-about-eyebrow>Introduction</span>
-        </div>
-
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-15%" }}
-          className="mb-8 flex flex-wrap items-center gap-4"
-        >
-          <span
-            className="font-hero-sub font-semibold text-[11px] uppercase tracking-[0.3em]"
-            style={{ color: PALETTE.warmGrey }}
-          >
-            (About)
-          </span>
-          <span
-            className="inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em]"
-            style={{ borderColor: `${PALETTE.inkOlive}26`, color: PALETTE.inkOlive }}
-          >
-            <span className="relative flex h-2 w-2">
-              <span
-                className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-70"
-                style={{ backgroundColor: PALETTE.mineralSage }}
-              />
-              <span
-                className="relative inline-flex h-2 w-2 rounded-full"
-                style={{ backgroundColor: PALETTE.mineralSage }}
-              />
-            </span>
-            Available for work
-          </span>
-        </motion.div>
-
         {/* Giant statement */}
         <h2 className="font-hero-display uppercase leading-[0.9] tracking-tight">
           {HEADLINE.map((line, i) => (
@@ -386,12 +326,6 @@ export function AboutSection() {
             viewport={{ once: true, margin: "-10%" }}
             className="mb-10 md:mb-14"
           >
-            <p
-              className="mb-4 font-hero-sub text-[11px] font-semibold uppercase tracking-[0.3em]"
-              style={{ color: PALETTE.chartreuse }}
-            >
-              (Toolkit)
-            </p>
             <h2
               id="toolkit-heading"
               className="font-hero-display text-[9vw] uppercase leading-[0.95] tracking-tight md:text-6xl"
@@ -449,9 +383,9 @@ export function AboutSection() {
                           <motion.span
                             key={item}
                             variants={keywordItem}
-                            /* Keywords stay unbroken so a two-word tool never splits across
-                               lines; the `built` sentence is prose and has to wrap normally. */
-                            className={line.strong ? "inline-block whitespace-nowrap" : "inline"}
+                            /* Short tools stay unbroken so "Tailwind CSS" never splits; long entries
+                               like "GCP (Cloud Run, ...)" must wrap or they overflow a phone. */
+                            className={line.strong && item.length <= 24 ? "inline-block whitespace-nowrap" : "inline"}
                           >
                             {/* The separator trails its item instead of leading the next,
                                 so when a narrow screen wraps the list the dot stays at the

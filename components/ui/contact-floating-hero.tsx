@@ -53,14 +53,6 @@ export function ContactFloatingHero() {
         <div className="grid items-stretch gap-12 lg:grid-cols-12 lg:gap-14">
           {/* Left, text + actions */}
           <div className="lg:col-span-6">
-            <motion.p
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mb-6 text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground"
-            >
-              Contact
-            </motion.p>
 
             <motion.h1
               initial={{ opacity: 0, y: 12 }}

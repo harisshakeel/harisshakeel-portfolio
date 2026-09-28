@@ -27,11 +27,13 @@
 
 ## Skills
 
-- Machine learning & computer vision: PyTorch, ONNX Runtime, OpenCV, YOLOv8, MediaPipe, SMPL-X, pose and monocular depth estimation, 3D body modelling, cloth-physics simulation
-- LLMs & agentic AI: Claude Agent SDK, MCP, multi-agent orchestration, RAG, structured output, function calling, human-in-the-loop design
-- Backend & data: FastAPI, Pydantic, Node.js, Express, PostgreSQL (RLS), Prisma, BullMQ, Redis, MongoDB, Supabase
-- Frontend & mobile: React, Next.js, Tailwind CSS, React Native, Flutter
-- Infrastructure & testing: Docker, Google Cloud, AWS, Railway, Vercel, GitHub Actions, Sentry, pytest, Playwright
+- Languages: Python, TypeScript, SQL, C++
+- Backend & Data: FastAPI, Pydantic, Node.js, Express, REST APIs, WebSockets, OAuth 2.0, RBAC, PostgreSQL, Prisma, Redis / BullMQ, Kafka, MongoDB, Supabase, Firebase
+- Frontend & Mobile: React, Next.js, Tailwind CSS, Redux, React Native, Flutter
+- Infrastructure & Testing: Docker, Nginx, AWS (EC2, S3, Fargate), GCP (Cloud Run, Compute Engine, Cloud Storage), Railway CLI, Vercel CLI, GitHub Actions, Sentry, pytest, Playwright
+- LLMs & Agentic AI: Claude, GPT and DeepSeek APIs, MCP (Model Context Protocol), Multi-Agent Orchestration, RAG, Structured Output, Function Calling, Vector Databases, Human-in-the-Loop Design
+- Scraping & Data APIs: Firecrawl, SERP APIs, Apify
+- Computer Vision & ML: PyTorch, OpenCV, YOLOv8 / Ultralytics, SMPL-X, Pose Estimation, 3D Body Modelling, Cloth-Physics Simulation, NumPy, scikit-learn
 
 ## Pages
 

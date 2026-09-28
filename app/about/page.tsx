@@ -122,9 +122,6 @@ export default function AboutPage() {
         <div className="relative mx-auto max-w-[1320px] px-6 py-20 md:px-10 md:py-28">
           <div className="grid gap-12 md:grid-cols-12">
             <div className="md:col-span-4">
-              <p className="text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
-                Haris Shakeel
-              </p>
             </div>
             <div className="md:col-span-8">
               <div className="flex flex-wrap text-balance text-2xl font-medium leading-snug tracking-[-0.015em] text-foreground md:text-[34px] md:leading-[1.2]">

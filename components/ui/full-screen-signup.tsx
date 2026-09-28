@@ -41,12 +41,6 @@ export function FullScreenSignup() {
         className="grid gap-10 py-20 md:grid-cols-12 md:gap-16 md:py-28"
       >
         <div className="md:col-span-5">
-          <motion.p
-            variants={itemVariants}
-            className="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground"
-          >
-            Work with me
-          </motion.p>
           <motion.h2
             variants={itemVariants}
             className="text-4xl font-semibold tracking-[-0.02em] text-foreground md:text-5xl lg:text-6xl"
