@@ -24,6 +24,9 @@ interface Role {
   logoTone: "dark" | "light"
   role?: string
   location?: string
+  /** Must match the resume and LinkedIn exactly: recruiters compare them
+   *  and background checks verify these dates with the employer. */
+  period?: string
   summary?: string
   tags?: string[]
   current?: boolean
@@ -43,7 +46,8 @@ const ROLES: Role[] = [
     logoDims: { width: 792, height: 150 },
     logoTone: "light",
     role: "Software Engineer",
-    location: "Remote",
+    location: "US · Remote",
+    period: "Feb 2026 – Present",
     current: true,
     summary:
       "I built MAVIS, where Claude Code agents do client work with 10,000+ tools across 3,000+ apps and a person approves everything before it reaches a client. On Xision's virtual try-on I cut simulation time from 5 minutes to 30 seconds, and built the pipeline that makes 3D garments matching the real ones at 90% accuracy.",
@@ -61,7 +65,8 @@ const ROLES: Role[] = [
     logoDims: { width: 182, height: 50 },
     logoTone: "dark",
     role: "Associate Technical Lead",
-    location: "Lahore",
+    location: "Lahore · Onsite",
+    period: "Mar 2025 – Dec 2025",
     summary:
       "I led the build of payback.pk and ran a team of four to five interns while still writing most of the backend myself. It went live on AWS with businesses onboarding and real customers earning cashback at the till, through QR and the POS.",
     tags: ["Team Lead", "AWS", "Payments / POS", "Full-Stack"],
@@ -78,7 +83,8 @@ const ROLES: Role[] = [
     logoDims: { width: 200, height: 80 },
     logoTone: "dark",
     role: "Associate Software Engineer",
-    location: "Lahore",
+    location: "Lahore · Onsite",
+    period: "Jan 2024 – Mar 2025",
     summary:
       "I built clusterden.com, a CRM where a trigger fires a WhatsApp campaign and the whole team works the same records live. Message delivery went from 20 seconds down to 3. Alongside it I shipped client sites — greennsolar.com, dynastyfm.com, 613 Guys, Meddo, DevPlob and Comuni.",
     tags: ["MERN", "WhatsApp API", "Workflow Automation", "CRM"],
@@ -164,6 +170,9 @@ function RolePanel({ role, index }: { role: Role; index: number }) {
             <p className="max-w-[38ch] text-base leading-[1.7] opacity-75 md:text-lg">
               {role.role}
               {role.location ? ` · ${role.location}` : ""}
+              {role.period && (
+                <span className="block tabular-nums opacity-70">{role.period}</span>
+              )}
             </p>
 
             {/* Decorative giant number */}
