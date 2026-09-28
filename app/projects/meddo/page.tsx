@@ -5,9 +5,9 @@ import { breadcrumbSchema, caseStudySchema } from "@/lib/schema"
 import { CaseStudy, type CaseStudyData } from "@/components/ui/case-study"
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Meddo Case Study, Business Management System",
+  title: "Meddo Case Study, Medical Management System",
   description:
-    "How Haris Shakeel built Meddo: a comprehensive business management system for contracts, inventory, and user admin with secure authentication and dual-database architecture.",
+    "How Haris Shakeel built Meddo: a medical management system for a US healthcare business, bringing contracts, inventory, and staff administration into one workspace with secure authentication.",
   path: "/projects/meddo",
 })
 
@@ -15,14 +15,14 @@ const data: CaseStudyData = {
   slug: "meddo",
   client: "Meddo",
   logo: "/images/projects/meddo.png",
-  category: "Business Management",
-  industry: "Internal Tools",
+  category: "Medical Management",
+  industry: "Healthcare",
   website: { url: "https://med-do.vercel.app/", label: "med-do.vercel.app" },
   liveUrl: "https://med-do.vercel.app/",
   liveLabel: "View live project",
-  headline: "How Meddo unified contracts, inventory, and admin in one workspace.",
+  headline: "How Meddo put a medical business's contracts, inventory, and staff admin in one system.",
   summary:
-    "A comprehensive business management platform that centralizes contract management, inventory tracking, and multi-user administration, built on a dual-database architecture (MongoDB + MySQL) for flexibility and performance.",
+    "A medical management platform for a US healthcare business that centralizes contract management, inventory tracking, and multi-user administration, built on a dual-database architecture (MongoDB + MySQL).",
   sections: [
     {
       heading: "Overview",
@@ -60,8 +60,8 @@ export default function MeddoPage() {
   const schemas = [
     breadcrumbSchema([{ name: "Home", href: "/" }, ...crumbs]),
     caseStudySchema({
-      name: "Meddo Business Management System",
-      description: "Comprehensive business management system for contracts, inventory, and user admin",
+      name: "Meddo Medical Management System",
+      description: "Medical management system for a US healthcare business: contracts, inventory, and staff admin",
       url: "/projects/meddo",
       clientName: "Meddo",
     }),

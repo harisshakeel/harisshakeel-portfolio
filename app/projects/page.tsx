@@ -97,10 +97,10 @@ const projects: Project[] = [
   {
     slug: "meddo",
     title: "Meddo",
-    category: "Business Management",
-    tag: "Internal Tools",
+    category: "Medical Management",
+    tag: "SaaS",
     description:
-      "One workspace for contracts, inventory and user admin. Sign a contract, track where it stands, and get warned before it expires.",
+      "Medical management for a US healthcare business: contracts, inventory and staff admin in one place, with a warning before any contract lapses.",
     technologies: ["MongoDB", "Express", "React", "Node.js", "MySQL"],
     logo: "/images/projects/meddo.png",
     url: "https://med-do.vercel.app/",

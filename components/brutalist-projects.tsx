@@ -114,7 +114,7 @@ const secondaryProjects: Project[] = [
     name: "Meddo",
     niche: "Healthcare SaaS",
     description:
-      "One workspace for contracts, inventory and user admin. Sign a contract, track where it stands, and get warned before it expires.",
+      "Medical management for a US healthcare business: contracts, inventory and staff admin in one place, with a warning before any contract lapses.",
     href: "https://med-do.vercel.app/",
     tags: ["Healthcare", "SaaS", "Service Pages"],
     shot: "/images/projects/meddo.png",
