@@ -12,9 +12,9 @@ import { buildPageMetadata } from "@/lib/seo"
 import { breadcrumbSchema } from "@/lib/schema"
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "About, Agentic AI Engineer",
+  title: "About, Software Engineer",
   description:
-    "Haris Shakeel is a Lahore-based agentic AI engineer building multi-tenant SaaS, automation pipelines, and full-stack products in Python and Next.js.",
+    "Haris Shakeel is a software engineer in Lahore who builds multi-tenant SaaS, AI agent systems and computer-vision pipelines in Python and TypeScript.",
   path: "/about",
 })
 
@@ -22,18 +22,18 @@ const aboutHaris: ParallaxFeatureItem[] = [
   {
     id: 1,
     number: "01",
-    title: "Engineering from the Ground Up",
+    title: "The whole stack",
     description:
-      "I believe in building systems that solve real problems, from high-performance computer vision pipelines to scalable multi-tenant architectures.\n\nWorking directly on core infrastructure ensures that every layer of the stack is optimized, secure, and built to scale.",
+      "I work on every layer: the database, the API, the job queue and the interface.\n\nOn MAVIS that meant a multi-tenant platform where Postgres row-level security keeps each client's data separate, and agents can reach 10,000+ tools across 3,000+ apps.",
     imageUrl: "/images/haris-portrait.webp",
     imageAlt: "Haris Shakeel",
   },
   {
     id: 2,
     number: "02",
-    title: "Applied AI & Computer Vision",
+    title: "AI and computer vision",
     description:
-      "My recent work focuses heavily on bringing state-of-the-art AI out of research and into production. Whether it's training real-time YOLOv8 models for anomaly detection or developing complex 3D simulation pipelines for virtual try-on software.\n\nI treat AI not as a gimmick, but as a core architectural component that must be reliable, fast, and measurable.",
+      "On Xision I built the pipeline that turns a phone scan into a body model and drapes real garments on it, and cut the try-on simulation from 5 minutes to 30 seconds.\n\nI've also trained YOLOv8 models that watch live CCTV for accidents, vandalism and weapons.",
     imageUrl:
       "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80",
     imageAlt: "Technical architecture diagramming",
@@ -41,9 +41,9 @@ const aboutHaris: ParallaxFeatureItem[] = [
   {
     id: 3,
     number: "03",
-    title: "Built to Outlast the Trend Cycle",
+    title: "Tested before it ships",
     description:
-      "I design and engineer for years, not launch day. Clean architecture, sensible defaults, and robust backend services that hold up months later.\n\nI focus on resilient systems like row-level security in PostgreSQL and distributed agentic AI platforms that operate seamlessly in production.",
+      "I write tests for the parts that matter, like a harness that runs every garment on every body type, so a drop in quality shows up as a failing test.\n\nCode goes through pull requests, review and CI before it reaches anyone.",
     imageUrl:
       "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80",
     imageAlt: "Developer focused on engineering work",
@@ -102,9 +102,9 @@ export default function AboutPage() {
           <Breadcrumb items={crumbs} />
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-6 leading-tight">
-              One engineer.<br />A singular{" "}
+              Hi, I&apos;m Haris.<br />I build{" "}
               <AnimatedTextCycle
-                words={["focus.", "vision.", "standard.", "obsession.", "expertise."]}
+                words={["SaaS platforms.", "AI agents.", "vision pipelines.", "automations."]}
                 interval={2800}
                 className="text-primary"
               />
@@ -139,7 +139,7 @@ export default function AboutPage() {
                     delay: 0.1,
                   }}
                 >
-                  {`I build full-stack platforms and AI systems that solve real-world problems. `}
+                  {`I'm a software engineer in Lahore. `}
                 </VerticalCutReveal>
                 <VerticalCutReveal
                   splitBy="words"
@@ -153,7 +153,7 @@ export default function AboutPage() {
                     delay: 0.95,
                   }}
                 >
-                  {`No fluff. `}
+                  {`I build SaaS platforms, AI agents and computer-vision pipelines, `}
                 </VerticalCutReveal>
                 <VerticalCutReveal
                   splitBy="words"
@@ -166,7 +166,7 @@ export default function AboutPage() {
                     delay: 1.15,
                   }}
                 >
-                  {`Just robust, scalable, and high-performance engineering.`}
+                  {`from the database to the screen.`}
                 </VerticalCutReveal>
               </div>
             </div>
@@ -179,15 +179,15 @@ export default function AboutPage() {
 
       {/* CTA */}
       <CtaWithTextMarquee
-        title="Ready to build something great?"
-        description="I'm open for collaboration on AI and Full-Stack projects."
+        title="Want to work together?"
+        description="I'm open to software engineering roles and freelance projects."
         primary={{ label: "GET IN TOUCH", href: "/#contact" }}
         marqueeItems={[
           "Agentic AI",
           "Computer Vision",
-          "Full-Stack Dev",
+          "Full-Stack SaaS",
           "Claude Agent SDK",
-          "System Architecture",
+          "Automation",
           "AWS / GCP",
         ]}
       />

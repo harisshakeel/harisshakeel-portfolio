@@ -42,12 +42,12 @@ const ROLES: Role[] = [
     logo: "/images/companies/naxtech.png",
     logoDims: { width: 792, height: 150 },
     logoTone: "light",
-    role: "AI/ML Engineer",
+    role: "Software Engineer",
     location: "Remote",
     current: true,
     summary:
-      "I build the vision pipeline behind xision.ai: a phone scan goes in, a body model accurate enough to size a garment comes out, and a physics engine drapes the real garment on it. I also built MAVIS, where Claude Code agents do client work across 3,000+ connected apps, with a person approving everything before it reaches a client.",
-    tags: ["Computer Vision", "3D / Simulation", "Agentic AI", "FastAPI", "Multi-Tenant SaaS"],
+      "I built MAVIS, where Claude Code agents do client work with 10,000+ tools across 3,000+ apps and a person approves everything before it reaches a client. On Xision's virtual try-on I cut simulation time from 5 minutes to 30 seconds, and built the pipeline that makes 3D garments matching the real ones at 90% accuracy.",
+    tags: ["Multi-Tenant SaaS", "Agentic AI", "Computer Vision", "3D / Simulation", "FastAPI"],
     // Midnight navy: lets the white wordmark and sky-blue arc of the logo carry.
     theme: {
       surface: "#0A1C30",
@@ -60,7 +60,7 @@ const ROLES: Role[] = [
     logo: "/images/companies/payback.png",
     logoDims: { width: 182, height: 50 },
     logoTone: "dark",
-    role: "Technical Lead",
+    role: "Associate Technical Lead",
     location: "Lahore",
     summary:
       "I led the build of payback.pk and ran a team of four to five interns while still writing most of the backend myself. It went live on AWS with businesses onboarding and real customers earning cashback at the till, through QR and the POS.",
@@ -77,7 +77,7 @@ const ROLES: Role[] = [
     logo: "/images/companies/advance-resources.png",
     logoDims: { width: 200, height: 80 },
     logoTone: "dark",
-    role: "Associate Full-Stack Developer",
+    role: "Associate Software Engineer",
     location: "Lahore",
     summary:
       "I built clusterden.com, a CRM where a trigger fires a WhatsApp campaign and the whole team works the same records live. Message delivery went from 20 seconds down to 3. Alongside it I shipped client sites — greennsolar.com, dynastyfm.com, 613 Guys, Meddo, DevPlob and Comuni.",

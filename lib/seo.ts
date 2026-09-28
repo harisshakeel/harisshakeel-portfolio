@@ -4,7 +4,7 @@ export const siteConfig = {
   name: 'Haris Shakeel',
   url: 'https://www.harisshakeel.site',
   description:
-    "Haris Shakeel is an agentic AI engineer building multi-tenant SaaS platforms, automation pipelines, and the full-stack products around them on the Claude Agent SDK and MCP.",
+    "Haris Shakeel is a software engineer in Lahore who builds multi-tenant SaaS platforms, AI agent systems and computer-vision pipelines.",
   location: 'Lahore, Pakistan',
   email: 'harisshakeel061@gmail.com',
   author: 'Haris Shakeel',
@@ -15,7 +15,7 @@ export const siteConfig = {
   },
 }
 
-const defaultTitle = 'Haris Shakeel | Agentic AI Engineer, Full-Stack & SaaS Automation'
+const defaultTitle = 'Haris Shakeel | Software Engineer, Agentic AI & Computer Vision'
 
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -27,6 +27,7 @@ export const defaultMetadata: Metadata = {
   // Mirrors the current resume.
   keywords: [
     'Haris Shakeel',
+    'software engineer',
     'agentic AI engineer',
     'AI automation engineer',
     'full-stack engineer',
@@ -78,8 +79,8 @@ export const personSchema = {
   image: `${siteConfig.url}/images/haris-portrait.webp`,
   description: siteConfig.description,
   email: siteConfig.email,
-  jobTitle: 'Agentic AI Engineer',
-  worksFor: { '@type': 'Organization', name: 'Xision' },
+  jobTitle: 'Software Engineer',
+  worksFor: { '@type': 'Organization', name: 'Naxtech' },
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Lahore',

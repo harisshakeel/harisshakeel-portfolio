@@ -11,7 +11,6 @@ import {
 } from "framer-motion"
 import {
   Boxes,
-  Building2,
   CheckCircle2,
   Timer,
   type LucideIcon,
@@ -34,38 +33,36 @@ interface Metric {
 }
 
 const metrics: Metric[] = [
-  // Every figure here has to be traceable to a specific build. The previous set
-  // ("100% on-time delivery", "4.9/5 client satisfaction") was agency boilerplate
-  // that nothing on this site backs up — unsourced numbers read as invented, and
-  // one of them undoes the credibility of the work they sit next to.
+  // Every figure has to be one Haris has confirmed and can explain in an
+  // interview, each tagged with the build it came from.
   {
     label: "Message delivery",
     value: 3,
     suffix: "s",
-    description: "Down from 20 seconds, after the send path was rebuilt. (Clusterden)",
+    description: "Down from 20 seconds after the send path was rebuilt. (Clusterden)",
     icon: Timer,
   },
   {
-    label: "Apps reachable",
-    value: 3000,
-    suffix: "+",
-    description: "What a single agent can act on through MCP, scoped per user. (MAVIS)",
+    label: "Agent tools",
+    // 10K rather than 10,000: this display face cannot fit "10,000+" in a
+    // half-width cell on a phone.
+    value: 10,
+    suffix: "K+",
+    description: "Tools across 3,000+ apps that MAVIS agents can use, through MCP. (MAVIS)",
     icon: Boxes,
   },
   {
-    label: "Companies researched",
-    // 13K rather than 13,000: this display face runs ~31px a digit, and
-    // "13,000+" is ~180px in a ~150px half-width cell on a phone.
-    value: 13,
-    suffix: "K+",
-    description: "Profiled and contact-verified without a human in the loop. (Metamorphix)",
-    icon: Building2,
+    label: "Try-on simulation",
+    value: 30,
+    suffix: "s",
+    description: "Down from 5 minutes per simulation. (Xision)",
+    icon: Timer,
   },
   {
-    label: "Factual accuracy",
-    value: 95,
+    label: "Garment accuracy",
+    value: 90,
     suffix: "%",
-    description: "On that research, held up by a second independent validation pass.",
+    description: "3D garments matched to the real ones on colour, measurements and design. (Xision)",
     icon: CheckCircle2,
   },
 ]
@@ -112,7 +109,7 @@ export function ProjectsMetrics() {
           className="mx-auto max-w-3xl text-center"
         >
           <h2 className="font-hero-display text-3xl uppercase tracking-tight md:text-4xl" style={{ color: PALETTE.ivory }}>
-            A snapshot of how we ship.
+            Numbers from the work.
           </h2>
         </motion.div>
 

@@ -79,7 +79,7 @@ export function ContactFormSection({ variant = "section" }: ContactFormSectionPr
 
       setSubmitStatus({
         type: "success",
-        message: "Thank you! Your message has been sent successfully. We'll get back to you soon.",
+        message: "Thank you! Your message has been sent successfully. I'll get back to you soon.",
       })
       setFormData({
         name: "",
@@ -95,7 +95,7 @@ export function ContactFormSection({ variant = "section" }: ContactFormSectionPr
       console.error("EmailJS error:", error)
       setSubmitStatus({
         type: "error",
-        message: "Sorry, there was an error sending your message. Please try again or contact us directly.",
+        message: "Sorry, there was an error sending your message. Please try again or email me directly.",
       })
     } finally {
       setIsSubmitting(false)
@@ -358,7 +358,7 @@ export function ContactFormSection({ variant = "section" }: ContactFormSectionPr
                 rows={5}
                 disabled={isSubmitting}
                 className="w-full px-4 py-2.5 rounded-lg bg-foreground/5 border border-foreground/10 text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-transparent focus:bg-foreground/[0.07] transition-all resize-none disabled:opacity-50 disabled:cursor-not-allowed"
-                placeholder="Tell us about your project..."
+                placeholder="Tell me about the role or project..."
               />
             </div>
             {submitStatus.type && (

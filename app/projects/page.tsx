@@ -10,7 +10,7 @@ import { ProjectsMetrics } from "@/components/ui/projects-metrics"
 export const metadata: Metadata = buildPageMetadata({
   title: "Projects & Case Studies",
   description:
-    "Case studies by Haris Shakeel in computer vision, machine learning, agentic AI, and full-stack engineering, from production CV pipelines to client builds.",
+    "Projects by Haris Shakeel: SaaS platforms, AI agents, computer vision and client websites.",
   path: "/projects",
 })
 
@@ -172,12 +172,10 @@ export default function ProjectsPage() {
             Projects
           </p>
           <h1 className="max-w-4xl text-5xl font-semibold tracking-[-0.03em] text-foreground md:text-6xl lg:text-7xl">
-            Built with teams who ship.
+            Things I&apos;ve built.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
-            A selection of products, platforms, and marketing sites we&apos;ve
-            shipped, the kind of work where good design and fast delivery
-            actually move the business.
+            Products, platforms and client sites I&apos;ve built and shipped.
           </p>
         </div>
       </section>
@@ -193,11 +191,10 @@ export default function ProjectsPage() {
         <div className="mx-auto max-w-5xl px-6">
           <div className="text-center">
             <h2 className="text-balance text-4xl font-semibold tracking-[-0.03em] text-foreground lg:text-5xl">
-              Want to be our next case study?
+              Have something to build?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-balance text-foreground/60">
-              Bring us the brief, we&apos;ll come back with a plan, a timeline,
-              and the team to ship it.
+              Send me the brief and I&apos;ll come back with a plan and a timeline.
             </p>
 
             <div className="mt-12 flex flex-wrap items-center justify-center gap-3">

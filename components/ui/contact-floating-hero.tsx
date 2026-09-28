@@ -77,8 +77,7 @@ export function ContactFloatingHero() {
               transition={{ duration: 0.7, delay: 0.18 }}
               className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl"
             >
-              We&apos;d love to learn more about you and what we can design and
-              build together.
+              Tell me what you&apos;re hiring for, or what you want built.
             </motion.p>
 
             <motion.div
@@ -88,7 +87,7 @@ export function ContactFloatingHero() {
               className="mt-12 md:mt-16"
             >
               <p className="mb-2 text-xs font-medium uppercase tracking-[0.22em] text-muted-foreground">
-                Become a Client
+                Email
               </p>
               <Link
                 href="mailto:harisshakeel061@gmail.com"

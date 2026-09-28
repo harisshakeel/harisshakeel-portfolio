@@ -22,7 +22,7 @@ const HEADLINE = ["I build agents,", "train models,", "ship real systems."]
 // One plain-language lead, then what that means in practice, a line each.
 // Deliberately doesn't open with "I": the headline above already does.
 const INTRO_LEAD =
-  "Agentic AI engineer and Computer Science graduate, building the agents that carry real work, the automations behind them, and the SaaS they run inside."
+  "Software engineer and Computer Science graduate, building the agents that do real work, the automations behind them, and the SaaS they run inside."
 
 // Ordered by positioning, not by what is technically hardest: agents first,
 // the platforms around them second, vision third. Accents stay in place so
