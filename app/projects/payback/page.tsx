@@ -22,7 +22,7 @@ const data: CaseStudyData = {
   liveLabel: "View live demo",
   headline: "How Payback turned scan-to-earn into a real loyalty platform.",
   summary:
-    "A full-stack loyalty rewards platform that lets businesses reward customers with points for purchases, scanned via QR and barcode readers, with real-time balance tracking and redemption management.",
+    "A full-stack loyalty rewards platform that lets businesses reward customers with points for purchases, scanned via QR and barcode readers, with real-time balance tracking and redemption management. Live with 20 businesses and 1,000 users.",
   sections: [
     {
       heading: "Overview",

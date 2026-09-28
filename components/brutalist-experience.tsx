@@ -68,7 +68,7 @@ const ROLES: Role[] = [
     location: "Lahore · Onsite",
     period: "Mar 2025 – Dec 2025",
     summary:
-      "I led the build of payback.pk and ran a team of four to five interns while still writing most of the backend myself. It went live on AWS with businesses onboarding and real customers earning cashback at the till, through QR and the POS.",
+      "I led the build of payback.pk and ran a team of four to five interns while still writing most of the backend myself. It's live on AWS with 20 businesses and 1,000 users earning cashback at the till, through QR and the POS.",
     tags: ["Team Lead", "AWS", "Payments / POS", "Full-Stack"],
     // Butter cream: warm enough to echo the amber mark, light enough for the black wordmark.
     theme: {

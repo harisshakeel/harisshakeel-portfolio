@@ -99,7 +99,7 @@ const projects: Project[] = [
     name: "Payback",
     niche: "Loyalty & Payments Platform",
     description:
-      "Cashback at the counter. A customer scans a QR, the POS confirms the sale, and the points land in their account before they've left the shop.",
+      "Cashback at the counter. A customer scans a QR, the POS confirms the sale, and the points land in their account before they've left the shop. Live with 20 businesses and 1,000 users.",
     href: "https://demo.payback.pk",
     tags: ["Frontend", "Backend", "Loyalty", "Real-time"],
     shot: "/images/projects/payback/screen-1.jpeg",

@@ -99,7 +99,7 @@ const projects: Project[] = [
     category: "Loyalty Rewards",
     tag: "SaaS",
     description:
-      "Cashback at the counter. A customer scans a QR, the POS confirms the sale, and the points land in their account before they've left the shop.",
+      "Cashback at the counter. A customer scans a QR, the POS confirms the sale, and the points land in their account before they've left the shop. Live with 20 businesses and 1,000 users.",
     technologies: ["React", "ExpressJS", "PostgreSQL", "Sequelize", "QR & Barcode Scanner", "Redux"],
     logo: "/images/projects/payback.png",
     url: "https://demo.payback.pk",
