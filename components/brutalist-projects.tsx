@@ -62,6 +62,16 @@ const projects: Project[] = [
     contain: true,
   },
   {
+    slug: "lumos",
+    name: "Lumos",
+    niche: "Accessibility & Voice AI",
+    description:
+      "An accessibility assistant for visually impaired people, built in about two hours at a voice AI hackathon. It looks through the camera, answers questions about what's around, helps find things and remembers them, and it works in Urdu.",
+    tags: ["Accessibility", "Voice AI", "Computer Vision", "Urdu"],
+    shot: "/images/projects/lumos.png",
+    contain: true,
+  },
+  {
     slug: "sentinel",
     name: "Sentinel",
     niche: "Machine Learning & Real-time Detection",

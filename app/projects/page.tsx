@@ -63,6 +63,16 @@ const projects: Project[] = [
     logo: "/images/projects/metamorphix.png",
   },
   {
+    slug: "lumos",
+    title: "Lumos",
+    category: "Accessibility / Voice AI",
+    tag: "AI / ML",
+    description:
+      "An accessibility assistant for visually impaired people, built in about two hours at a voice AI hackathon. It looks through the camera, answers questions about what's around, helps find things and remembers them, and it works in Urdu.",
+    technologies: [],
+    logo: "/images/projects/lumos-icon.png",
+  },
+  {
     slug: "sentinel",
     title: "Sentinel",
     category: "Machine Learning / Real-time Detection",

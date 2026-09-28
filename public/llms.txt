@@ -19,6 +19,7 @@
 - [Xision](https://www.harisshakeel.site/projects/xision): AI virtual try-on, from phone scan to 3D body model to simulated garment fit.
 - [MAVIS](https://www.harisshakeel.site/projects/mavis): multi-tenant Claude Code agent platform with MCP tool access and RLS isolation.
 - [Metamorphix](https://www.harisshakeel.site/projects/metamorphix): Claude-powered prospect research and CRM outreach pipeline.
+- [Lumos](https://www.harisshakeel.site/projects/lumos): voice AI accessibility assistant for visually impaired people that describes their surroundings through a camera, in Urdu; built at the Replit x Uplift AI Voice AI Hackathon at LUMS.
 - [Sentinel](https://www.harisshakeel.site/projects/sentinel): real-time CCTV incident detection with YOLOv8 and mobile alerts.
 - [Clusterden](https://www.harisshakeel.site/projects/clusterden): multi-tenant MERN CRM with real-time collaboration and WhatsApp automation.
 - [Payback](https://www.harisshakeel.site/projects/payback): cashback platform with QR and POS transactions.

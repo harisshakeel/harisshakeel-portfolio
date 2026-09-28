@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'xision',
     'mavis',
     'metamorphix',
+    'lumos',
     'sentinel',
     'clusterden',
     'payback',
