@@ -17,10 +17,14 @@ const data: CaseStudyData = {
   logo: "/images/projects/metamorphix.png",
   category: "AI Automation / Sales Intelligence",
   industry: "EdTech (K-12)",
+  partnership: "Freelance, US client",
+  website: { url: "https://www.metamorphix.co/cascades", label: "metamorphix.co" },
+  liveUrl: "https://www.linkedin.com/company/metamorphix-inc.",
+  liveLabel: "Metamorphix on LinkedIn",
   headline:
     "How Metamorphix turns a raw prospect list into research-backed, CRM-ready outreach, automatically.",
   summary:
-    "A Python automation that discovers and scrapes each prospect's web presence, extracts intelligence and verified decision-maker contacts with LLMs, scores fit, and drafts personalized multi-touch email sequences, then provisions accounts, contacts, scheduled sends, and follow-up tasks in Zoho CRM.",
+    "The outreach system that brings US school districts onto Metamorphix's Cascades platform, built for CEO Naren Balasubramaniam after I pitched him the idea on LinkedIn. It researched 13,000+ districts at 95% factual accuracy, finds and verifies the decision makers, scores fit, and writes personalised email sequences into Zoho CRM ready for a person to send.",
   sections: [
     {
       heading: "Overview",

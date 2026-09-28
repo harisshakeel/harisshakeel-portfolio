@@ -18,6 +18,9 @@ const data: CaseStudyData = {
   category: "Computer Vision / 3D Fit Simulation",
   industry: "Fashion technology",
   partnership: "Ongoing",
+  website: { url: "https://www.xision.ai", label: "xision.ai" },
+  liveUrl: "https://www.xision.ai",
+  liveLabel: "Visit xision.ai",
   headline:
     "How Xision predicts whether a garment will actually fit you, before you buy it.",
   summary:

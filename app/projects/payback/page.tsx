@@ -17,8 +17,8 @@ const data: CaseStudyData = {
   logo: "/images/projects/payback.png",
   category: "Loyalty Rewards",
   industry: "Retail / Loyalty",
-  website: { url: "https://demo.payback.pk", label: "demo.payback.pk" },
-  liveUrl: "https://demo.payback.pk",
+  website: { url: "https://www.payback.pk", label: "payback.pk" },
+  liveUrl: "https://www.payback.pk",
   liveLabel: "View live demo",
   headline: "How Payback turned scan-to-earn into a real loyalty platform.",
   summary:

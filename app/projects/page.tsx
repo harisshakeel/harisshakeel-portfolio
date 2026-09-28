@@ -61,6 +61,7 @@ const projects: Project[] = [
       "Outreach for Metamorphix's Cascades platform across 13,000+ US school districts, at 95% factual accuracy. Agents research each district, pull out buying signals, confirm the decision makers, then write the outreach into Zoho ready for a person to send.",
     technologies: ["Python", "Claude", "Pydantic", "Apollo", "Zoho CRM"],
     logo: "/images/projects/metamorphix.png",
+    url: "https://www.metamorphix.co/cascades",
   },
   {
     slug: "lumos",
@@ -102,7 +103,7 @@ const projects: Project[] = [
       "Cashback at the counter. A customer scans a QR, the POS confirms the sale, and the points land in their account before they've left the shop. Live with 20 businesses and 1,000 users.",
     technologies: ["React", "ExpressJS", "PostgreSQL", "Sequelize", "QR & Barcode Scanner", "Redux"],
     logo: "/images/projects/payback.png",
-    url: "https://demo.payback.pk",
+    url: "https://www.payback.pk",
   },
   {
     slug: "meddo",

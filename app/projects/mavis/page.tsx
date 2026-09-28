@@ -18,6 +18,9 @@ const data: CaseStudyData = {
   category: "Agentic AI / Multi-Tenant Platform",
   industry: "Virtual assistant services",
   partnership: "Ongoing",
+  website: { url: "https://app.thevagroup.com", label: "app.thevagroup.com" },
+  liveUrl: "https://app.thevagroup.com",
+  liveLabel: "Visit MAVIS",
   headline:
     "How MAVIS puts Claude Code agents on real client work, with humans holding the approval loop.",
   summary:

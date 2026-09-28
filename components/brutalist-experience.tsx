@@ -27,6 +27,8 @@ interface Role {
   /** Must match the resume and LinkedIn exactly: recruiters compare them
    *  and background checks verify these dates with the employer. */
   period?: string
+  /** Products and company pages, shown under the summary. Same links as the resume. */
+  links?: { label: string; href: string }[]
   summary?: string
   tags?: string[]
   current?: boolean
@@ -48,9 +50,14 @@ const ROLES: Role[] = [
     role: "Software Engineer",
     location: "US · Remote",
     period: "Feb 2026 – Present",
+    links: [
+      { label: "MAVIS", href: "https://app.thevagroup.com" },
+      { label: "The VA Group", href: "https://www.linkedin.com/company/the-va-group" },
+      { label: "Xision", href: "https://www.xision.ai" },
+    ],
     current: true,
     summary:
-      "I built MAVIS, where Claude Code agents do client work with 10,000+ tools across 3,000+ apps and a person approves everything before it reaches a client. On Xision's virtual try-on I cut simulation time from 5 minutes to 30 seconds, and built the pipeline that makes 3D garments matching the real ones at 90% accuracy.",
+      "I work on MAVIS, where Claude Code agents do client work with 10,000+ tools across 3,000+ apps and a person approves everything before it reaches a client. On Xision's virtual try-on I cut simulation time from 5 minutes to 30 seconds, and built the pipeline that makes 3D garments matching the real ones at 90% accuracy.",
     tags: ["Multi-Tenant SaaS", "Agentic AI", "Computer Vision", "3D / Simulation", "FastAPI"],
     // Midnight navy: lets the white wordmark and sky-blue arc of the logo carry.
     theme: {
@@ -67,6 +74,10 @@ const ROLES: Role[] = [
     role: "Associate Technical Lead",
     location: "Lahore · Onsite",
     period: "Mar 2025 – Dec 2025",
+    links: [
+      { label: "payback.pk", href: "https://www.payback.pk" },
+      { label: "Payback on LinkedIn", href: "https://www.linkedin.com/company/payback-pk" },
+    ],
     summary:
       "I led the build of payback.pk and ran a team of four to five interns while still writing most of the backend myself. It's live on Contabo with 20 businesses and 1,000 users earning cashback at the till, through QR and the POS.",
     tags: ["Team Lead", "Contabo", "Payments / POS", "Full-Stack"],
@@ -85,9 +96,13 @@ const ROLES: Role[] = [
     role: "Associate Software Engineer",
     location: "Lahore · Onsite",
     period: "Jan 2024 – Mar 2025",
+    links: [
+      { label: "clusterden.com", href: "https://www.clusterden.com" },
+      { label: "Advance Resources on LinkedIn", href: "https://www.linkedin.com/company/advance-resources---best-it-services-providers-in-pakistan" },
+    ],
     summary:
-      "I built clusterden.com, a CRM where a trigger fires a WhatsApp campaign and the whole team works the same records live. Redis caching and a simpler workflow took message delivery from 20 seconds down to 3. Alongside it I shipped client sites — greennsolar.com, dynastyfm.com, 613 Guys, Meddo, DevPlob and Comuni.",
-    tags: ["MERN", "WhatsApp API", "Workflow Automation", "CRM"],
+      "I built clusterden.com, a WhatsApp CRM in the spirit of BotSpace, on the MERN stack. Teams share one workspace with role-based access for admins, managers and agents, chat live over Socket.IO, and run automations on an action and trigger engine (triggers, revisions and runs) wired to WhatsApp Business API webhooks. Redis caching and a simpler workflow took message delivery from 20 seconds down to 3.",
+    tags: ["MERN", "WhatsApp Business API", "Workflow Automation", "Redis", "RBAC"],
     // Icy blue-grey: cool enough to sit with the logo's blue, light enough for its grey type and red mark.
     theme: {
       surface: "#E9EEF6",
@@ -195,6 +210,25 @@ function RolePanel({ role, index }: { role: Role; index: number }) {
               <p className="text-[15px] leading-relaxed opacity-70 md:text-base">
                 {role.summary}
               </p>
+            )}
+
+            {role.links && role.links.length > 0 && (
+              <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm md:text-[15px]">
+                {role.links.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor
+                      className="inline-flex items-center gap-1 border-b border-current pb-0.5 opacity-80 transition-opacity hover:opacity-100"
+                    >
+                      {link.label}
+                      <span aria-hidden>↗</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             )}
 
             {role.tags && role.tags.length > 0 && (

@@ -7,7 +7,7 @@ import { CaseStudy, type CaseStudyData } from "@/components/ui/case-study"
 export const metadata: Metadata = buildPageMetadata({
   title: "ClusterDen Case Study, MERN CRM with WhatsApp Automation",
   description:
-    "How Haris Shakeel built ClusterDen: a MERN-stack CRM workspace with Role-Based Access Control (RBAC), real-time collaboration, and automated WhatsApp integrations.",
+    "How Haris Shakeel built ClusterDen at Advance Resources: a MERN WhatsApp CRM with an action and trigger workflow engine, role-based access, real-time team chat, and message delivery cut from 20 seconds to 3.",
   path: "/projects/clusterden",
 })
 
@@ -17,25 +17,28 @@ const data: CaseStudyData = {
   logo: "/images/projects/clusterden.svg",
   category: "CRM / SaaS",
   industry: "B2B SaaS",
+  partnership: "Built at Advance Resources",
   website: { url: "https://www.clusterden.com", label: "clusterden.com" },
   liveUrl: "https://www.clusterden.com",
   liveLabel: "View live",
-  headline: "How ClusterDen runs a multi-tenant CRM with built-in WhatsApp automation.",
+  headline: "How ClusterDen turns a WhatsApp trigger into a sent message in 3 seconds.",
   summary:
-    "A MERN-stack CRM workspace with advanced Role-Based Access Control (RBAC), real-time team collaboration via Socket.io, and automated WhatsApp integrations for customer communication.",
+    "A WhatsApp CRM in the spirit of BotSpace, built on the MERN stack at Advance Resources. Teams share one workspace with role-based access, chat live with each other, and automate customer messaging through an action and trigger engine on the WhatsApp Business API. Redis caching and a simpler workflow cut automated message delivery from 20 seconds to 3.",
   sections: [
     {
       heading: "Overview",
       body:
-        "ClusterDen needed a CRM that could host multiple teams under a single roof, each with their own pipelines, agents, and permissions, without the operational tax of running separate apps. We built a workspace where role boundaries are enforced at every layer of the stack, and where the path from a new lead to a sent WhatsApp message is measured in seconds.",
+        "Businesses running customer conversations on WhatsApp needed one place for the whole team: shared records, clear permissions, and messages that go out on their own when something happens. I built ClusterDen as that workspace. Admins, managers and agents each see what their role allows, the team chats live on the same records, and automations fire WhatsApp messages from triggers without anyone pressing send.",
     },
     {
-      heading: "What we built",
+      heading: "What I built",
       bullets: [
-        "Multi-tenant CRM with role-based access: Admin, Manager, and Agent roles with granular permissions",
+        "An action and trigger workflow engine built around triggers, revisions and runs",
+        "WhatsApp Business API integration through webhooks, handled asynchronously and event by event, to automate messaging, reports and customer interactions in real time",
+        "Multi-team CRM with role-based access: Admin, Manager, and Agent roles with granular permissions",
         "Real-time team collaboration using Socket.io for live updates on customer interactions",
-        "Automated WhatsApp messaging via WhatsApp Business API webhooks for lead nurturing",
-        "Redis-powered job queues for high-throughput message scheduling",
+        "Redis caching and a simplified workflow path that cut automated message delivery from 20 seconds to 3",
+        "Clear module boundaries for auth, messaging, analytics and billing, with webhook failure logging so a dropped event is visible instead of silently lost",
         "Custom analytics dashboard with interaction history, conversion funnels, and team performance",
       ],
     },

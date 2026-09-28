@@ -34,6 +34,7 @@ const projects: Project[] = [
     niche: "Computer Vision & 3D Simulation",
     description:
       "Online fashion returns are mostly a fit problem. A phone scan becomes a body model with real measurements, then a physics engine drapes the actual garment on it and reports where it pulls.",
+    href: "https://www.xision.ai",
     tags: ["Computer Vision", "3D / Simulation", "Python", "FastAPI"],
     shot: "/images/product-ui.jpeg",
     contain: true,
@@ -46,6 +47,7 @@ const projects: Project[] = [
     niche: "Agentic AI & Multi-Tenant SaaS",
     description:
       "Virtual assistants hand work to Claude Code agents instead of doing it by hand. Each VA gets an isolated worker, agents reach 3,000+ connected apps, and a person signs off before anything reaches a client.",
+    href: "https://app.thevagroup.com",
     tags: ["Agentic AI", "Multi-Tenant SaaS", "MCP", "Next.js"],
     shot: "/images/projects/mavis-architecture.svg",
     contain: true,
@@ -57,6 +59,7 @@ const projects: Project[] = [
     niche: "AI Automation & Multi-Agent",
     description:
       "Outreach for Metamorphix's Cascades platform across 13,000+ US school districts, at 95% factual accuracy. Agents research each district, pull out buying signals, confirm the decision makers, then write the outreach into Zoho ready for a person to send.",
+    href: "https://www.metamorphix.co/cascades",
     tags: ["AI Automation", "Multi-Agent", "Python", "Zoho CRM"],
     shot: "/images/projects/metamorphix.png",
     contain: true,
@@ -100,7 +103,7 @@ const projects: Project[] = [
     niche: "Loyalty & Payments Platform",
     description:
       "Cashback at the counter. A customer scans a QR, the POS confirms the sale, and the points land in their account before they've left the shop. Live with 20 businesses and 1,000 users.",
-    href: "https://demo.payback.pk",
+    href: "https://www.payback.pk",
     tags: ["Frontend", "Backend", "Loyalty", "Real-time"],
     shot: "/images/projects/payback/screen-1.jpeg",
     hoverLogo: { src: "/images/projects/payback.png", bg: "#1C170C" },
