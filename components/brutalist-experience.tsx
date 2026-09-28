@@ -86,7 +86,7 @@ const ROLES: Role[] = [
     location: "Lahore · Onsite",
     period: "Jan 2024 – Mar 2025",
     summary:
-      "I built clusterden.com, a CRM where a trigger fires a WhatsApp campaign and the whole team works the same records live. Message delivery went from 20 seconds down to 3. Alongside it I shipped client sites — greennsolar.com, dynastyfm.com, 613 Guys, Meddo, DevPlob and Comuni.",
+      "I built clusterden.com, a CRM where a trigger fires a WhatsApp campaign and the whole team works the same records live. Redis caching and a simpler workflow took message delivery from 20 seconds down to 3. Alongside it I shipped client sites — greennsolar.com, dynastyfm.com, 613 Guys, Meddo, DevPlob and Comuni.",
     tags: ["MERN", "WhatsApp API", "Workflow Automation", "CRM"],
     // Icy blue-grey: cool enough to sit with the logo's blue, light enough for its grey type and red mark.
     theme: {

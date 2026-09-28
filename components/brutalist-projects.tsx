@@ -56,7 +56,7 @@ const projects: Project[] = [
     name: "Metamorphix",
     niche: "AI Automation & Multi-Agent",
     description:
-      "Prospect research used to take an analyst most of a day. Agents scrape each company, pull out the buying signals, verify who the decision-maker actually is, then write the outreach into Zoho ready for a human to send.",
+      "Outreach for Metamorphix's Cascades platform across 13,000+ US school districts, at 95% factual accuracy. Agents research each district, pull out buying signals, confirm the decision makers, then write the outreach into Zoho ready for a person to send.",
     tags: ["AI Automation", "Multi-Agent", "Python", "Zoho CRM"],
     shot: "/images/projects/metamorphix.png",
     contain: true,
