@@ -5,6 +5,7 @@ import { FloatingContactWidgetLazy } from '@/components/floating-contact-widget-
 import { CursorDot } from '@/components/ui/cursor-dot'
 import SmoothScroll from '@/components/smooth-scroll'
 import { Offcanvas } from '@/components/offcanvas/offcanvas'
+import { Analytics } from '@/components/analytics'
 import { defaultMetadata, personSchema, websiteSchema } from '@/lib/seo'
 import 'lenis/dist/lenis.css'
 import './globals.css'
@@ -60,6 +61,7 @@ export default function RootLayout({
             <FloatingContactWidgetLazy />
             <CursorDot />
           </StoreProvider>
+          <Analytics />
       </body>
     </html>
   )

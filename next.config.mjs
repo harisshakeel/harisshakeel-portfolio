@@ -41,6 +41,15 @@ const nextConfig = {
       { source: '/projects/destiny', destination: '/projects', permanent: true },
     ]
   },
+  // Umami analytics served from our own domain so ad blockers don't drop it.
+  // The tracker posts to gateway.umami.is unless data-host-url says otherwise
+  // (see components/analytics.tsx).
+  async rewrites() {
+    return [
+      { source: '/stats/script.js', destination: 'https://cloud.umami.is/script.js' },
+      { source: '/stats/api/send', destination: 'https://gateway.umami.is/api/send' },
+    ]
+  },
 }
 
 export default nextConfig
