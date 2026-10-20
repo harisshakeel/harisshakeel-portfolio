@@ -42,12 +42,12 @@ const nextConfig = {
     ]
   },
   // Umami analytics served from our own domain so ad blockers don't drop it.
-  // The tracker posts to gateway.umami.is unless data-host-url says otherwise
-  // (see components/analytics.tsx).
+  // The tracker posts to /stats/api/send (data-host-url in
+  // components/analytics.tsx), which app/stats/api/send/route.ts forwards
+  // with the visitor's IP.
   async rewrites() {
     return [
       { source: '/stats/script.js', destination: 'https://cloud.umami.is/script.js' },
-      { source: '/stats/api/send', destination: 'https://gateway.umami.is/api/send' },
     ]
   },
 }
