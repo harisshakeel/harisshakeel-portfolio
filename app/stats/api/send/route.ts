@@ -14,8 +14,12 @@ export async function POST(req: Request) {
     return Response.json({ error: 'Bad request' }, { status: 400 })
   }
 
-  // Vercel sets x-forwarded-for to the client IP; overwrite anything sent in.
+  // The domain is proxied through Cloudflare, so Vercel's x-forwarded-for holds
+  // a Cloudflare edge IP; Cloudflare puts the visitor's IP in cf-connecting-ip.
+  // x-forwarded-for covers the Cloudflare proxy being switched off. Either way
+  // this overwrites any ip the browser sent in the payload.
   const ip =
+    req.headers.get('cf-connecting-ip') ||
     req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
     req.headers.get('x-real-ip')
   if (ip) body.payload.ip = ip
